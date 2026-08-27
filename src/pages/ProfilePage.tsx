@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useAudio } from '../context/AudioContext';
 import { updateProfile, updatePassword } from 'firebase/auth';
-import { User, Lock, Heart, ListMusic, Play, Trash2 } from 'lucide-react';
+import { User, Lock, Heart, ListMusic, Play, Trash2, ArrowLeft } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export function ProfilePage() {
   const { user } = useAuth();
   const { favorites, playlist, toggleFavorite, togglePlaylist, playTrack, currentTrack, isPlaying } = useAudio();
+  const navigate = useNavigate();
   
   const [activeTab, setActiveTab] = useState<'profile' | 'favorites' | 'playlist'>('profile');
   
@@ -60,7 +62,12 @@ export function ProfilePage() {
         {/* Sidebar Nav */}
         <div className="w-full md:w-64 shrink-0">
           <div className="sticky top-32">
-            <h1 className="text-3xl font-bold text-white mb-8">My Account</h1>
+            <div className="flex items-center gap-3 mb-8">
+              <button onClick={() => navigate(-1)} className="p-2 hover:bg-white/10 rounded-full transition-colors text-white">
+                <ArrowLeft size={24} />
+              </button>
+              <h1 className="text-3xl font-bold text-white">My Account</h1>
+            </div>
             <nav className="flex flex-col gap-2">
               <button 
                 onClick={() => setActiveTab('profile')}
