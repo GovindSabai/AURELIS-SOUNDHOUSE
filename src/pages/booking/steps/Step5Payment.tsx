@@ -10,9 +10,8 @@ interface Props {
 }
 
 const PAYMENT_METHODS = [
-  { id: 'card', name: 'Credit / Debit Card', icon: <CreditCard size={24} /> },
-  { id: 'paypal', name: 'PayPal', icon: <Wallet size={24} /> },
-  { id: 'crypto', name: 'Cryptocurrency', icon: <Bitcoin size={24} /> },
+  { id: 'card', name: 'Credit / Debit Card (Stripe)', icon: <CreditCard size={24} /> },
+  { id: 'crypto', name: 'Cryptocurrency (Coinbase)', icon: <Bitcoin size={24} /> },
 ];
 
 export function Step5Payment({ state, onNext, onBack }: Props) {
@@ -30,20 +29,20 @@ export function Step5Payment({ state, onNext, onBack }: Props) {
 
   const handlePay = () => {
     setIsProcessing(true);
-    // Simulate payment processing API
+    
+    // Generate a booking ID and save it before redirecting
+    const bookingId = `STU-${new Date().toISOString().slice(2,10).replace(/-/g, '')}-${Math.floor(Math.random() * 1000).toString().padStart(3, '0')}`;
+    const savedBooking = { ...state, bookingId, paymentMethod: selectedMethod, totalPaid: total } as any;
+    localStorage.setItem('aurelis_booking', JSON.stringify(savedBooking));
+    
     setTimeout(() => {
-      setIsProcessing(false);
-      
-      // Generate a random booking ID
-      const bookingId = `STU-${new Date().toISOString().slice(2,10).replace(/-/g, '')}-${Math.floor(Math.random() * 1000).toString().padStart(3, '0')}`;
-      
-      // Add payment method and totalPaid to booking state if necessary, 
-      // but BookingState interface doesn't have it so we just cast to any or just add it to localStorage.
-      const savedBooking = { ...state, bookingId, paymentMethod: selectedMethod, totalPaid: total } as any;
-      localStorage.setItem('aurelis_booking', JSON.stringify(savedBooking));
-      
-      onNext(); // Go to success step
-    }, 2000);
+      // Redirect to mock official payment pages
+      if (selectedMethod === 'card') {
+        window.location.href = 'https://checkout.stripe.com/pay/cs_test_placeholder_link';
+      } else if (selectedMethod === 'crypto') {
+        window.location.href = 'https://commerce.coinbase.com/checkout/placeholder_link';
+      }
+    }, 1000);
   };
 
   return (
@@ -81,37 +80,20 @@ export function Step5Payment({ state, onNext, onBack }: Props) {
           </div>
 
           {selectedMethod === 'card' && (
-            <div className="mt-6 p-6 rounded-2xl bg-black/30 border border-white/5 space-y-4">
-              <div>
-                <label className="block text-xs font-bold text-muted-text uppercase tracking-widest mb-2">Card Number</label>
-                <input type="text" placeholder="**** **** **** ****" className="w-full bg-white/5 border border-white/10 rounded-lg p-3 text-white font-mono placeholder:text-white/20 focus:outline-none focus:border-champagne-gold" />
+            <div className="mt-6 p-6 rounded-2xl bg-[#635BFF]/10 border border-[#635BFF]/30 text-center">
+              <p className="text-white mb-4">You will be redirected securely to <strong>Stripe Checkout</strong> to complete your payment.</p>
+              <div className="flex justify-center text-[#635BFF]">
+                <CreditCard size={48} />
               </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-bold text-muted-text uppercase tracking-widest mb-2">Expiry Date</label>
-                  <input type="text" placeholder="MM/YY" className="w-full bg-white/5 border border-white/10 rounded-lg p-3 text-white font-mono placeholder:text-white/20 focus:outline-none focus:border-champagne-gold" />
-                </div>
-                <div>
-                  <label className="block text-xs font-bold text-muted-text uppercase tracking-widest mb-2">CVC</label>
-                  <input type="text" placeholder="***" className="w-full bg-white/5 border border-white/10 rounded-lg p-3 text-white font-mono placeholder:text-white/20 focus:outline-none focus:border-champagne-gold" />
-                </div>
-              </div>
-              <div>
-                <label className="block text-xs font-bold text-muted-text uppercase tracking-widest mb-2">Cardholder Name</label>
-                <input type="text" placeholder="JOHN DOE" className="w-full bg-white/5 border border-white/10 rounded-lg p-3 text-white font-mono placeholder:text-white/20 focus:outline-none focus:border-champagne-gold uppercase" />
-              </div>
-            </div>
-          )}
-          
-          {selectedMethod === 'paypal' && (
-            <div className="mt-6 p-6 rounded-2xl bg-[#003087]/20 border border-[#0079C1]/50 text-center">
-              <p className="text-white mb-4">You will be redirected to PayPal to complete your purchase securely.</p>
             </div>
           )}
           
           {selectedMethod === 'crypto' && (
-            <div className="mt-6 p-6 rounded-2xl bg-orange-500/10 border border-orange-500/30 text-center">
-              <p className="text-white mb-4">Pay securely using Bitcoin, Ethereum, or USDC.</p>
+            <div className="mt-6 p-6 rounded-2xl bg-[#0052FF]/10 border border-[#0052FF]/30 text-center">
+              <p className="text-white mb-4">You will be redirected securely to <strong>Coinbase Commerce</strong> to pay with Crypto.</p>
+              <div className="flex justify-center text-[#0052FF]">
+                <Bitcoin size={48} />
+              </div>
             </div>
           )}
         </div>

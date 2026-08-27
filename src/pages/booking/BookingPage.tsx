@@ -36,6 +36,10 @@ export function BookingPage() {
   const nextStep = () => setCurrentStep(prev => Math.min(prev + 1, 6));
   const prevStep = () => setCurrentStep(prev => Math.max(prev - 1, 1));
 
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentStep]);
+
   return (
     <div className="min-h-screen pt-32 pb-24 px-6 relative">
       {/* Background styling matching the dark cinematic aesthetic */}
