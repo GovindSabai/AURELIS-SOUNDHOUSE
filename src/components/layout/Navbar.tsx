@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { NavLink, Link, useLocation } from 'react-router-dom';
+import { NavLink, Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, User, Settings, LogOut, Calendar } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
@@ -9,6 +9,7 @@ export function Navbar() {
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
   const [imageError, setImageError] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   const { user, logout, openLoginModal } = useAuth();
   const location = useLocation();
@@ -50,6 +51,13 @@ export function Navbar() {
     if (user?.displayName) return user.displayName.charAt(0).toUpperCase();
     if (user?.email) return user.email.charAt(0).toUpperCase();
     return 'U';
+  };
+
+  const handleLogout = () => {
+    setIsProfileDropdownOpen(false);
+    setMobileMenuOpen(false);
+    navigate('/');
+    logout();
   };
 
   return (
@@ -127,11 +135,7 @@ export function Navbar() {
                   </Link>
                   
                   <button 
-                    onClick={() => {
-                      setIsProfileDropdownOpen(false);
-                      window.location.href = '/';
-                      setTimeout(() => logout(), 100);
-                    }}
+                    onClick={handleLogout}
                     className="w-full flex items-center gap-3 px-4 py-2 text-sm text-red-400 hover:text-red-300 hover:bg-white/5 transition-colors"
                   >
                     <LogOut size={16} />
@@ -212,11 +216,7 @@ export function Navbar() {
                 My Profile
               </Link>
               <button 
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  window.location.href = '/';
-                  setTimeout(() => logout(), 100);
-                }}
+                onClick={handleLogout}
                 className="w-full max-w-xs text-sm font-bold tracking-[0.1em] text-red-400 border border-red-400/20 py-4 rounded-sm transition-colors uppercase hover:bg-red-400/10"
               >
                 Logout

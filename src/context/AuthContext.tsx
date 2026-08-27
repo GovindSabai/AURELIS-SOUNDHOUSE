@@ -87,8 +87,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       
       {/* Global Toast Component */}
       <div 
-        className={`fixed top-6 right-6 z-[9999] transition-all duration-300 transform ${
-          toast.visible ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0 pointer-events-none'
+        className={`fixed bottom-6 right-6 z-[9999] transition-all duration-500 transform ${
+          toast.visible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0 pointer-events-none'
         }`}
       >
         <div className={`flex items-center gap-3 px-6 py-4 rounded-xl shadow-2xl border ${
