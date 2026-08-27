@@ -206,8 +206,8 @@ export function ArtistDiscovery() {
           <button onClick={() => navigate('/book')} className="px-8 py-4 bg-champagne-gold text-background font-bold uppercase tracking-widest text-xs hover:bg-white transition-colors rounded-sm">
             BOOK A SESSION
           </button>
-          <button className="px-8 py-4 border border-white/20 text-white font-bold uppercase tracking-widest text-xs hover:bg-white/10 transition-colors rounded-sm">
-            Explore Studio
+          <button onClick={() => navigate('/projects')} className="px-8 py-4 border border-white/20 text-white font-bold uppercase tracking-widest text-xs hover:bg-white/10 transition-colors rounded-sm">
+            HEAR OUR WORK
           </button>
         </div>
       </section>
