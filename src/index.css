@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #090909;
+  --color-background-secondary: #121212;
+  
+  --color-accent-violet: #8A2BE2;
+  --color-accent-cyan: #00FFFF;
+  --color-accent-lavender: #E6E6FA;
+  
+  --color-champagne-gold: #C8A96B;
+  --color-burnt-orange: #B84A24;
+  --color-warm-highlight: #E6D5B8;
+  
+  --color-primary-text: #F3EFE7;
+  --color-muted-text: #9A948B;
+  --color-border: #292724;
+
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 30s linear infinite;
+  
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(calc(-50% * var(--dir-sign, 1))); }
+  }
+
+  @keyframes marquee-reverse {
+    0% { transform: translateX(calc(-50% * var(--dir-sign, 1))); }
+    100% { transform: translateX(0%); }
+  }
+
+  @keyframes slowZoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+  }
+
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+}
+
+[dir="rtl"] {
+  --dir-sign: -1;
+}
+[dir="ltr"] {
+  --dir-sign: 1;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-white font-sans antialiased;
+  }
+}
+
+/* Custom Gradients */
+@layer utilities {
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-violet to-accent-cyan;
+  }
+
+  .gradient-bg {
+    @apply bg-gradient-to-br from-[#0B0D17] via-[#110B24] to-[#0A0710];
+  }
+}
