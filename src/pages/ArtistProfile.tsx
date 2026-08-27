@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Play, Pause, Share2, Verified, ArrowLeft, Heart, MoreHorizontal, PlayCircle, Clock, PlaySquare, MessageCircle, Repeat, MessageSquare, ThumbsUp } from 'lucide-react';
 import { ARTISTS, ARTIST_TRACKS } from '../data/artists';
 import { useAudio } from '../context/AudioContext';
+import { useAuth } from '../context/AuthContext';
 import { SoundCloudTrack } from '../components/SoundCloudTrack';
 
 export function ArtistProfile() {
@@ -12,6 +13,7 @@ export function ArtistProfile() {
   const [playingVideoId, setPlayingVideoId] = useState<string | null>(null);
   const [isShareOpen, setIsShareOpen] = useState(false);
   const { playTrack, currentTrack, isPlaying, favorites, toggleFavorite } = useAudio();
+  const { user, openLoginModal } = useAuth();
 
   const artist = ARTISTS.find(a => a.slug === slug);
   const artistTracks = ARTIST_TRACKS.filter(t => t.artist === artist?.name);
@@ -65,7 +67,13 @@ export function ArtistProfile() {
           </div>
           <div className="flex gap-4 relative">
             <button 
-              onClick={() => alert("First need to login (built in later) to follow.")}
+              onClick={() => {
+                if (!user) {
+                  openLoginModal();
+                } else {
+                  console.log("Followed!");
+                }
+              }}
               className="px-8 py-3 bg-champagne-gold text-background font-bold tracking-[0.1em] text-xs uppercase rounded-full hover:bg-white transition-colors"
             >
               Follow
@@ -81,7 +89,7 @@ export function ArtistProfile() {
               {isShareOpen && (
                 <div className="absolute right-0 top-full mt-2 w-48 bg-[#05060A] border border-white/10 rounded-lg shadow-xl overflow-hidden z-50 animate-fade-in-up">
                   {['Copy Link', 'Twitter', 'Facebook'].map(opt => (
-                    <button key={opt} onClick={() => { alert(`Shared to ${opt}!`); setIsShareOpen(false); }} className="w-full text-left px-4 py-3 text-sm font-bold tracking-widest uppercase text-white hover:bg-white/10 transition-colors">
+                    <button key={opt} onClick={() => { console.log(`Shared to ${opt}!`); setIsShareOpen(false); }} className="w-full text-left px-4 py-3 text-sm font-bold tracking-widest uppercase text-white hover:bg-white/10 transition-colors">
                       {opt}
                     </button>
                   ))}

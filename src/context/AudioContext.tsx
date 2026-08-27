@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, useRef } from 'react';
+import { useAuth } from './AuthContext';
 
 export type Track = {
   id: string;
@@ -17,15 +18,15 @@ interface AudioContextType {
   progress: number; // in seconds
   volume: number;
   actualDuration: number; // in seconds, from the real file
-  favorites: string[]; // array of track IDs
+  favorites: Track[]; // array of tracks
   playlist: Track[];
   recentlyPlayed: Track[];
   playTrack: (track: Track) => void;
   togglePlay: () => void;
   seek: (time: number) => void;
   setVolume: (vol: number) => void;
-  toggleFavorite: (trackId: string) => void;
-  addToPlaylist: (track: Track) => void;
+  toggleFavorite: (track: Track) => void;
+  togglePlaylist: (track: Track) => void;
   clearTrack: () => void;
 }
 
@@ -39,8 +40,10 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [actualDuration, setActualDuration] = useState<number>(0);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
+  const { user, openLoginModal } = useAuth();
+
   // LocalStorage state
-  const [favorites, setFavorites] = useState<string[]>([]);
+  const [favorites, setFavorites] = useState<Track[]>([]);
   const [playlist, setPlaylist] = useState<Track[]>([]);
   const [recentlyPlayed, setRecentlyPlayed] = useState<Track[]>([]);
 
@@ -49,6 +52,8 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     try {
       const favs = localStorage.getItem('aurelis_favs');
       if (favs) setFavorites(JSON.parse(favs));
+      const pl = localStorage.getItem('aurelis_playlist');
+      if (pl) setPlaylist(JSON.parse(pl));
       const recent = localStorage.getItem('aurelis_recent');
       if (recent) setRecentlyPlayed(JSON.parse(recent));
     } catch (e) {}
@@ -58,6 +63,10 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   useEffect(() => {
     localStorage.setItem('aurelis_favs', JSON.stringify(favorites));
   }, [favorites]);
+
+  useEffect(() => {
+    localStorage.setItem('aurelis_playlist', JSON.stringify(playlist));
+  }, [playlist]);
 
   useEffect(() => {
     localStorage.setItem('aurelis_recent', JSON.stringify(recentlyPlayed));
@@ -164,14 +173,34 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     }
   };
 
-  const toggleFavorite = (trackId: string) => {
-    setFavorites(prev => 
-      prev.includes(trackId) ? prev.filter(id => id !== trackId) : [...prev, trackId]
-    );
+  const toggleFavorite = (track: Track) => {
+    if (!user) {
+      openLoginModal();
+      return;
+    }
+    setFavorites(prev => {
+      const exists = prev.find(t => t.id === track.id);
+      if (exists) {
+        return prev.filter(t => t.id !== track.id);
+      } else {
+        return [...prev, track];
+      }
+    });
   };
 
-  const addToPlaylist = (track: Track) => {
-    setPlaylist(prev => [...prev, track]);
+  const togglePlaylist = (track: Track) => {
+    if (!user) {
+      openLoginModal();
+      return;
+    }
+    setPlaylist(prev => {
+      const exists = prev.find(t => t.id === track.id);
+      if (exists) {
+        return prev.filter(t => t.id !== track.id);
+      } else {
+        return [...prev, track];
+      }
+    });
   };
 
   const clearTrack = () => {
@@ -184,7 +213,7 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   return (
     <AudioContext.Provider value={{
       currentTrack, isPlaying, progress, volume, actualDuration, favorites, playlist, recentlyPlayed,
-      playTrack, togglePlay, seek, setVolume, toggleFavorite, addToPlaylist, clearTrack
+      playTrack, togglePlay, seek, setVolume, toggleFavorite, togglePlaylist, clearTrack
     }}>
       {children}
     </AudioContext.Provider>

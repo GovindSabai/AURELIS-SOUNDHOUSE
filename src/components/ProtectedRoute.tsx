@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { LoginModal } from './LoginModal';
 
 export function ProtectedRoute({ children }: { children: React.ReactNode }) {
-  const { user, loading } = useAuth();
-  const [showLogin, setShowLogin] = useState(false);
+  const { user, loading, isLoginModalOpen, openLoginModal } = useAuth();
   const [redirectHome, setRedirectHome] = useState(false);
+  const [hasPrompted, setHasPrompted] = useState(false);
 
   useEffect(() => {
-    if (!loading && !user) {
-      setShowLogin(true);
+    if (!loading && !user && !hasPrompted) {
+      openLoginModal();
+      setHasPrompted(true);
     }
-  }, [user, loading]);
+  }, [user, loading, hasPrompted, openLoginModal]);
 
-  const handleClose = () => {
-    setShowLogin(false);
-    if (!user) {
+  useEffect(() => {
+    // If we prompted for login, and the modal is closed, and we still don't have a user
+    if (hasPrompted && !isLoginModalOpen && !user) {
       setRedirectHome(true);
     }
-  };
+  }, [isLoginModalOpen, hasPrompted, user]);
 
   if (loading) {
     return (
@@ -34,13 +34,7 @@ export function ProtectedRoute({ children }: { children: React.ReactNode }) {
   }
 
   if (!user) {
-    return (
-      <>
-        {/* Render a placeholder background so the page isn't totally blank while modal is up */}
-        <div className="min-h-screen bg-background"></div>
-        <LoginModal isOpen={showLogin} onClose={handleClose} />
-      </>
-    );
+    return <div className="min-h-screen bg-background"></div>;
   }
 
   return <>{children}</>;

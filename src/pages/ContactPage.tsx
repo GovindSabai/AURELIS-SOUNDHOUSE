@@ -43,7 +43,7 @@ export function ContactPage() {
 
             <div className="grid md:grid-cols-2 gap-16 lg:gap-24 items-start">
               <div className="space-y-8">
-                <div className="flex items-start gap-4 group">
+                <div className="flex items-start gap-4 group cursor-text">
                   <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center shrink-0">
                     <MapPin size={20} className="text-champagne-gold" />
                   </div>

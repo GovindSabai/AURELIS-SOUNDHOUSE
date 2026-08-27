@@ -204,7 +204,7 @@ export function ArtistDiscovery() {
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <button className="px-8 py-4 bg-champagne-gold text-background font-bold uppercase tracking-widest text-xs hover:bg-white transition-colors rounded-sm">
-            Create Profile
+            BOOK A SESSION
           </button>
           <button className="px-8 py-4 border border-white/20 text-white font-bold uppercase tracking-widest text-xs hover:bg-white/10 transition-colors rounded-sm">
             Explore Studio

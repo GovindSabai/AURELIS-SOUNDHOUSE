@@ -96,17 +96,20 @@ export function LibraryPage({ setCurrentPage }: { setCurrentPage: (page: string)
         </button>
         <h2 className="text-4xl font-bold text-white mb-10">Trending This Week</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-          {MOCK_PACKS.map((pack, index) => (
-            <SoundCard 
-               key={pack.id + '-' + index} 
-               pack={pack} 
-               isPlaying={currentTrack?.id === pack.id && isPlaying}
-               isFavorite={favorites.includes(pack.id)}
-               onPlay={() => playTrack({...pack, artist: pack.genre, category: pack.type})}
-               onFavorite={() => toggleFavorite(pack.id)}
-               onClick={() => setSelectedPack(pack)}
-            />
-          ))}
+          {MOCK_PACKS.map((pack, index) => {
+            const trackToPlay = {...pack, artist: pack.genre, category: pack.type};
+            return (
+              <SoundCard 
+                 key={pack.id + '-' + index} 
+                 pack={pack} 
+                 isPlaying={currentTrack?.id === pack.id && isPlaying}
+                 isFavorite={favorites.some(t => t.id === pack.id)}
+                 onPlay={() => playTrack(trackToPlay)}
+                 onFavorite={() => toggleFavorite(trackToPlay)}
+                 onClick={() => setSelectedPack(pack)}
+              />
+            );
+          })}
         </div>
       </div>
     );
@@ -159,23 +162,32 @@ export function LibraryPage({ setCurrentPage }: { setCurrentPage: (page: string)
         <div className="mt-20 border-t border-white/10 pt-10">
            <h3 className="text-2xl font-bold text-white mb-6">Pack Contents</h3>
            <div className="space-y-2">
-             {[1, 2, 3, 4, 5].map(i => (
-               <div key={i} className="flex items-center justify-between p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors cursor-pointer group">
-                  <div className="flex items-center gap-4">
-                     <button className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-accent-cyan transition-colors">
-                       <Play size={16} className="text-white fill-white ml-1" />
-                     </button>
-                     <span className="text-white font-medium">{selectedPack.title} - Sample {i}</span>
-                  </div>
-                  <div className="flex items-center gap-6">
-                     <span className="text-gray-400 text-sm">{selectedPack.bpm} BPM</span>
-                     <span className="text-gray-400 text-sm">{selectedPack.key}</span>
-                     <button onClick={(e) => { e.stopPropagation(); toggleFavorite(selectedPack.id + i); }} className="text-gray-500 hover:text-accent-violet">
-                        <Heart size={18} />
-                     </button>
-                  </div>
-               </div>
-             ))}
+             {[1, 2, 3, 4, 5].map(i => {
+               const sampleTrack = {
+                 ...selectedPack,
+                 id: selectedPack.id + i,
+                 title: `${selectedPack.title} - Sample ${i}`,
+                 artist: selectedPack.genre,
+                 category: selectedPack.type
+               };
+               return (
+                 <div key={i} className="flex items-center justify-between p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors cursor-pointer group">
+                    <div className="flex items-center gap-4">
+                       <button className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-accent-cyan transition-colors">
+                         <Play size={16} className="text-white fill-white ml-1" />
+                       </button>
+                       <span className="text-white font-medium">{sampleTrack.title}</span>
+                    </div>
+                    <div className="flex items-center gap-6">
+                       <span className="text-gray-400 text-sm">{selectedPack.bpm} BPM</span>
+                       <span className="text-gray-400 text-sm">{selectedPack.key}</span>
+                       <button onClick={(e) => { e.stopPropagation(); toggleFavorite(sampleTrack); }} className="text-gray-500 hover:text-accent-violet">
+                          <Heart size={18} className={favorites.some(t => t.id === sampleTrack.id) ? "fill-accent-violet text-accent-violet" : ""} />
+                       </button>
+                    </div>
+                 </div>
+               );
+             })}
            </div>
         </div>
       </div>
@@ -258,17 +270,20 @@ export function LibraryPage({ setCurrentPage }: { setCurrentPage: (page: string)
           
           {displayPacks.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-20">
-              {displayPacks.map(pack => (
-                <SoundCard 
-                   key={pack.id} 
-                   pack={pack} 
-                   isPlaying={currentTrack?.id === pack.id && isPlaying}
-                   isFavorite={favorites.includes(pack.id)}
-                   onPlay={() => playTrack({...pack, artist: pack.genre, category: pack.type})}
-                   onFavorite={() => toggleFavorite(pack.id)}
-                   onClick={() => setSelectedPack(pack)}
-                />
-              ))}
+              {displayPacks.map(pack => {
+                const trackToPlay = {...pack, artist: pack.genre, category: pack.type};
+                return (
+                  <SoundCard 
+                     key={pack.id} 
+                     pack={pack} 
+                     isPlaying={currentTrack?.id === pack.id && isPlaying}
+                     isFavorite={favorites.some(t => t.id === pack.id)}
+                     onPlay={() => playTrack(trackToPlay)}
+                     onFavorite={() => toggleFavorite(trackToPlay)}
+                     onClick={() => setSelectedPack(pack)}
+                  />
+                );
+              })}
             </div>
           ) : (
             <div className="py-20 text-center border border-white/10 rounded-2xl bg-white/5 mb-20">
@@ -295,18 +310,21 @@ export function LibraryPage({ setCurrentPage }: { setCurrentPage: (page: string)
           <div className="relative overflow-hidden w-full group/marquee">
              <div className="flex gap-6 whitespace-nowrap animate-marquee group-hover/marquee:[animation-play-state:paused] w-max">
                 {/* Duplicate arrays for seamless loop */}
-                {[...MOCK_PACKS, ...MOCK_PACKS].map((pack, i) => (
-                  <div key={i} className="w-[280px] shrink-0">
-                    <SoundCard 
-                      pack={pack} 
-                      isPlaying={currentTrack?.id === pack.id && isPlaying}
-                      isFavorite={favorites.includes(pack.id)}
-                      onPlay={() => playTrack({...pack, artist: pack.genre, category: pack.type})}
-                      onFavorite={() => toggleFavorite(pack.id)}
-                      onClick={() => setSelectedPack(pack)}
-                    />
-                  </div>
-                ))}
+                {[...MOCK_PACKS, ...MOCK_PACKS].map((pack, i) => {
+                  const trackToPlay = {...pack, artist: pack.genre, category: pack.type};
+                  return (
+                    <div key={i} className="w-[280px] shrink-0">
+                      <SoundCard 
+                        pack={pack} 
+                        isPlaying={currentTrack?.id === pack.id && isPlaying}
+                        isFavorite={favorites.some(t => t.id === pack.id)}
+                        onPlay={() => playTrack(trackToPlay)}
+                        onFavorite={() => toggleFavorite(trackToPlay)}
+                        onClick={() => setSelectedPack(pack)}
+                      />
+                    </div>
+                  );
+                })}
              </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Play, Pause, Search, Sliders, ArrowRight, Save, Heart, ChevronRight } from 'lucide-react';
 import { useAudio, type Track } from '../context/AudioContext';
+import { useNavigate } from 'react-router-dom';
 
 const MOCK_TRACKS: Track[] = [
   { id: 't1', title: 'MIDNIGHT DRIVE', artist: 'Aria Noir', category: 'Electronic Production', image: '/project_cover_1_1787639273921.jpg', durationStr: '03:42', durationSec: 222 },
@@ -11,6 +12,7 @@ const MOCK_TRACKS: Track[] = [
 export function SoundPage({ setCurrentPage }: { setCurrentPage: (page: string) => void }) {
   const { playTrack, currentTrack, isPlaying, favorites, recentlyPlayed } = useAudio();
   const [filter, setFilter] = useState('ALL');
+  const navigate = useNavigate();
   
   const featuredTrack = MOCK_TRACKS[0];
 
@@ -156,19 +158,20 @@ export function SoundPage({ setCurrentPage }: { setCurrentPage: (page: string) =
             <div>
               <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-2"><Heart className="text-accent-violet fill-accent-violet"/> MY SOUNDS</h3>
               <div className="space-y-4">
-                {favorites.map(id => {
-                  const t = MOCK_TRACKS.find(x => x.id === id);
-                  if(!t) return null;
-                  return (
-                    <div key={id} className="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 transition-colors group cursor-pointer" onClick={() => playTrack(t)}>
-                      <img src={t.image} className="w-12 h-12 rounded object-cover" />
+                {favorites.map(track => (
+                  <div key={track.id} className="flex items-center justify-between group cursor-pointer hover:bg-white/5 p-4 rounded-xl transition-colors" onClick={() => playTrack(track)}>
+                    <div className="flex items-center gap-4 overflow-hidden">
+                      <img src={track.image} alt={track.title} className="w-12 h-12 rounded object-cover" />
                       <div>
-                        <h4 className="text-white font-bold group-hover:text-accent-cyan transition-colors">{t.title}</h4>
-                        <p className="text-xs text-gray-400">{t.artist}</p>
+                        <h4 className="text-white font-bold group-hover:text-accent-cyan transition-colors">{track.title}</h4>
+                        <p className="text-xs text-gray-400">{track.artist}</p>
                       </div>
                     </div>
-                  );
-                })}
+                    <button onClick={(e) => { e.stopPropagation(); toggleFavorite(track); }} className="opacity-0 group-hover:opacity-100 transition-opacity">
+                      <Heart size={16} className="fill-accent-violet text-accent-violet" />
+                    </button>
+                  </div>
+                ))}
               </div>
             </div>
           )}
@@ -212,6 +215,7 @@ export function SoundPage({ setCurrentPage }: { setCurrentPage: (page: string) =
 // Subcomponent for editorial alternating rows
 function EditorialRow({ index, track, desc, reverse }: { index: string, track: Track, desc: string, reverse: boolean }) {
   const { playTrack, currentTrack, isPlaying } = useAudio();
+  const navigate = useNavigate();
   
   return (
     <div className={`flex flex-col md:flex-row items-center gap-16 ${reverse ? 'md:flex-row-reverse' : ''}`}>
@@ -248,7 +252,7 @@ function EditorialRow({ index, track, desc, reverse }: { index: string, track: T
           <button onClick={() => playTrack(track)} className="font-bold text-white tracking-widest text-sm hover:text-accent-cyan transition-colors flex items-center gap-2">
             ▶ PLAY
           </button>
-          <button onClick={() => window.alert("Opening project... (Redirect to project details)")} className="font-bold text-gray-500 tracking-widest text-sm hover:text-white transition-colors flex items-center gap-2 ml-6">
+          <button onClick={() => navigate('/projects')} className="font-bold text-gray-500 tracking-widest text-sm hover:text-white transition-colors flex items-center gap-2 ml-6">
             VIEW PROJECT <ArrowRight size={16} />
           </button>
         </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import { Play } from 'lucide-react';
 import { AudioProvider } from './context/AudioContext';
-import { AuthProvider } from './context/AuthContext';
+import { AuthProvider, useAuth } from './context/AuthContext';
 import { GlobalPlayer } from './components/GlobalPlayer';
 import { SoundPage } from './pages/SoundPage';
 import { LibraryPage } from './pages/LibraryPage';
@@ -27,6 +27,8 @@ import { ProtectedRoute } from './components/ProtectedRoute';
 import { ManageBookingPage } from './pages/booking/ManageBookingPage';
 import { PrivacyPage } from './pages/PrivacyPage';
 import { TermsPage } from './pages/TermsPage';
+import { ProfilePage } from './pages/ProfilePage';
+import { LoginModal } from './components/LoginModal';
 
 // Wrapper to pass `setCurrentPage` to old components without breaking them
 function LegacyRouteWrapper({ Component }: { Component: React.ElementType }) {
@@ -207,6 +209,8 @@ function Home() {
 }
 
 function AppContent() {
+  const { isLoginModalOpen, closeLoginModal } = useAuth();
+  
   return (
     <div className="min-h-screen bg-background font-sans selection:bg-accent-violet/30 selection:text-white overflow-x-hidden text-primary-text flex flex-col">
       <Navbar />
@@ -227,6 +231,7 @@ function AppContent() {
           <Route path="/artists/:slug" element={<ArtistProfile />} />
           <Route path="/book" element={<ProtectedRoute><BookingPage /></ProtectedRoute>} />
           <Route path="/manage-booking" element={<ProtectedRoute><ManageBookingPage /></ProtectedRoute>} />
+          <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
           <Route path="/discover/project/:id" element={<ProjectDetail />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
@@ -238,6 +243,8 @@ function AppContent() {
 
       {/* Global Sticky Player */}
       <GlobalPlayer />
+      
+      <LoginModal isOpen={isLoginModalOpen} onClose={closeLoginModal} />
     </div>
   );
 }

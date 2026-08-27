@@ -2,19 +2,15 @@ import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Menu, X, User, Settings, LogOut, Calendar } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
-import { LoginModal } from '../LoginModal';
-import { UpdateProfileModal } from '../UpdateProfileModal';
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-  const [isUpdateProfileModalOpen, setIsUpdateProfileModalOpen] = useState(false);
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
   const [imageError, setImageError] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const { user, logout } = useAuth();
+  const { user, logout, openLoginModal } = useAuth();
   const location = useLocation();
 
   useEffect(() => {
@@ -121,16 +117,14 @@ export function Navbar() {
                     Manage Bookings
                   </Link>
 
-                  <button 
-                    onClick={() => {
-                      setIsUpdateProfileModalOpen(true);
-                      setIsProfileDropdownOpen(false);
-                    }}
+                  <Link 
+                    to="/profile"
+                    onClick={() => setIsProfileDropdownOpen(false)}
                     className="w-full flex items-center gap-3 px-4 py-2 text-sm text-muted-text hover:text-white hover:bg-white/5 transition-colors"
                   >
                     <Settings size={16} />
-                    Update Profile
-                  </button>
+                    My Profile
+                  </Link>
                   
                   <button 
                     onClick={() => {
@@ -147,7 +141,7 @@ export function Navbar() {
             </div>
           ) : (
             <button 
-              onClick={() => setIsLoginModalOpen(true)}
+              onClick={openLoginModal}
               className="text-xs font-bold tracking-[0.1em] text-white hover:text-champagne-gold transition-colors uppercase"
             >
               Login
@@ -209,15 +203,13 @@ export function Navbar() {
               >
                 Manage Bookings
               </Link>
-              <button 
-                onClick={() => {
-                  setIsUpdateProfileModalOpen(true);
-                  setMobileMenuOpen(false);
-                }}
-                className="w-full max-w-xs text-sm font-bold tracking-[0.1em] text-white border border-white/20 py-4 rounded-sm transition-colors uppercase"
+              <Link 
+                to="/profile"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full max-w-xs text-center text-sm font-bold tracking-[0.1em] text-white border border-white/20 py-4 rounded-sm transition-colors uppercase"
               >
-                Update Profile
-              </button>
+                My Profile
+              </Link>
               <button 
                 onClick={() => {
                   logout();
@@ -231,7 +223,7 @@ export function Navbar() {
           ) : (
             <button 
               onClick={() => {
-                setIsLoginModalOpen(true);
+                openLoginModal();
                 setMobileMenuOpen(false);
               }}
               className="mt-8 text-sm font-bold tracking-[0.1em] text-white hover:text-champagne-gold transition-colors uppercase"
@@ -245,9 +237,6 @@ export function Navbar() {
           </Link>
         </div>
       </div>
-      
-      <LoginModal isOpen={isLoginModalOpen} onClose={() => setIsLoginModalOpen(false)} />
-      <UpdateProfileModal isOpen={isUpdateProfileModalOpen} onClose={() => setIsUpdateProfileModalOpen(false)} />
     </nav>
   );
 }

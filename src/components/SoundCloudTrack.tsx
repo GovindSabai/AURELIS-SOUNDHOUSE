@@ -7,12 +7,12 @@ interface Props {
   isCurrentlyPlaying: boolean;
   isPlaying: boolean;
   playTrack: (track: Track) => void;
-  toggleFavorite: (id: string) => void;
-  favorites: string[];
+  toggleFavorite: (track: Track) => void;
+  favorites: Track[];
 }
 
 export const SoundCloudTrack = ({ track, isCurrentlyPlaying, isPlaying, playTrack, toggleFavorite, favorites }: Props) => {
-  const isFav = favorites.includes(track.id);
+  const isFav = favorites.some(t => t.id === track.id);
   const playCount = useMemo(() => Math.floor(Math.random() * 5000), [track.id]);
   const timeAgo = useMemo(() => `${Math.floor(Math.random() * 24) + 1}h ago`, [track.id]);
   const waveform = useMemo(() => Array.from({ length: 50 }).map(() => Math.max(10, Math.random() * 100)), [track.id]);
@@ -76,12 +76,7 @@ export const SoundCloudTrack = ({ track, isCurrentlyPlaying, isPlaying, playTrac
 
         <div className="flex items-center gap-4 mt-3 text-muted-text">
           <button 
-            onClick={() => {
-              toggleFavorite(track.id);
-              if (!favorites.includes(track.id)) {
-                alert("Added to your profile! (Login feature coming soon)");
-              }
-            }} 
+            onClick={() => toggleFavorite(trackToPlay)} 
             className="hover:text-champagne-gold transition-colors flex items-center gap-1"
           >
             <Heart size={16} className={isFav ? "fill-champagne-gold text-champagne-gold" : ""} />
