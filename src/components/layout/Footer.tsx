@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { MapPin, Mail, Phone } from 'lucide-react';
 
 export function Footer() {
   return (
@@ -10,10 +11,10 @@ export function Footer() {
              <img src="/aurelis_logo.svg" alt="Aurelis Logo" className="h-10 w-auto object-contain" />
           </Link>
           <p className="text-muted-text text-sm max-w-xs leading-relaxed">A premium creative universe for making, shaping, and discovering world-class sound.</p>
-          <div className="mt-6 space-y-2 text-sm text-muted-text">
-            <p><Link to="/contact" className="hover:text-champagne-gold transition-colors">123 Music Ave, Sound City, SC 90210</Link></p>
-            <p><Link to="/contact" className="hover:text-champagne-gold transition-colors">hello@aurelissoundhouse.com</Link></p>
-            <p><Link to="/contact" className="hover:text-champagne-gold transition-colors">+1 (555) 123-4567</Link></p>
+          <div className="mt-6 space-y-3 text-sm text-muted-text">
+            <p><Link to="/contact" className="hover:text-champagne-gold transition-colors flex items-center gap-2"><MapPin size={16} /> 123 Music Ave, Sound City, SC 90210</Link></p>
+            <p><Link to="/contact" className="hover:text-champagne-gold transition-colors flex items-center gap-2"><Mail size={16} /> hello@aurelissoundhouse.com</Link></p>
+            <p><Link to="/contact" className="hover:text-champagne-gold transition-colors flex items-center gap-2"><Phone size={16} /> +1 (555) 123-4567</Link></p>
           </div>
         </div>
         <div>

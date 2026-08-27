@@ -25,6 +25,8 @@ import { ScrollToTop } from './components/ScrollToTop';
 
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { ManageBookingPage } from './pages/booking/ManageBookingPage';
+import { PrivacyPage } from './pages/PrivacyPage';
+import { TermsPage } from './pages/TermsPage';
 
 // Wrapper to pass `setCurrentPage` to old components without breaking them
 function LegacyRouteWrapper({ Component }: { Component: React.ElementType }) {
@@ -227,6 +229,8 @@ function AppContent() {
           <Route path="/manage-booking" element={<ProtectedRoute><ManageBookingPage /></ProtectedRoute>} />
           <Route path="/discover/project/:id" element={<ProjectDetail />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/terms" element={<TermsPage />} />
         </Routes>
       </main>
 
