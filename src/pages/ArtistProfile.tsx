@@ -48,24 +48,24 @@ export function ArtistProfile() {
         </button>
       </div>
 
-      <div className="container mx-auto px-6 lg:px-12 max-w-5xl -mt-32 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12 max-w-5xl -mt-16 sm:-mt-24 md:-mt-32 relative z-10">
         
         {/* Profile Header */}
-        <div className="flex flex-col md:flex-row items-center md:items-end gap-8 mb-12">
-          <div className="w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-background shadow-2xl bg-white/5">
+        <div className="flex flex-col md:flex-row items-center md:items-end gap-6 sm:gap-8 mb-8 sm:mb-12">
+          <div className="w-28 h-28 sm:w-40 sm:h-40 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-background shadow-2xl bg-white/5 shrink-0">
             <img src={artist.image} alt={artist.name} className="w-full h-full object-cover" />
           </div>
           <div className="flex-grow text-center md:text-left">
-            <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
+            <div className="flex items-center justify-center md:justify-start gap-2 mb-1.5 sm:mb-2">
               <span className="text-xs font-bold tracking-[0.2em] uppercase text-champagne-gold">{artist.genre}</span>
               {artist.isVerified && <Verified size={16} className="text-blue-400" />}
             </div>
-            <h1 className="text-5xl md:text-7xl font-serif text-white mb-4">{artist.name}</h1>
-            <p className="text-sm text-muted-text tracking-widest uppercase font-mono">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl font-serif text-white mb-2 sm:mb-4">{artist.name}</h1>
+            <p className="text-xs sm:text-sm text-muted-text tracking-widest uppercase font-mono">
               {artist.followers.toLocaleString()} Followers • {artist.location}
             </p>
           </div>
-          <div className="flex gap-4 relative">
+          <div className="flex gap-3 sm:gap-4 relative">
             <button 
               onClick={() => {
                 if (!user) {
@@ -74,14 +74,15 @@ export function ArtistProfile() {
                   console.log("Followed!");
                 }
               }}
-              className="px-8 py-3 bg-champagne-gold text-background font-bold tracking-[0.1em] text-xs uppercase rounded-full hover:bg-white transition-colors"
+              className="px-6 sm:px-8 py-2.5 sm:py-3 bg-champagne-gold text-background font-bold tracking-[0.1em] text-xs uppercase rounded-full hover:bg-white transition-colors"
             >
               Follow
             </button>
             <div className="relative">
               <button 
                 onClick={() => setIsShareOpen(!isShareOpen)}
-                className="p-3 border border-white/20 rounded-full text-white hover:bg-white/10 transition-colors"
+                className="p-2.5 sm:p-3 border border-white/20 rounded-full text-white hover:bg-white/10 transition-colors"
+                aria-label="Share"
               >
                 <Share2 size={18} />
               </button>
@@ -100,12 +101,12 @@ export function ArtistProfile() {
         </div>
 
         {/* Sub-nav */}
-        <div className="flex items-center gap-8 border-b border-white/10 mb-12 overflow-x-auto pb-4">
+        <div className="flex items-center gap-6 sm:gap-8 border-b border-white/10 mb-8 sm:mb-12 overflow-x-auto pb-4 custom-scrollbar">
           {['Music', 'Albums', 'About', 'Community'].map((tab) => (
             <button 
               key={tab} 
               onClick={() => setActiveTab(tab)}
-              className={`text-sm tracking-[0.1em] uppercase font-bold whitespace-nowrap transition-colors ${activeTab === tab ? 'text-white border-b-2 border-champagne-gold pb-4 -mb-[17px]' : 'text-muted-text hover:text-white pb-4 -mb-[17px]'}`}
+              className={`text-xs sm:text-sm tracking-[0.1em] uppercase font-bold whitespace-nowrap transition-colors ${activeTab === tab ? 'text-white border-b-2 border-champagne-gold pb-4 -mb-[17px]' : 'text-muted-text hover:text-white pb-4 -mb-[17px]'}`}
             >
               {tab}
             </button>
@@ -113,11 +114,11 @@ export function ArtistProfile() {
         </div>
 
         {activeTab === 'Music' && (
-          <div className="grid lg:grid-cols-3 gap-16 animate-fade-in-up">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-16 animate-fade-in-up">
             {/* Left Col: Tracks */}
             <div className="lg:col-span-2">
-              <h3 className="text-lg font-bold text-white mb-6">Popular Tracks</h3>
-              <div className="grid md:grid-cols-2 gap-4">
+              <h3 className="text-base sm:text-lg font-bold text-white mb-4 sm:mb-6">Popular Tracks</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
                 {artistTracks.length > 0 ? artistTracks.map((track, i) => {
                   const isCurrentlyPlaying = currentTrack?.id === track.id;
                   return (

@@ -73,53 +73,53 @@ export function ProjectsPage() {
   const displayProjects = filteredProjects;
 
   return (
-    <div className="pt-32 pb-24 min-h-screen bg-background">
+    <div className="pt-24 sm:pt-32 pb-24 min-h-screen bg-background">
       
       {/* Hero */}
-      <section className="px-6 lg:px-12 max-w-[1400px] mx-auto mb-20 animate-fade-in-up">
-        <h4 className="text-champagne-gold tracking-[0.3em] uppercase text-xs font-bold mb-6">The Aurelis Archive</h4>
-        <h1 className="text-5xl md:text-7xl font-serif text-white mb-8 max-w-4xl leading-tight">
+      <section className="px-4 sm:px-6 lg:px-12 max-w-[1400px] mx-auto mb-16 sm:mb-20 animate-fade-in-up">
+        <h4 className="text-champagne-gold tracking-[0.3em] uppercase text-xs font-bold mb-4 sm:mb-6">The Aurelis Archive</h4>
+        <h1 className="text-3xl sm:text-5xl md:text-7xl font-serif text-white mb-6 sm:mb-8 max-w-4xl leading-tight">
           THE WORK <br/>
           <span className="text-muted-text italic">MADE AT AURELIS.</span>
         </h1>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-8 border-y border-white/10 mt-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 py-6 sm:py-8 border-y border-white/10 mt-10 sm:mt-16">
           <div>
-            <p className="text-3xl font-bold text-white mb-2"><CountUp end={50} suffix="+" /></p>
-            <p className="text-xs text-muted-text uppercase tracking-widest">Projects</p>
+            <p className="text-2xl sm:text-3xl font-bold text-white mb-1 sm:mb-2"><CountUp end={50} suffix="+" /></p>
+            <p className="text-[10px] sm:text-xs text-muted-text uppercase tracking-widest">Projects</p>
           </div>
           <div>
-            <p className="text-3xl font-bold text-white mb-2"><CountUp end={24} /></p>
-            <p className="text-xs text-muted-text uppercase tracking-widest">Artists</p>
+            <p className="text-2xl sm:text-3xl font-bold text-white mb-1 sm:mb-2"><CountUp end={24} /></p>
+            <p className="text-[10px] sm:text-xs text-muted-text uppercase tracking-widest">Artists</p>
           </div>
           <div>
-            <p className="text-3xl font-bold text-white mb-2"><CountUp end={8} /></p>
-            <p className="text-xs text-muted-text uppercase tracking-widest">Genres</p>
+            <p className="text-2xl sm:text-3xl font-bold text-white mb-1 sm:mb-2"><CountUp end={8} /></p>
+            <p className="text-[10px] sm:text-xs text-muted-text uppercase tracking-widest">Genres</p>
           </div>
           <div>
-            <p className="text-3xl font-bold text-white mb-2">2024–26</p>
-            <p className="text-xs text-muted-text uppercase tracking-widest">Archive</p>
+            <p className="text-2xl sm:text-3xl font-bold text-white mb-1 sm:mb-2">2024–26</p>
+            <p className="text-[10px] sm:text-xs text-muted-text uppercase tracking-widest">Archive</p>
           </div>
         </div>
       </section>
 
       {/* Featured Project */}
-      <section className="px-6 lg:px-12 max-w-[1400px] mx-auto mb-32 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+      <section className="px-4 sm:px-6 lg:px-12 max-w-[1400px] mx-auto mb-20 sm:mb-32 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
         <ProjectCard project={featuredProject} featured={true} />
       </section>
 
       {/* Discovery / Filters */}
-      <section className="px-6 lg:px-12 max-w-[1400px] mx-auto mb-16" id="archive">
-        <h3 className="text-2xl font-serif text-white mb-8">Explore the Work</h3>
+      <section className="px-4 sm:px-6 lg:px-12 max-w-[1400px] mx-auto mb-16" id="archive">
+        <h3 className="text-xl sm:text-2xl font-serif text-white mb-6 sm:mb-8">Explore the Work</h3>
         
-        <div className="space-y-6 mb-12">
+        <div className="space-y-4 sm:space-y-6 mb-8 sm:mb-12">
           {/* Categories */}
-          <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
+          <div className="flex gap-2 sm:gap-4 overflow-x-auto pb-2 sm:pb-4 scrollbar-hide">
             {CATEGORIES.map(cat => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`whitespace-nowrap px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-colors border ${
+                className={`whitespace-nowrap px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-widest transition-colors border shrink-0 ${
                   activeCategory === cat 
                     ? 'bg-white text-background border-white' 
                     : 'bg-transparent text-muted-text border-white/10 hover:border-white/30 hover:text-white'
@@ -130,16 +130,16 @@ export function ProjectsPage() {
             ))}
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6">
             {/* Genres & Years */}
-            <div className="flex gap-8 overflow-x-auto pb-2 scrollbar-hide">
-              <div className="flex gap-2">
-                <span className="text-xs text-muted-text uppercase tracking-widest py-2 mr-2">Genre:</span>
+            <div className="flex gap-4 sm:gap-8 overflow-x-auto pb-2 scrollbar-hide">
+              <div className="flex gap-1.5 sm:gap-2">
+                <span className="text-xs text-muted-text uppercase tracking-widest py-1 sm:py-2 mr-1 sm:mr-2">Genre:</span>
                 {GENRES.map(g => (
                   <button
                     key={g}
                     onClick={() => setActiveGenre(g)}
-                    className={`whitespace-nowrap text-sm font-medium transition-colors px-2 py-1 ${activeGenre === g ? 'text-champagne-gold' : 'text-muted-text hover:text-white'}`}
+                    className={`whitespace-nowrap text-xs sm:text-sm font-medium transition-colors px-1.5 sm:px-2 py-1 ${activeGenre === g ? 'text-champagne-gold' : 'text-muted-text hover:text-white'}`}
                   >
                     {g}
                   </button>
@@ -147,25 +147,25 @@ export function ProjectsPage() {
               </div>
             </div>
             
-            <div className="flex items-center gap-6 shrink-0">
-              <div className="flex gap-3">
+            <div className="flex items-center gap-4 sm:gap-6 shrink-0">
+              <div className="flex gap-2 sm:gap-3">
                 {YEARS.map(y => (
                   <button
                     key={y}
                     onClick={() => setActiveYear(y)}
-                    className={`text-sm font-medium transition-colors ${activeYear === y ? 'text-champagne-gold' : 'text-muted-text hover:text-white'}`}
+                    className={`text-xs sm:text-sm font-medium transition-colors ${activeYear === y ? 'text-champagne-gold' : 'text-muted-text hover:text-white'}`}
                   >
                     {y}
                   </button>
                 ))}
               </div>
               
-              <div className="h-6 w-px bg-white/10 mx-2" />
+              <div className="h-4 sm:h-6 w-px bg-white/10 mx-1 sm:mx-2" />
               
               <select 
                 value={activeSort}
                 onChange={(e) => setActiveSort(e.target.value)}
-                className="bg-transparent text-sm text-white font-medium focus:outline-none border-none cursor-pointer appearance-none"
+                className="bg-transparent text-xs sm:text-sm text-white font-medium focus:outline-none border-none cursor-pointer appearance-none"
               >
                 {SORTS.map(s => <option key={s} value={s} className="bg-background">{s}</option>)}
               </select>
@@ -175,7 +175,7 @@ export function ProjectsPage() {
 
         {/* Grid */}
         {displayProjects.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 sm:gap-x-8 gap-y-10 sm:gap-y-16">
             {displayProjects.map((project, i) => (
               <div key={project.id} className={i % 3 === 0 ? "lg:col-span-2" : ""}>
                 <ProjectCard project={project} />

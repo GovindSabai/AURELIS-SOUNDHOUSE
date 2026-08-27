@@ -71,22 +71,24 @@ function Hero({ setCurrentPage }: { setCurrentPage: (page: string) => void }) {
   }, [subIndex, isDeleting, index, words]);
 
   return (
-    <section className="pt-40 pb-20 px-6 max-w-7xl mx-auto flex flex-col items-center text-center">
-      <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-6 tracking-tight text-white h-[180px] md:h-[220px]">
-        YOUR SOUND. <br />
-        YOUR WORLD. <br />
-        YOUR <span className={`inline-block bg-gradient-to-r ${words[index].color} bg-clip-text text-transparent`}>
-          {words[index].text.substring(0, subIndex)}
-        </span><span className="animate-pulse text-white font-light ml-1">|</span>
+    <section className="pt-28 sm:pt-40 pb-16 sm:pb-20 px-4 sm:px-6 max-w-7xl mx-auto flex flex-col items-center text-center">
+      <h1 className="text-3xl sm:text-5xl md:text-7xl font-extrabold leading-tight mb-6 tracking-tight text-white min-h-[130px] sm:min-h-[180px] md:min-h-[220px] flex flex-col items-center justify-center">
+        <span>YOUR SOUND.</span>
+        <span>YOUR WORLD.</span>
+        <span>
+          YOUR <span className={`inline-block bg-gradient-to-r ${words[index].color} bg-clip-text text-transparent`}>
+            {words[index].text.substring(0, subIndex)}
+          </span><span className="animate-pulse text-white font-light ml-1">|</span>
+        </span>
       </h1>
-      <p className="text-lg md:text-xl text-gray-400 max-w-2xl mb-10 mt-4">
+      <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mb-8 sm:mb-10 mt-2 sm:mt-4 px-2">
         A complete creative space for artists, producers, vocalists, and dreamers. Build tracks, experiment with sound, collaborate in real time, and bring your next idea to life.
       </p>
-      <div className="flex flex-col sm:flex-row gap-4 mb-20">
-        <button onClick={() => setCurrentPage('book')} className="px-8 py-4 rounded-full bg-gradient-to-r from-accent-violet to-accent-cyan text-white font-bold text-lg hover:scale-105 transition-transform flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(138,43,226,0.4)]">
+      <div className="flex flex-col sm:flex-row gap-4 mb-14 sm:mb-20 w-full sm:w-auto px-4 sm:px-0">
+        <button onClick={() => setCurrentPage('book')} className="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-accent-violet to-accent-cyan text-white font-bold text-base sm:text-lg hover:scale-105 transition-transform flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(138,43,226,0.4)]">
           Start Creating Free
         </button>
-        <button onClick={() => setCurrentPage('sounds')} className="px-8 py-4 rounded-full border border-white/20 hover:bg-white/5 transition-colors text-white font-bold text-lg flex items-center justify-center gap-2">
+        <button onClick={() => setCurrentPage('sounds')} className="w-full sm:w-auto px-8 py-4 rounded-full border border-white/20 hover:bg-white/5 transition-colors text-white font-bold text-base sm:text-lg flex items-center justify-center gap-2">
           <Play size={20} /> Explore the Library
         </button>
       </div>
@@ -115,14 +117,14 @@ function AnimatedCounter({ end, duration = 2000, suffix = "" }: { end: number, d
 
 function TrustStrip() {
   return (
-    <section className="py-16 border-y border-white/10 bg-white/[0.02]">
-      <div className="max-w-7xl mx-auto px-6 text-center">
-        <h3 className="text-sm font-semibold text-gray-400 tracking-[0.2em] uppercase mb-10">Built for the next generation of sound creators.</h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div><p className="text-4xl font-bold text-white mb-2"><AnimatedCounter end={2} suffix="M+" /></p><p className="text-sm text-gray-400 font-medium">Creative Sessions</p></div>
-          <div><p className="text-4xl font-bold text-white mb-2"><AnimatedCounter end={850} suffix="K+" /></p><p className="text-sm text-gray-400 font-medium">Artists</p></div>
-          <div><p className="text-4xl font-bold text-white mb-2"><AnimatedCounter end={120} suffix="+" /></p><p className="text-sm text-gray-400 font-medium">Countries</p></div>
-          <div><p className="text-4xl font-bold text-white mb-2"><AnimatedCounter end={50} suffix="M+" /></p><p className="text-sm text-gray-400 font-medium">Sounds Created</p></div>
+    <section className="py-12 sm:py-16 border-y border-white/10 bg-white/[0.02]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+        <h3 className="text-xs sm:text-sm font-semibold text-gray-400 tracking-[0.2em] uppercase mb-8 sm:mb-10">Built for the next generation of sound creators.</h3>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+          <div><p className="text-3xl sm:text-4xl font-bold text-white mb-1 sm:mb-2"><AnimatedCounter end={2} suffix="M+" /></p><p className="text-xs sm:text-sm text-gray-400 font-medium">Creative Sessions</p></div>
+          <div><p className="text-3xl sm:text-4xl font-bold text-white mb-1 sm:mb-2"><AnimatedCounter end={850} suffix="K+" /></p><p className="text-xs sm:text-sm text-gray-400 font-medium">Artists</p></div>
+          <div><p className="text-3xl sm:text-4xl font-bold text-white mb-1 sm:mb-2"><AnimatedCounter end={120} suffix="+" /></p><p className="text-xs sm:text-sm text-gray-400 font-medium">Countries</p></div>
+          <div><p className="text-3xl sm:text-4xl font-bold text-white mb-1 sm:mb-2"><AnimatedCounter end={50} suffix="M+" /></p><p className="text-xs sm:text-sm text-gray-400 font-medium">Sounds Created</p></div>
         </div>
       </div>
     </section>
@@ -136,7 +138,7 @@ function SoundCard({ image, title, tag, onClick }: { image: string, title: strin
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
       <div className="absolute bottom-4 left-4 right-4">
         <span className="text-xs font-bold px-2 py-1 bg-white/20 backdrop-blur-md rounded text-white mb-2 inline-block">{tag}</span>
-        <h4 className="text-lg font-bold text-white group-hover:text-accent-cyan transition-colors">{title}</h4>
+        <h4 className="text-lg font-bold text-white group-hover:text-accent-cyan transition-colors truncate">{title}</h4>
       </div>
     </div>
   );
@@ -155,39 +157,39 @@ function Features({ setCurrentPage }: { setCurrentPage: (page: string) => void }
 
   return (
     <>
-      <section className="py-32 px-6 max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+      <section className="py-20 sm:py-32 px-4 sm:px-6 max-w-7xl mx-auto grid md:grid-cols-2 gap-10 sm:gap-16 items-center">
         <div>
-          <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6 text-white">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-6 text-white">
             EVERYTHING YOU NEED <br />
             TO MAKE SOMETHING <span className="gradient-text">UNFORGETTABLE.</span>
           </h2>
-          <p className="text-lg text-gray-400">From your first voice note to your final release, AURALYN brings your creative workflow into one connected space.</p>
+          <p className="text-base sm:text-lg text-gray-400">From your first voice note to your final release, AURALYN brings your creative workflow into one connected space.</p>
         </div>
-        <div className="h-80 rounded-2xl bg-gradient-to-br from-[#1A1A2E] to-[#16213E] border border-white/10 flex items-center justify-center relative overflow-hidden group">
+        <div className="h-64 sm:h-80 rounded-2xl bg-gradient-to-br from-[#1A1A2E] to-[#16213E] border border-white/10 flex items-center justify-center relative overflow-hidden group">
           <div className="absolute w-40 h-40 bg-accent-violet rounded-full blur-[80px] opacity-50 top-10 left-10 z-0" />
           <div className="absolute w-40 h-40 bg-accent-cyan rounded-full blur-[80px] opacity-50 bottom-10 right-10 z-0" />
           <img src="/cross_platform_mockup_1787636556562.jpg" alt="Connected Creative Workflow" className="w-full h-full object-cover relative z-10 opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
         </div>
       </section>
 
-      <section className="py-32 px-6 max-w-7xl mx-auto overflow-hidden">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-6 text-white">Never start with silence.</h2>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">Explore an endless universe of loops, textures, vocals, drums, instruments, and experimental sounds.</p>
+      <section className="py-20 sm:py-32 px-4 sm:px-6 max-w-7xl mx-auto overflow-hidden">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 text-white">Never start with silence.</h2>
+          <p className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto">Explore an endless universe of loops, textures, vocals, drums, instruments, and experimental sounds.</p>
         </div>
 
         <div className="relative overflow-hidden w-full group/marquee">
-          <div className="flex gap-6 whitespace-nowrap animate-marquee group-hover/marquee:[animation-play-state:paused] w-max">
+          <div className="flex gap-4 sm:gap-6 whitespace-nowrap animate-marquee group-hover/marquee:[animation-play-state:paused] w-max">
             {duplicatedSounds.map((pack, i) => (
-              <div key={i} className="w-[280px] shrink-0">
+              <div key={i} className="w-[220px] sm:w-[280px] shrink-0">
                 <SoundCard image={pack.image} title={pack.title} tag={pack.tag} onClick={() => setCurrentPage('sounds')} />
               </div>
             ))}
           </div>
         </div>
 
-        <div className="mt-10 flex justify-start">
-          <button onClick={() => setCurrentPage('sounds')} className="text-accent-cyan hover:underline font-bold text-lg flex items-center gap-2">
+        <div className="mt-8 sm:mt-10 flex justify-start">
+          <button onClick={() => setCurrentPage('sounds')} className="text-accent-cyan hover:underline font-bold text-base sm:text-lg flex items-center gap-2">
             Explore more &rarr;
           </button>
         </div>

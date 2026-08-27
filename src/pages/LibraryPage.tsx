@@ -203,26 +203,26 @@ export function LibraryPage({ setCurrentPage }: { setCurrentPage: (page: string)
     <div className="pt-20 pb-40 min-h-screen flex flex-col" dir="ltr">
       
       {/* 1. HERO */}
-      <section className="pt-20 pb-12 px-6 max-w-7xl mx-auto w-full text-center">
-        <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6">Never start with silence.</h1>
-        <p className="text-lg text-gray-400 mb-10 max-w-2xl mx-auto">
+      <section className="pt-16 sm:pt-20 pb-8 sm:pb-12 px-4 sm:px-6 max-w-7xl mx-auto w-full text-center">
+        <h1 className="text-3xl sm:text-5xl md:text-7xl font-extrabold text-white mb-4 sm:mb-6">Never start with silence.</h1>
+        <p className="text-sm sm:text-base md:text-lg text-gray-400 mb-8 sm:mb-10 max-w-2xl mx-auto px-2">
           A world-class library of royalty-free loops, one-shots, and samples — built right into AURALYN, so you never begin a track from a blank screen.
         </p>
         
-        <div className="max-w-3xl mx-auto relative mb-6">
-          <Search size={24} className="absolute left-6 top-1/2 -translate-y-1/2 text-gray-500" />
+        <div className="max-w-3xl mx-auto relative mb-6 px-2 sm:px-0">
+          <Search size={22} className="absolute left-6 sm:left-6 top-1/2 -translate-y-1/2 text-gray-500" />
           <input 
             type="text" 
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search sounds, genres, moods, instruments..." 
-            className="w-full bg-[#111322] border border-white/10 rounded-full py-5 pl-16 pr-6 text-lg text-white focus:outline-none focus:border-accent-violet transition-colors shadow-2xl" 
+            placeholder="Search sounds, genres, moods..." 
+            className="w-full bg-[#111322] border border-white/10 rounded-full py-3.5 sm:py-5 pl-12 sm:pl-16 pr-6 text-sm sm:text-lg text-white focus:outline-none focus:border-accent-violet transition-colors shadow-2xl" 
           />
         </div>
         
-        <div className="flex flex-wrap justify-center gap-3">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 px-2">
           {['Trending', 'New This Week', 'Free', 'Included in Plan', 'My Favorites'].map(chip => (
-            <button key={chip} className="px-4 py-1.5 rounded-full border border-white/10 text-xs font-bold text-gray-400 hover:text-white hover:border-white/30 transition-colors">
+            <button key={chip} className="px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full border border-white/10 text-[11px] sm:text-xs font-bold text-gray-400 hover:text-white hover:border-white/30 transition-colors">
               {chip}
             </button>
           ))}
@@ -230,9 +230,9 @@ export function LibraryPage({ setCurrentPage }: { setCurrentPage: (page: string)
       </section>
 
       {/* MAIN CONTENT AREA */}
-      <div className="flex-1 flex max-w-[1400px] mx-auto w-full px-6 gap-8">
+      <div className="flex-1 flex max-w-[1400px] mx-auto w-full px-4 sm:px-6 gap-8">
         
-        {/* 2. FILTER SIDEBAR */}
+        {/* 2. FILTER SIDEBAR (Desktop) */}
         <aside className="hidden lg:block w-72 shrink-0 space-y-10 border-r border-white/5 pr-6">
            <div>
              <h3 className="text-sm font-bold text-white mb-4 uppercase tracking-widest flex items-center justify-between">
@@ -261,20 +261,35 @@ export function LibraryPage({ setCurrentPage }: { setCurrentPage: (page: string)
         {/* 3 & 4. RESULTS & CAROUSELS */}
         <main className="flex-1 min-w-0">
           
-          {/* Active Filters Row */}
-          <div className="flex items-center gap-2 mb-8 flex-wrap">
-             <Filter size={16} className="text-gray-500 mr-2" />
-             <span className="text-sm text-gray-400">Active:</span>
-             {searchQuery && <span className="px-3 py-1 bg-white/10 text-white text-xs rounded-full">"{searchQuery}"</span>}
-             {activeGenre !== 'All' && <span className="px-3 py-1 bg-white/10 text-white text-xs rounded-full">{activeGenre}</span>}
-             {activeType !== 'All' && <span className="px-3 py-1 bg-white/10 text-white text-xs rounded-full">{activeType}</span>}
-             {activeMood !== 'All' && <span className="px-3 py-1 bg-white/10 text-white text-xs rounded-full">{activeMood}</span>}
+          {/* Mobile Quick Filter Row */}
+          <div className="lg:hidden mb-6 overflow-x-auto pb-2 flex gap-2 custom-scrollbar">
+            {['All', 'Hip-Hop', 'Lo-Fi', 'Electronic', 'Cinematic', 'Ambient', 'R&B'].map(g => (
+              <button
+                key={g}
+                onClick={() => setActiveGenre(g)}
+                className={`px-3 py-1.5 rounded-full text-xs font-bold shrink-0 transition-colors ${
+                  activeGenre === g ? 'bg-champagne-gold text-background' : 'bg-white/5 text-gray-400 border border-white/10'
+                }`}
+              >
+                {g}
+              </button>
+            ))}
           </div>
 
-          <h2 className="text-2xl font-bold text-white mb-6">Library Results ({filteredPacks.length})</h2>
+          {/* Active Filters Row */}
+          <div className="flex items-center gap-2 mb-6 sm:mb-8 flex-wrap">
+             <Filter size={16} className="text-gray-500 mr-1 sm:mr-2" />
+             <span className="text-xs sm:text-sm text-gray-400">Active:</span>
+             {searchQuery && <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 bg-white/10 text-white text-[11px] sm:text-xs rounded-full">"{searchQuery}"</span>}
+             {activeGenre !== 'All' && <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 bg-white/10 text-white text-[11px] sm:text-xs rounded-full">{activeGenre}</span>}
+             {activeType !== 'All' && <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 bg-white/10 text-white text-[11px] sm:text-xs rounded-full">{activeType}</span>}
+             {activeMood !== 'All' && <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 bg-white/10 text-white text-[11px] sm:text-xs rounded-full">{activeMood}</span>}
+          </div>
+
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6">Library Results ({filteredPacks.length})</h2>
           
           {displayPacks.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-20">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 mb-16 sm:mb-20">
               {displayPacks.map(pack => {
                 const trackToPlay = {...pack, artist: pack.genre, category: pack.type};
                 return (

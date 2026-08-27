@@ -2,8 +2,8 @@ import React from 'react';
 
 export function TermsPage() {
   return (
-    <div className="pt-32 pb-20 px-6 max-w-4xl mx-auto min-h-screen">
-      <h1 className="text-4xl font-bold text-white mb-8">Terms & Conditions</h1>
+    <div className="pt-24 sm:pt-32 pb-24 px-4 sm:px-6 max-w-4xl mx-auto min-h-screen">
+      <h1 className="text-3xl sm:text-4xl font-bold text-white mb-6 sm:mb-8">Terms & Conditions</h1>
       <div className="text-gray-400 space-y-6 leading-relaxed">
         <p>Last updated: August 27, 2026</p>
         <p>Please read these terms and conditions carefully before using Our Service.</p>

@@ -168,10 +168,10 @@ export function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`fixed inset-0 bg-background z-40 transition-transform duration-500 ease-in-out lg:hidden ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-        <div className="flex flex-col items-center justify-center h-full gap-8 p-6 pt-24 overflow-y-auto">
+      <div className={`fixed inset-0 bg-background/98 backdrop-blur-2xl z-40 transition-transform duration-500 ease-in-out lg:hidden ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        <div className="flex flex-col items-center justify-start min-h-screen h-[100dvh] gap-6 p-6 pt-24 pb-32 overflow-y-auto">
           {user && (
-            <div className="flex flex-col items-center gap-3 mb-4">
+            <div className="flex flex-col items-center gap-3 mb-2">
               <div className="w-16 h-16 rounded-full border-2 border-champagne-gold overflow-hidden">
                 {user.photoURL && !imageError ? (
                   <img src={user.photoURL} alt="Profile" className="w-full h-full object-cover" onError={() => setImageError(true)} />
@@ -181,7 +181,7 @@ export function Navbar() {
                   </span>
                 )}
               </div>
-              <p className="text-white text-lg font-medium">{user.displayName || user.email}</p>
+              <p className="text-white text-base font-medium truncate max-w-xs">{user.displayName || user.email}</p>
             </div>
           )}
 
@@ -190,7 +190,7 @@ export function Navbar() {
               key={link.name}
               to={link.path}
               className={({ isActive }) => 
-                `text-2xl font-serif tracking-wide transition-colors uppercase ${
+                `text-xl sm:text-2xl font-serif tracking-wide transition-colors uppercase ${
                   isActive ? 'text-champagne-gold' : 'text-muted-text hover:text-white'
                 }`
               }
@@ -200,24 +200,24 @@ export function Navbar() {
           ))}
 
           {user ? (
-            <div className="flex flex-col items-center gap-4 mt-8 w-full">
+            <div className="flex flex-col items-center gap-3 mt-4 w-full">
               <Link 
                 to="/manage-booking"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full max-w-xs text-center text-sm font-bold tracking-[0.1em] text-champagne-gold border border-champagne-gold/30 hover:bg-champagne-gold/10 py-4 rounded-sm transition-colors uppercase"
+                className="w-full max-w-xs text-center text-xs font-bold tracking-[0.1em] text-champagne-gold border border-champagne-gold/30 hover:bg-champagne-gold/10 py-3.5 rounded-sm transition-colors uppercase"
               >
                 Manage Bookings
               </Link>
               <Link 
                 to="/profile"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full max-w-xs text-center text-sm font-bold tracking-[0.1em] text-white border border-white/20 py-4 rounded-sm transition-colors uppercase"
+                className="w-full max-w-xs text-center text-xs font-bold tracking-[0.1em] text-white border border-white/20 py-3.5 rounded-sm transition-colors uppercase"
               >
                 My Profile
               </Link>
               <button 
                 onClick={handleLogout}
-                className="w-full max-w-xs text-sm font-bold tracking-[0.1em] text-red-400 border border-red-400/20 py-4 rounded-sm transition-colors uppercase hover:bg-red-400/10"
+                className="w-full max-w-xs text-xs font-bold tracking-[0.1em] text-red-400 border border-red-400/20 py-3.5 rounded-sm transition-colors uppercase hover:bg-red-400/10"
               >
                 Logout
               </button>
@@ -228,13 +228,13 @@ export function Navbar() {
                 openLoginModal();
                 setMobileMenuOpen(false);
               }}
-              className="mt-8 text-sm font-bold tracking-[0.1em] text-white hover:text-champagne-gold transition-colors uppercase"
+              className="mt-4 text-sm font-bold tracking-[0.1em] text-white hover:text-champagne-gold transition-colors uppercase"
             >
               Login
             </button>
           )}
           
-          <Link to="/book" className="mt-4 w-full max-w-xs text-center text-sm font-bold tracking-[0.1em] text-background bg-champagne-gold px-8 py-4 rounded-sm transition-colors uppercase mb-8">
+          <Link to="/book" onClick={() => setMobileMenuOpen(false)} className="mt-2 w-full max-w-xs text-center text-xs font-bold tracking-[0.1em] text-background bg-champagne-gold hover:bg-warm-highlight px-8 py-3.5 rounded-sm transition-colors uppercase">
             Book a Session
           </Link>
         </div>

@@ -17,16 +17,16 @@ export function Step3Details({ state, updateState, onNext, onBack }: Props) {
 
   return (
     <div className="animate-fade-in-up">
-      <div className="text-center mb-10">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Project Details</h2>
-        <p className="text-muted-text">Tell us about you and your project so we can prepare.</p>
+      <div className="text-center mb-6 sm:mb-10 px-2">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 sm:mb-4">Project Details</h2>
+        <p className="text-sm sm:text-base text-muted-text">Tell us about you and your project so we can prepare.</p>
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
         
         {/* Personal Info */}
-        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md space-y-5">
-          <h3 className="text-xl font-bold text-white mb-2 border-b border-white/10 pb-4">Personal Information</h3>
+        <div className="bg-white/5 border border-white/10 rounded-2xl p-4 sm:p-6 backdrop-blur-md space-y-4 sm:space-y-5">
+          <h3 className="text-lg sm:text-xl font-bold text-white mb-2 border-b border-white/10 pb-3 sm:pb-4">Personal Information</h3>
           
           <div>
             <label className={labelClasses}>Full Name *</label>

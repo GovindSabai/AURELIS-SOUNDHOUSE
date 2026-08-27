@@ -34,12 +34,12 @@ export function Step4Review({ state, onNext, onBack }: Props) {
       <div className="max-w-2xl mx-auto">
         <div className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden backdrop-blur-md">
           
-          <div className="p-8 border-b border-white/10 bg-black/20">
-            <h3 className="text-2xl font-bold text-white mb-1">Your Session</h3>
-            <p className="text-champagne-gold font-medium">{state.artistName}</p>
+          <div className="p-5 sm:p-8 border-b border-white/10 bg-black/20">
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">Your Session</h3>
+            <p className="text-champagne-gold font-medium text-sm sm:text-base">{state.artistName}</p>
           </div>
 
-          <div className="p-8 space-y-6">
+          <div className="p-5 sm:p-8 space-y-6">
             
             {/* Table-like layout for summary */}
             <div className="space-y-4">

@@ -17,46 +17,46 @@ export function SoundPage({ setCurrentPage }: { setCurrentPage: (page: string) =
   const featuredTrack = MOCK_TRACKS[0];
 
   return (
-    <div className="pt-20 pb-40">
+    <div className="pt-16 sm:pt-20 pb-32 sm:pb-40">
       
       {/* 1. HERO - LISTEN TO THE SOUND */}
-      <section className="relative h-[90vh] flex flex-col items-center justify-center text-center overflow-hidden">
+      <section className="relative min-h-[75vh] sm:min-h-[85vh] md:h-[90vh] flex flex-col items-center justify-center text-center overflow-hidden py-20 px-4">
         <div className="absolute inset-0 bg-[url('/hero_console_1787639145228.jpg')] bg-cover bg-center opacity-40"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-[#05060A] via-[#05060A]/80 to-transparent"></div>
-        <div className="relative z-10 px-6 max-w-4xl mx-auto">
-          <p className="text-accent-cyan font-bold tracking-[0.2em] uppercase mb-4">Aurelis Soundhouse</p>
-          <h1 className="text-6xl md:text-8xl font-extrabold text-white mb-6 leading-none">LISTEN TO<br/>THE DIFFERENCE.</h1>
-          <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">A collection of recordings, productions and sonic experiences created inside Aurelis Soundhouse.</p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button onClick={() => setCurrentPage('sounds')} className="px-8 py-4 rounded-full bg-white text-black font-bold flex items-center justify-center gap-2 hover:bg-gray-200 transition-colors">
-              EXPLORE SOUNDS <ArrowRight size={20} className="rotate-90" />
+        <div className="relative z-10 px-4 sm:px-6 max-w-4xl mx-auto">
+          <p className="text-accent-cyan font-bold tracking-[0.2em] uppercase text-xs sm:text-sm mb-3 sm:mb-4">Aurelis Soundhouse</p>
+          <h1 className="text-4xl sm:text-6xl md:text-8xl font-extrabold text-white mb-4 sm:mb-6 leading-none">LISTEN TO<br/>THE DIFFERENCE.</h1>
+          <p className="text-base sm:text-lg md:text-xl text-gray-400 mb-8 sm:mb-10 max-w-2xl mx-auto">A collection of recordings, productions and sonic experiences created inside Aurelis Soundhouse.</p>
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center w-full sm:w-auto">
+            <button onClick={() => setCurrentPage('sounds')} className="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-black font-bold flex items-center justify-center gap-2 hover:bg-gray-200 transition-colors text-sm sm:text-base">
+              EXPLORE SOUNDS <ArrowRight size={18} className="rotate-90" />
             </button>
-            <button onClick={() => navigate('/book')} className="px-8 py-4 rounded-full border border-white/20 text-white font-bold flex items-center justify-center gap-2 hover:bg-white/5 transition-colors">
-              BOOK A SESSION <ArrowRight size={20} />
+            <button onClick={() => navigate('/book')} className="w-full sm:w-auto px-8 py-4 rounded-full border border-white/20 text-white font-bold flex items-center justify-center gap-2 hover:bg-white/5 transition-colors text-sm sm:text-base">
+              BOOK A SESSION <ArrowRight size={18} />
             </button>
           </div>
         </div>
       </section>
 
       {/* 2. FEATURED SOUND */}
-      <section className="py-20 px-6 max-w-5xl mx-auto -mt-32 relative z-20">
-        <div className="bg-[#111322]/80 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 md:p-12 shadow-[0_0_50px_rgba(138,43,226,0.15)] relative overflow-hidden group">
+      <section className="py-12 sm:py-20 px-4 sm:px-6 max-w-5xl mx-auto -mt-16 sm:-mt-28 md:-mt-32 relative z-20">
+        <div className="bg-[#111322]/80 backdrop-blur-2xl border border-white/10 rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-12 shadow-[0_0_50px_rgba(138,43,226,0.15)] relative overflow-hidden group">
           <div className="absolute inset-0 bg-gradient-to-r from-accent-violet/10 to-accent-cyan/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <p className="text-xs font-bold text-gray-400 tracking-[0.2em] mb-8 uppercase">Studio Session</p>
-          <div className="flex flex-col md:flex-row items-center gap-10">
+          <p className="text-xs font-bold text-gray-400 tracking-[0.2em] mb-6 sm:mb-8 uppercase">Studio Session</p>
+          <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-10 text-center sm:text-left">
             <button 
               onClick={() => playTrack(featuredTrack)}
-              className="w-24 h-24 shrink-0 rounded-full bg-gradient-to-r from-accent-violet to-accent-cyan flex items-center justify-center text-white hover:scale-105 transition-transform shadow-[0_0_30px_rgba(0,255,255,0.3)]"
+              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 shrink-0 rounded-full bg-gradient-to-r from-accent-violet to-accent-cyan flex items-center justify-center text-white hover:scale-105 transition-transform shadow-[0_0_30px_rgba(0,255,255,0.3)]"
             >
-              {(currentTrack?.id === featuredTrack.id && isPlaying) ? <Pause size={40} className="fill-white" /> : <Play size={40} className="fill-white ml-2" />}
+              {(currentTrack?.id === featuredTrack.id && isPlaying) ? <Pause size={28} className="fill-white" /> : <Play size={28} className="fill-white ml-1" />}
             </button>
-              <div className="flex-1 w-full">
-              <h3 className="text-3xl font-bold text-white mb-2">{featuredTrack.title}</h3>
-              <p className="text-accent-cyan font-medium mb-6">Aurelis Original</p>
+            <div className="flex-1 w-full">
+              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-1 sm:mb-2">{featuredTrack.title}</h3>
+              <p className="text-accent-cyan text-sm sm:text-base font-medium mb-4 sm:mb-6">Aurelis Original</p>
               
               {/* Fake Waveform visual */}
-              <div className="w-full h-16 flex items-center gap-1 opacity-60">
-                 {React.useMemo(() => Array.from({length: 40}).map(() => Math.random() * 100), []).map((h, i) => (
+              <div className="w-full h-12 sm:h-16 flex items-center gap-0.5 sm:gap-1 opacity-60">
+                 {React.useMemo(() => Array.from({length: 30}).map(() => Math.random() * 100), []).map((h, i) => (
                    <div key={i} className={`flex-1 bg-white rounded-full transition-all duration-300 ${(currentTrack?.id === featuredTrack.id && isPlaying) ? 'animate-pulse' : ''}`} style={{ 
                      height: `${h}%`,
                      animationDuration: (currentTrack?.id === featuredTrack.id && isPlaying) ? `${0.5 + (i % 3) * 0.2}s` : undefined,
@@ -74,13 +74,13 @@ export function SoundPage({ setCurrentPage }: { setCurrentPage: (page: string) =
       </section>
 
       {/* 3. CATEGORIES & SEARCH */}
-      <section className="py-10 px-6 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="flex flex-wrap gap-2">
+      <section className="py-6 sm:py-10 px-4 sm:px-6 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
+        <div className="flex gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 custom-scrollbar">
           {['ALL', 'RECORDING', 'PRODUCTION', 'MIXING', 'MASTERING', 'VOCALS', 'INSTRUMENTAL', 'LIVE'].map(cat => (
             <button 
               key={cat} 
               onClick={() => setFilter(cat)}
-              className={`px-4 py-2 rounded-full text-xs font-bold tracking-wider transition-colors ${filter === cat ? 'bg-white text-black' : 'border border-white/10 text-gray-400 hover:text-white hover:border-white/30'}`}
+              className={`px-3.5 sm:px-4 py-2 rounded-full text-xs font-bold tracking-wider shrink-0 transition-colors ${filter === cat ? 'bg-white text-black' : 'border border-white/10 text-gray-400 hover:text-white hover:border-white/30'}`}
             >
               {cat}
             </button>
@@ -93,7 +93,7 @@ export function SoundPage({ setCurrentPage }: { setCurrentPage: (page: string) =
       </section>
 
       {/* 4 & 5. EDITORIAL ROWS */}
-      <section className="py-20 px-6 max-w-7xl mx-auto space-y-32">
+      <section className="py-12 sm:py-20 px-4 sm:px-6 max-w-7xl mx-auto space-y-16 sm:space-y-32">
         <EditorialRow index="01" track={MOCK_TRACKS[0]} desc="Dark textures, analog synths and cinematic rhythm." reverse={false} />
         <EditorialRow index="02" track={MOCK_TRACKS[1]} desc="Intimate vocals shaped with warmth and depth." reverse={true} />
         <EditorialRow index="03" track={MOCK_TRACKS[2]} desc="A live performance captured inside Studio A." reverse={false} />
@@ -119,11 +119,11 @@ export function SoundPage({ setCurrentPage }: { setCurrentPage: (page: string) =
       </section>
 
       {/* 8. EXPLORE BY GENRE */}
-      <section className="py-32 px-6 max-w-7xl mx-auto">
-        <h2 className="text-3xl font-bold text-white mb-10">Explore by Sound</h2>
-        <div className="flex flex-wrap gap-4">
+      <section className="py-16 sm:py-32 px-4 sm:px-6 max-w-7xl mx-auto">
+        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 sm:mb-10">Explore by Sound</h2>
+        <div className="flex flex-wrap gap-2.5 sm:gap-4">
           {['ROCK', 'JAZZ', 'HIP-HOP', 'ELECTRONIC', 'POP', 'R&B', 'SOUL', 'CINEMATIC', 'ACOUSTIC', 'INDIE'].map(genre => (
-            <button key={genre} className="px-8 py-6 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-accent-cyan transition-all text-xl font-bold text-white">
+            <button key={genre} className="px-4 sm:px-8 py-3 sm:py-6 rounded-xl sm:rounded-2xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-accent-cyan transition-all text-sm sm:text-xl font-bold text-white">
               {genre}
             </button>
           ))}
@@ -131,20 +131,20 @@ export function SoundPage({ setCurrentPage }: { setCurrentPage: (page: string) =
       </section>
 
       {/* 13. THE AURELIS SOUND */}
-      <section className="py-32 bg-[url('/hero_console_1787639145228.jpg')] bg-fixed bg-cover relative">
+      <section className="py-16 sm:py-32 bg-[url('/hero_console_1787639145228.jpg')] bg-fixed bg-cover relative">
         <div className="absolute inset-0 bg-[#05060A]/90"></div>
-        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-sm font-bold tracking-[0.2em] text-accent-cyan uppercase mb-4">The Brand</h2>
-          <h3 className="text-5xl font-bold text-white mb-6">WHAT DOES AURELIS SOUND LIKE?</h3>
-          <p className="text-xl text-gray-400 mb-20 max-w-3xl mx-auto">Warm where it matters. Detailed where it counts. Powerful without losing emotion.</p>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 text-center">
+          <h2 className="text-xs sm:text-sm font-bold tracking-[0.2em] text-accent-cyan uppercase mb-3 sm:mb-4">The Brand</h2>
+          <h3 className="text-3xl sm:text-5xl font-bold text-white mb-4 sm:mb-6">WHAT DOES AURELIS SOUND LIKE?</h3>
+          <p className="text-base sm:text-xl text-gray-400 mb-12 sm:mb-20 max-w-3xl mx-auto">Warm where it matters. Detailed where it counts. Powerful without losing emotion.</p>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/10 pt-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 border-t border-white/10 pt-12 sm:pt-16">
             {['WARMTH', 'DEPTH', 'CLARITY', 'CHARACTER'].map(trait => (
               <div key={trait} className="relative group">
                  <div className="absolute inset-0 flex items-center opacity-20 group-hover:opacity-50 transition-opacity">
                     <div className="w-full h-8 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxwYXRoIGQ9Ik0wIDUwIFEzMCAyMCA1MCA1MCBUNTAgNTAgVTEwMCA1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiLz48L3N2Zz4=')] bg-repeat-x"></div>
                  </div>
-                 <h4 className="text-2xl font-bold text-white relative z-10">{trait}</h4>
+                 <h4 className="text-lg sm:text-2xl font-bold text-white relative z-10">{trait}</h4>
               </div>
             ))}
           </div>
@@ -153,21 +153,21 @@ export function SoundPage({ setCurrentPage }: { setCurrentPage: (page: string) =
 
       {/* 14 & 16. RECENTLY PLAYED / FAVORITES */}
       {(favorites.length > 0 || recentlyPlayed.length > 0) && (
-        <section className="py-32 px-6 max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
+        <section className="py-16 sm:py-32 px-4 sm:px-6 max-w-7xl mx-auto grid md:grid-cols-2 gap-10 sm:gap-16">
           {favorites.length > 0 && (
             <div>
-              <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-2"><Heart className="text-accent-violet fill-accent-violet"/> MY SOUNDS</h3>
-              <div className="space-y-4">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8 flex items-center gap-2"><Heart className="text-accent-violet fill-accent-violet"/> MY SOUNDS</h3>
+              <div className="space-y-3 sm:space-y-4">
                 {favorites.map(track => (
-                  <div key={track.id} className="flex items-center justify-between group cursor-pointer hover:bg-white/5 p-4 rounded-xl transition-colors" onClick={() => playTrack(track)}>
-                    <div className="flex items-center gap-4 overflow-hidden">
-                      <img src={track.image} alt={track.title} className="w-12 h-12 rounded object-cover" />
-                      <div>
-                        <h4 className="text-white font-bold group-hover:text-accent-cyan transition-colors">{track.title}</h4>
-                        <p className="text-xs text-gray-400">{track.artist}</p>
+                  <div key={track.id} className="flex items-center justify-between group cursor-pointer hover:bg-white/5 p-3.5 sm:p-4 rounded-xl transition-colors" onClick={() => playTrack(track)}>
+                    <div className="flex items-center gap-3 sm:gap-4 overflow-hidden">
+                      <img src={track.image} alt={track.title} className="w-10 h-10 sm:w-12 sm:h-12 rounded object-cover shrink-0" />
+                      <div className="min-w-0 flex-1">
+                        <h4 className="text-white font-bold text-sm truncate group-hover:text-accent-cyan transition-colors">{track.title}</h4>
+                        <p className="text-xs text-gray-400 truncate">{track.artist}</p>
                       </div>
                     </div>
-                    <button onClick={(e) => { e.stopPropagation(); toggleFavorite(track); }} className="opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button onClick={(e) => { e.stopPropagation(); toggleFavorite(track); }} className="opacity-0 group-hover:opacity-100 transition-opacity p-2">
                       <Heart size={16} className="fill-accent-violet text-accent-violet" />
                     </button>
                   </div>
@@ -177,14 +177,14 @@ export function SoundPage({ setCurrentPage }: { setCurrentPage: (page: string) =
           )}
           {recentlyPlayed.length > 0 && (
             <div>
-              <h3 className="text-2xl font-bold text-white mb-8">RECENTLY HEARD</h3>
-              <div className="space-y-4">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8">RECENTLY HEARD</h3>
+              <div className="space-y-3 sm:space-y-4">
                 {recentlyPlayed.map(t => (
-                  <div key={t.id} className="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 transition-colors group cursor-pointer" onClick={() => playTrack(t)}>
-                    <img src={t.image} className="w-12 h-12 rounded object-cover" />
-                    <div>
-                      <h4 className="text-white font-bold group-hover:text-accent-cyan transition-colors">{t.title}</h4>
-                      <p className="text-xs text-gray-400">{t.artist}</p>
+                  <div key={t.id} className="flex items-center gap-3 sm:gap-4 p-3.5 sm:p-4 rounded-xl hover:bg-white/5 transition-colors group cursor-pointer" onClick={() => playTrack(t)}>
+                    <img src={t.image} className="w-10 h-10 sm:w-12 sm:h-12 rounded object-cover shrink-0" />
+                    <div className="min-w-0 flex-1">
+                      <h4 className="text-white font-bold text-sm truncate group-hover:text-accent-cyan transition-colors">{t.title}</h4>
+                      <p className="text-xs text-gray-400 truncate">{t.artist}</p>
                     </div>
                   </div>
                 ))}
@@ -195,14 +195,14 @@ export function SoundPage({ setCurrentPage }: { setCurrentPage: (page: string) =
       )}
 
       {/* 17. CTA */}
-      <section className="py-40 px-6 text-center relative">
-        <h2 className="text-5xl md:text-7xl font-extrabold mb-8 text-white">HEAR WHAT'S <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-violet to-accent-cyan">POSSIBLE.</span></h2>
-        <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">Your sound deserves more than a recording. It deserves a place to become something unforgettable.</p>
-        <div className="flex flex-col sm:flex-row gap-6 justify-center">
-          <button onClick={() => navigate('/book')} className="px-10 py-5 rounded-full bg-white text-black font-bold text-lg hover:bg-gray-200 transition-colors flex items-center justify-center gap-2">
+      <section className="py-24 sm:py-40 px-4 sm:px-6 text-center relative">
+        <h2 className="text-3xl sm:text-5xl md:text-7xl font-extrabold mb-6 sm:mb-8 text-white">HEAR WHAT'S <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-violet to-accent-cyan">POSSIBLE.</span></h2>
+        <p className="text-base sm:text-xl text-gray-400 mb-8 sm:mb-12 max-w-2xl mx-auto px-2">Your sound deserves more than a recording. It deserves a place to become something unforgettable.</p>
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center w-full sm:w-auto">
+          <button onClick={() => navigate('/book')} className="w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 rounded-full bg-white text-black font-bold text-base sm:text-lg hover:bg-gray-200 transition-colors flex items-center justify-center gap-2">
             BOOK A SESSION <ArrowRight size={20} />
           </button>
-          <button className="px-10 py-5 rounded-full border border-white/20 text-white font-bold text-lg hover:bg-white/5 transition-colors">
+          <button onClick={() => navigate('/services')} className="w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 rounded-full border border-white/20 text-white font-bold text-base sm:text-lg hover:bg-white/5 transition-colors">
             EXPLORE SERVICES
           </button>
         </div>
@@ -218,24 +218,24 @@ function EditorialRow({ index, track, desc, reverse }: { index: string, track: T
   const navigate = useNavigate();
   
   return (
-    <div className={`flex flex-col md:flex-row items-center gap-16 ${reverse ? 'md:flex-row-reverse' : ''}`}>
-      <div className="flex-1 w-full relative group overflow-hidden rounded-2xl">
+    <div className={`flex flex-col md:flex-row items-center gap-8 sm:gap-16 ${reverse ? 'md:flex-row-reverse' : ''}`}>
+      <div className="flex-1 w-full relative group overflow-hidden rounded-2xl max-w-md md:max-w-none mx-auto">
         <img src={track.image} alt={track.title} className="w-full aspect-square object-cover hover:scale-105 transition-transform duration-1000" />
       </div>
       
-      <div className="flex-1 w-full">
-        <span className="text-sm font-bold text-accent-violet font-mono mb-4 block">{index}</span>
-        <h3 className="text-4xl md:text-5xl font-bold text-white mb-4">{track.title}</h3>
-        <p className="text-xl text-gray-300 font-medium mb-4">{track.category}</p>
-        <p className="text-gray-400 mb-10 max-w-md">{desc}</p>
+      <div className="flex-1 w-full text-left">
+        <span className="text-xs sm:text-sm font-bold text-accent-violet font-mono mb-2 sm:mb-4 block">{index}</span>
+        <h3 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-2 sm:mb-4">{track.title}</h3>
+        <p className="text-base sm:text-xl text-gray-300 font-medium mb-3 sm:mb-4">{track.category}</p>
+        <p className="text-sm sm:text-base text-gray-400 mb-6 sm:mb-10 max-w-md">{desc}</p>
         
         {/* Row Player */}
-        <div className="flex items-center gap-6 mb-8">
+        <div className="flex items-center gap-4 sm:gap-6 mb-6 sm:mb-8">
           <button 
             onClick={() => playTrack(track)}
             className="text-white hover:text-accent-cyan transition-colors"
           >
-            {(currentTrack?.id === track.id && isPlaying) ? <Pause size={32} /> : <Play size={32} />}
+            {(currentTrack?.id === track.id && isPlaying) ? <Pause size={28} /> : <Play size={28} />}
           </button>
           <div className="flex-1 h-8 flex items-center">
              {/* Abstract waveform visual */}
@@ -245,14 +245,14 @@ function EditorialRow({ index, track, desc, reverse }: { index: string, track: T
                )}
              </div>
           </div>
-          <span className="text-sm font-mono text-gray-400">{track.durationStr}</span>
+          <span className="text-xs sm:text-sm font-mono text-gray-400">{track.durationStr}</span>
         </div>
         
-        <div className="flex gap-4">
-          <button onClick={() => playTrack(track)} className="font-bold text-white tracking-widest text-sm hover:text-accent-cyan transition-colors flex items-center gap-2">
+        <div className="flex flex-wrap gap-4 sm:gap-6 items-center">
+          <button onClick={() => playTrack(track)} className="font-bold text-white tracking-widest text-xs sm:text-sm hover:text-accent-cyan transition-colors flex items-center gap-2">
             ▶ PLAY
           </button>
-          <button onClick={() => navigate('/projects')} className="font-bold text-gray-500 tracking-widest text-sm hover:text-white transition-colors flex items-center gap-2 ml-6">
+          <button onClick={() => navigate('/projects')} className="font-bold text-gray-500 tracking-widest text-xs sm:text-sm hover:text-white transition-colors flex items-center gap-2">
             VIEW PROJECT <ArrowRight size={16} />
           </button>
         </div>

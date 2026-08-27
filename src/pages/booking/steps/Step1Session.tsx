@@ -40,7 +40,7 @@ export function Step1Session({ state, updateState, onNext }: Props) {
           <p className="text-muted-text">Select the space that best fits your project.</p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {ROOMS.map((room) => {
             const isSelected = state.room === room.id;
             return (
@@ -86,7 +86,7 @@ export function Step1Session({ state, updateState, onNext }: Props) {
           <p className="text-muted-text">Select the type of session you need to get started.</p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {SESSION_TYPES.map((session) => {
             const isSelected = state.sessionType === session.id;
             return (

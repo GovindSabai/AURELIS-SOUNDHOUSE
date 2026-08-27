@@ -12,37 +12,37 @@ export function ContactPage() {
   };
 
   return (
-    <div className="pt-24 min-h-screen bg-background flex flex-col">
-      <section className={`px-6 lg:px-12 max-w-[1400px] mx-auto py-20 w-full animate-fade-in-up ${isSubmitted ? 'flex-grow flex items-center justify-center min-h-[60vh]' : ''}`}>
+    <div className="pt-20 sm:pt-24 min-h-screen bg-background flex flex-col pb-24">
+      <section className={`px-4 sm:px-6 lg:px-12 max-w-[1400px] mx-auto py-12 sm:py-20 w-full animate-fade-in-up ${isSubmitted ? 'flex-grow flex items-center justify-center min-h-[60vh]' : ''}`}>
         
         {isSubmitted ? (
-          <div className="flex flex-col items-center justify-center text-center max-w-2xl mx-auto w-full animate-fade-in">
-            <div className="w-24 h-24 rounded-full bg-champagne-gold/10 flex items-center justify-center mb-8 border border-champagne-gold/20">
-              <Mail size={40} className="text-champagne-gold" />
+          <div className="flex flex-col items-center justify-center text-center max-w-2xl mx-auto w-full animate-fade-in px-4">
+            <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-champagne-gold/10 flex items-center justify-center mb-6 sm:mb-8 border border-champagne-gold/20">
+              <Mail size={36} className="text-champagne-gold" />
             </div>
-            <h1 className="text-4xl md:text-6xl font-serif text-white mb-6">Message Received</h1>
-            <p className="text-muted-text mb-12 text-lg leading-relaxed">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-serif text-white mb-4 sm:mb-6">Message Received</h1>
+            <p className="text-muted-text mb-8 sm:mb-12 text-base sm:text-lg leading-relaxed">
               Thank you! Your inquiry has been successfully sent. Our team will review your project details and get back to you shortly.
             </p>
-            <Link to="/" className="bg-champagne-gold text-background font-bold uppercase tracking-widest text-sm px-10 py-4 rounded-lg hover:bg-white transition-colors">
+            <Link to="/" className="bg-champagne-gold text-background font-bold uppercase tracking-widest text-xs sm:text-sm px-8 sm:px-10 py-3.5 sm:py-4 rounded-lg hover:bg-white transition-colors">
               Back to Home
             </Link>
           </div>
         ) : (
           <>
-            <div className="text-center mb-16">
-              <h4 className="text-champagne-gold tracking-[0.3em] uppercase text-xs font-bold mb-6">Get in Touch</h4>
-              <h1 className="text-5xl md:text-7xl font-serif text-white mb-6 leading-tight">
+            <div className="text-center mb-12 sm:mb-16 px-2">
+              <h4 className="text-champagne-gold tracking-[0.3em] uppercase text-xs font-bold mb-4 sm:mb-6">Get in Touch</h4>
+              <h1 className="text-3xl sm:text-5xl md:text-7xl font-serif text-white mb-4 sm:mb-6 leading-tight">
                 LET'S TALK <br/>
                 <span className="text-muted-text italic">PROJECTS.</span>
               </h1>
-              <p className="text-muted-text max-w-xl mx-auto">
+              <p className="text-muted-text text-sm sm:text-base max-w-xl mx-auto">
                 Ready to elevate your sound? Whether you're looking for production, mixing, or a full live recording session, we're here to help you bring your vision to life.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-16 lg:gap-24 items-start">
-              <div className="space-y-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-16 lg:gap-24 items-start">
+              <div className="space-y-6 sm:space-y-8">
                 <div className="flex items-start gap-4 group cursor-text">
                   <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center shrink-0">
                     <MapPin size={20} className="text-champagne-gold" />
@@ -59,7 +59,7 @@ export function ContactPage() {
                   </div>
                   <div>
                     <h5 className="font-bold text-white mb-1 group-hover:text-champagne-gold transition-colors">Email</h5>
-                    <p className="text-muted-text text-sm group-hover:text-white transition-colors">hello@aurelissoundhouse.com</p>
+                    <p className="text-muted-text text-sm group-hover:text-white transition-colors break-all">hello@aurelissoundhouse.com</p>
                   </div>
                 </a>
                 
@@ -74,21 +74,21 @@ export function ContactPage() {
                 </a>
               </div>
               
-              <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-8 lg:p-12 relative">
-                <h3 className="text-2xl font-serif text-white mb-8">Send a Message</h3>
+              <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-5 sm:p-8 lg:p-12 relative">
+                <h3 className="text-xl sm:text-2xl font-serif text-white mb-6 sm:mb-8">Send a Message</h3>
                 
-                <form className="space-y-6" onSubmit={handleSubmit}>
+                <form className="space-y-4 sm:space-y-6" onSubmit={handleSubmit}>
                   <div>
                     <label className="block text-xs font-bold tracking-widest uppercase text-muted-text mb-2">Name</label>
-                    <input type="text" required className="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-4 text-white focus:outline-none focus:border-champagne-gold transition-colors" placeholder="John Doe" />
+                    <input type="text" required className="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-3.5 sm:py-4 text-white focus:outline-none focus:border-champagne-gold transition-colors text-sm sm:text-base" placeholder="John Doe" />
                   </div>
                   <div>
                     <label className="block text-xs font-bold tracking-widest uppercase text-muted-text mb-2">Email</label>
-                    <input type="email" required className="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-4 text-white focus:outline-none focus:border-champagne-gold transition-colors" placeholder="john@example.com" />
+                    <input type="email" required className="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-3.5 sm:py-4 text-white focus:outline-none focus:border-champagne-gold transition-colors text-sm sm:text-base" placeholder="john@example.com" />
                   </div>
                   <div>
                     <label className="block text-xs font-bold tracking-widest uppercase text-muted-text mb-2">Project Type</label>
-                    <select className="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-4 text-white focus:outline-none focus:border-champagne-gold transition-colors appearance-none">
+                    <select className="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-3.5 sm:py-4 text-white focus:outline-none focus:border-champagne-gold transition-colors appearance-none text-sm sm:text-base">
                       <option className="bg-background">Recording</option>
                       <option className="bg-background">Mixing</option>
                       <option className="bg-background">Mastering</option>
@@ -98,10 +98,10 @@ export function ContactPage() {
                   </div>
                   <div>
                     <label className="block text-xs font-bold tracking-widest uppercase text-muted-text mb-2">Message</label>
-                    <textarea required rows={4} className="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-4 text-white focus:outline-none focus:border-champagne-gold transition-colors resize-none" placeholder="Tell us about your project..."></textarea>
+                    <textarea required rows={4} className="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-3.5 sm:py-4 text-white focus:outline-none focus:border-champagne-gold transition-colors text-sm sm:text-base resize-none" placeholder="Tell us about your project..."></textarea>
                   </div>
-                  <button type="submit" className="w-full bg-champagne-gold text-background font-bold uppercase tracking-widest text-sm py-4 rounded-lg hover:bg-white transition-colors mt-4">
-                    Submit Request
+                  <button type="submit" className="w-full bg-champagne-gold text-background font-bold tracking-widest uppercase text-xs sm:text-sm py-4 sm:py-5 rounded-lg hover:bg-white transition-colors">
+                    Send Inquiry
                   </button>
                 </form>
               </div>

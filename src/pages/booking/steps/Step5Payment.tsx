@@ -45,19 +45,19 @@ export function Step5Payment({ state, onNext, onBack }: Props) {
 
   return (
     <div className="animate-fade-in-up">
-      <div className="text-center mb-10">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Secure Checkout</h2>
-        <p className="text-muted-text">Complete your booking using a credit or debit card.</p>
+      <div className="text-center mb-6 sm:mb-10 px-2">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 sm:mb-4">Secure Checkout</h2>
+        <p className="text-sm sm:text-base text-muted-text">Complete your booking using a credit or debit card.</p>
       </div>
 
-      <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-8">
+      <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-6 sm:gap-8">
         
         {/* Payment Form */}
         <div className="flex-1">
-          <div className="p-6 rounded-2xl bg-black/30 border border-white/10 space-y-6">
-            <div className="flex items-center gap-3 border-b border-white/10 pb-4">
-              <CreditCard size={24} className="text-champagne-gold" />
-              <h3 className="text-xl font-bold text-white">Payment Details</h3>
+          <div className="p-4 sm:p-6 rounded-2xl bg-black/30 border border-white/10 space-y-4 sm:space-y-6">
+            <div className="flex items-center gap-3 border-b border-white/10 pb-3 sm:pb-4">
+              <CreditCard size={22} className="text-champagne-gold" />
+              <h3 className="text-lg sm:text-xl font-bold text-white">Payment Details</h3>
             </div>
 
             <div className="space-y-4">

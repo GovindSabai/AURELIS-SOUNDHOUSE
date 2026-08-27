@@ -2,8 +2,8 @@ import React from 'react';
 
 export function PrivacyPage() {
   return (
-    <div className="pt-32 pb-20 px-6 max-w-4xl mx-auto min-h-screen">
-      <h1 className="text-4xl font-bold text-white mb-8">Privacy Policy</h1>
+    <div className="pt-24 sm:pt-32 pb-24 px-4 sm:px-6 max-w-4xl mx-auto min-h-screen">
+      <h1 className="text-3xl sm:text-4xl font-bold text-white mb-6 sm:mb-8">Privacy Policy</h1>
       <div className="text-gray-400 space-y-6 leading-relaxed">
         <p>Last updated: August 27, 2026</p>
         <p>At AURELIS SOUNDHOUSE, we respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website.</p>

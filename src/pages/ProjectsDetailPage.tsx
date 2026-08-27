@@ -197,17 +197,17 @@ export function ProjectsDetailPage() {
   return (
     <div className="bg-background min-h-screen">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-24 px-6 lg:px-12 max-w-[1400px] mx-auto min-h-[80vh] flex flex-col">
-        <div className="mb-12">
+      <section className="relative pt-24 sm:pt-32 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-12 max-w-[1400px] mx-auto min-h-[70vh] sm:min-h-[80vh] flex flex-col">
+        <div className="mb-8 sm:mb-12">
           <Link to="/projects" className="inline-flex items-center text-xs font-bold uppercase tracking-widest text-muted-text hover:text-champagne-gold transition-colors group">
             <ArrowLeft size={16} className="mr-2 transform group-hover:-translate-x-1 transition-transform" />
             Back to Projects
           </Link>
         </div>
         
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center flex-grow">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-24 items-center flex-grow">
           <div className="animate-fade-in-up">
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-3 mb-4 sm:mb-6">
               <span className="px-3 py-1 border border-champagne-gold/50 text-champagne-gold text-xs font-bold tracking-widest uppercase rounded-sm">
                 Project
               </span>
@@ -216,19 +216,19 @@ export function ProjectsDetailPage() {
               </span>
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-serif text-white mb-6 leading-tight">{project.title}</h1>
-            <p className="text-xl text-muted-text mb-8">by <span className="text-white">{project.artist}</span> &middot; {project.year}</p>
+            <h1 className="text-3xl sm:text-5xl md:text-7xl font-serif text-white mb-4 sm:mb-6 leading-tight">{project.title}</h1>
+            <p className="text-lg sm:text-xl text-muted-text mb-6 sm:mb-8">by <span className="text-white">{project.artist}</span> &middot; {project.year}</p>
             
             <div className="flex flex-wrap gap-2">
               {project.services.map(service => (
-                <span key={service} className="text-xs text-primary-text border border-white/10 px-4 py-2 rounded-full backdrop-blur-sm">
+                <span key={service} className="text-xs text-primary-text border border-white/10 px-3.5 py-1.5 rounded-full backdrop-blur-sm">
                   {service}
                 </span>
               ))}
             </div>
           </div>
           
-          <div className="relative aspect-[4/5] rounded-2xl overflow-hidden animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+          <div className="relative aspect-[4/5] rounded-2xl overflow-hidden animate-fade-in-up max-w-md mx-auto lg:max-w-none w-full" style={{ animationDelay: '0.2s' }}>
             <img 
               src={project.image} 
               alt={project.title} 
@@ -240,20 +240,20 @@ export function ProjectsDetailPage() {
       </section>
 
       {/* Narrative & Services */}
-      <section className="py-24 px-6 lg:px-12 max-w-[1400px] mx-auto border-t border-white/5">
-        <div className="grid md:grid-cols-2 gap-16 lg:gap-32">
+      <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 max-w-[1400px] mx-auto border-t border-white/5">
+        <div className="grid md:grid-cols-2 gap-10 sm:gap-16 lg:gap-32">
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-[0.3em] text-muted-text mb-8">The Project</h3>
-            <p className="text-xl leading-relaxed text-white font-serif">{project.description}</p>
+            <h3 className="text-xs sm:text-sm font-bold uppercase tracking-[0.3em] text-muted-text mb-6 sm:mb-8">The Project</h3>
+            <p className="text-lg sm:text-xl leading-relaxed text-white font-serif">{project.description}</p>
           </div>
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-[0.3em] text-muted-text mb-8">What We Did</h3>
-            <ul className="space-y-4">
+            <h3 className="text-xs sm:text-sm font-bold uppercase tracking-[0.3em] text-muted-text mb-6 sm:mb-8">What We Did</h3>
+            <ul className="space-y-3 sm:space-y-4">
               {project.services.map((service, idx) => (
-                <li key={service} className="flex items-baseline gap-4 group">
+                <li key={service} className="flex items-baseline gap-3 sm:gap-4 group">
                   <span className="text-xs font-mono text-champagne-gold">0{idx + 1}</span>
                   {/* Graceful degradation: Services route exists globally as /services */}
-                  <Link to="/services" className="text-2xl font-serif text-white hover:text-champagne-gold transition-colors">
+                  <Link to="/services" className="text-xl sm:text-2xl font-serif text-white hover:text-champagne-gold transition-colors">
                     {service}
                   </Link>
                 </li>
@@ -264,35 +264,35 @@ export function ProjectsDetailPage() {
       </section>
 
       {/* Production Journey */}
-      <section className="py-24 px-6 lg:px-12 max-w-[1400px] mx-auto border-t border-white/5">
+      <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 max-w-[1400px] mx-auto border-t border-white/5">
         <ProductionJourney />
       </section>
 
       {/* Audio Preview */}
-      <section className="py-32 bg-background-secondary/50 border-y border-white/5">
-        <div className="px-6 lg:px-12 max-w-[1400px] mx-auto text-center">
-          <h3 className="text-sm font-bold uppercase tracking-[0.3em] text-muted-text mb-12">Listen to the Work</h3>
+      <section className="py-20 sm:py-32 bg-background-secondary/50 border-y border-white/5">
+        <div className="px-4 sm:px-6 lg:px-12 max-w-[1400px] mx-auto text-center">
+          <h3 className="text-xs sm:text-sm font-bold uppercase tracking-[0.3em] text-muted-text mb-8 sm:mb-12">Listen to the Work</h3>
           
-          <div className="max-w-2xl mx-auto bg-background p-8 rounded-2xl border border-white/10 flex items-center gap-6">
+          <div className="max-w-2xl mx-auto bg-background p-4 sm:p-8 rounded-2xl border border-white/10 flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
             <button 
               onClick={() => project.audio?.url ? setIsPlaying(!isPlaying) : null}
               disabled={!project.audio?.url}
-              className={`w-16 h-16 shrink-0 rounded-full flex items-center justify-center transition-colors ${
+              className={`w-14 h-14 sm:w-16 sm:h-16 shrink-0 rounded-full flex items-center justify-center transition-colors ${
                 project.audio?.url 
                   ? 'bg-champagne-gold text-background hover:scale-105' 
                   : 'bg-white/5 text-white/20 cursor-not-allowed'
               }`}
             >
-              {isPlaying ? <Pause size={24} /> : <Play size={24} className="ml-1" />}
+              {isPlaying ? <Pause size={20} className="sm:w-6 sm:h-6" /> : <Play size={20} className="sm:w-6 sm:h-6 ml-1" />}
             </button>
             
-            <div className="flex-grow text-left">
-              <h4 className="text-lg font-bold text-white">{project.audio?.title || 'Preview Unavailable'}</h4>
-              <p className="text-sm text-muted-text">{project.artist}</p>
+            <div className="flex-grow w-full text-center sm:text-left">
+              <h4 className="text-base sm:text-lg font-bold text-white truncate">{project.audio?.title || 'Preview Unavailable'}</h4>
+              <p className="text-xs sm:text-sm text-muted-text">{project.artist}</p>
               
-              <div className="mt-4 w-full h-8 flex items-center gap-1 opacity-50">
+              <div className="mt-3 sm:mt-4 w-full h-6 sm:h-8 flex items-center gap-0.5 sm:gap-1 opacity-50">
                 {/* Mock Waveform */}
-                {Array.from({length: 40}).map(() => Math.max(10, Math.random() * 100)).map((h, i) => (
+                {Array.from({length: 30}).map(() => Math.max(10, Math.random() * 100)).map((h, i) => (
                   <div 
                     key={i} 
                     className={`flex-grow bg-champagne-gold rounded-full ${isPlaying ? 'animate-pulse' : ''}`} 
@@ -314,9 +314,9 @@ export function ProjectsDetailPage() {
       </section>
 
       {/* Gallery */}
-      <section className="py-32 px-6 lg:px-12 max-w-[1400px] mx-auto">
-        <h3 className="text-sm font-bold uppercase tracking-[0.3em] text-muted-text mb-12">Behind the Record</h3>
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+      <section className="py-20 sm:py-32 px-4 sm:px-6 lg:px-12 max-w-[1400px] mx-auto">
+        <h3 className="text-xs sm:text-sm font-bold uppercase tracking-[0.3em] text-muted-text mb-8 sm:mb-12">Behind the Record</h3>
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 sm:gap-6 space-y-4 sm:space-y-6">
           {project.gallery.map((img, idx) => (
             <div 
               key={idx} 
@@ -346,14 +346,14 @@ export function ProjectsDetailPage() {
       />
 
       {/* Details & Credits */}
-      <section className="py-32 px-6 lg:px-12 max-w-[1400px] mx-auto border-t border-white/5">
-        <div className="grid md:grid-cols-3 gap-16">
+      <section className="py-20 sm:py-32 px-4 sm:px-6 lg:px-12 max-w-[1400px] mx-auto border-t border-white/5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 sm:gap-16">
           {/* Equipment */}
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-[0.3em] text-muted-text mb-8">Tools Behind the Record</h3>
-            <ul className="space-y-4 mb-8">
+            <h3 className="text-xs sm:text-sm font-bold uppercase tracking-[0.3em] text-muted-text mb-6 sm:mb-8">Tools Behind the Record</h3>
+            <ul className="space-y-3 sm:space-y-4 mb-8">
               {project.equipment.map(eq => (
-                <li key={eq} className="text-white border-b border-white/5 pb-4">{eq}</li>
+                <li key={eq} className="text-white text-sm sm:text-base border-b border-white/5 pb-3 sm:pb-4">{eq}</li>
               ))}
             </ul>
             <Link to="/equipment" className="text-xs font-bold tracking-widest uppercase text-champagne-gold hover:text-white transition-colors flex items-center gap-2">
@@ -363,25 +363,25 @@ export function ProjectsDetailPage() {
 
           {/* Credits */}
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-[0.3em] text-muted-text mb-8">Credits</h3>
-            <dl className="space-y-4">
-              <div className="flex justify-between border-b border-white/5 pb-4">
+            <h3 className="text-xs sm:text-sm font-bold uppercase tracking-[0.3em] text-muted-text mb-6 sm:mb-8">Credits</h3>
+            <dl className="space-y-3 sm:space-y-4 text-sm sm:text-base">
+              <div className="flex justify-between border-b border-white/5 pb-3 sm:pb-4">
                 <dt className="text-muted-text">Producer</dt>
                 <dd className="text-white text-right">{project.credits.producer}</dd>
               </div>
-              <div className="flex justify-between border-b border-white/5 pb-4">
+              <div className="flex justify-between border-b border-white/5 pb-3 sm:pb-4">
                 <dt className="text-muted-text">Engineer</dt>
                 <dd className="text-white text-right">{project.credits.engineer}</dd>
               </div>
-              <div className="flex justify-between border-b border-white/5 pb-4">
+              <div className="flex justify-between border-b border-white/5 pb-3 sm:pb-4">
                 <dt className="text-muted-text">Mix</dt>
                 <dd className="text-white text-right">{project.credits.mix}</dd>
               </div>
-              <div className="flex justify-between border-b border-white/5 pb-4">
+              <div className="flex justify-between border-b border-white/5 pb-3 sm:pb-4">
                 <dt className="text-muted-text">Mastering</dt>
                 <dd className="text-white text-right">{project.credits.mastering}</dd>
               </div>
-              <div className="flex justify-between border-b border-white/5 pb-4">
+              <div className="flex justify-between border-b border-white/5 pb-3 sm:pb-4">
                 <dt className="text-muted-text">Recorded At</dt>
                 <dd className="text-white text-right">{project.credits.recordedAt}</dd>
               </div>
@@ -390,13 +390,13 @@ export function ProjectsDetailPage() {
 
           {/* Artist Connections */}
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-[0.3em] text-muted-text mb-8">The Artist</h3>
-            <div className="bg-background-secondary p-6 rounded-2xl border border-white/5 text-center">
-              <div className="w-24 h-24 rounded-full bg-white/10 mx-auto mb-4 overflow-hidden">
+            <h3 className="text-xs sm:text-sm font-bold uppercase tracking-[0.3em] text-muted-text mb-6 sm:mb-8">The Artist</h3>
+            <div className="bg-background-secondary p-6 rounded-2xl border border-white/5 text-center max-w-sm mx-auto md:max-w-none">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-white/10 mx-auto mb-4 overflow-hidden">
                 <img src={`https://picsum.photos/seed/${project.slug}-artist/200/200`} alt={project.artist} className="w-full h-full object-cover" />
               </div>
-              <h4 className="text-xl font-bold text-white mb-1">{project.artist}</h4>
-              <p className="text-sm text-champagne-gold mb-6">{project.genre}</p>
+              <h4 className="text-lg sm:text-xl font-bold text-white mb-1">{project.artist}</h4>
+              <p className="text-xs sm:text-sm text-champagne-gold mb-6">{project.genre}</p>
               <Link to="/artists" className="inline-block px-6 py-2 border border-white/20 rounded-full text-xs font-bold uppercase tracking-widest text-white hover:bg-white/10 transition-colors">
                 View Artist
               </Link>
@@ -406,10 +406,10 @@ export function ProjectsDetailPage() {
       </section>
 
       {/* Related Projects */}
-      <section className="py-24 bg-background-secondary/30 border-t border-white/5">
-        <div className="px-6 lg:px-12 max-w-[1400px] mx-auto">
-          <h3 className="text-sm font-bold uppercase tracking-[0.3em] text-muted-text mb-12">More from Aurelis</h3>
-          <div className="grid md:grid-cols-3 gap-8">
+      <section className="py-16 sm:py-24 bg-background-secondary/30 border-t border-white/5">
+        <div className="px-4 sm:px-6 lg:px-12 max-w-[1400px] mx-auto">
+          <h3 className="text-xs sm:text-sm font-bold uppercase tracking-[0.3em] text-muted-text mb-8 sm:mb-12">More from Aurelis</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             {relatedProjects.map(p => (
               <ProjectCard key={p.id} project={p} />
             ))}
@@ -418,20 +418,20 @@ export function ProjectsDetailPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="relative py-32 overflow-hidden flex items-center justify-center text-center">
+      <section className="relative py-24 sm:py-32 overflow-hidden flex items-center justify-center text-center">
         <div className="absolute inset-0 z-0">
           <img src="https://picsum.photos/seed/cta-studio/2000/1000" alt="Studio Console" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-background/90" />
         </div>
         
-        <div className="relative z-10 px-6 max-w-3xl mx-auto">
-          <h2 className="text-4xl md:text-6xl font-serif text-white mb-6">Ready to make your next record?</h2>
-          <p className="text-lg text-muted-text mb-10 max-w-xl mx-auto">Bring your vision to life with world-class acoustics, legendary analog gear, and experienced engineers.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/book" className="px-8 py-4 bg-champagne-gold text-background font-bold uppercase tracking-widest rounded-sm hover:scale-105 transition-transform">
+        <div className="relative z-10 px-4 sm:px-6 max-w-3xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-serif text-white mb-4 sm:mb-6">Ready to make your next record?</h2>
+          <p className="text-base sm:text-lg text-muted-text mb-8 sm:mb-10 max-w-xl mx-auto">Bring your vision to life with world-class acoustics, legendary analog gear, and experienced engineers.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto">
+            <Link to="/book" className="px-8 py-4 bg-champagne-gold text-background font-bold uppercase tracking-widest text-xs sm:text-sm rounded-sm hover:scale-105 transition-transform">
               Book a Session
             </Link>
-            <Link to="/studio" className="px-8 py-4 border border-white/20 text-white font-bold uppercase tracking-widest rounded-sm hover:bg-white/5 transition-colors">
+            <Link to="/studio" className="px-8 py-4 border border-white/20 text-white font-bold uppercase tracking-widest text-xs sm:text-sm rounded-sm hover:bg-white/5 transition-colors">
               Explore the Studio
             </Link>
           </div>
