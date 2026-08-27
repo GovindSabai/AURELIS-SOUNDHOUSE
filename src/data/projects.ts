@@ -51,7 +51,7 @@ export const PROJECTS: Project[] = [
     audio: {
       title: "Midnight Afterglow (Lead Single)",
       artist: "Nova Ray",
-      url: "",
+      url: "/audio/audiocoffee-motivational-sport-rock-no-copyright-music-578087.mp3",
       duration: "03:45"
     },
     gallery: [
@@ -109,7 +109,7 @@ export const PROJECTS: Project[] = [
     audio: {
       title: "Tomorrow's Vibe",
       artist: "Kairo",
-      url: "",
+      url: "/audio/prettyjohn1-lofi-lofi-music-587176.mp3",
       duration: "02:50"
     },
     gallery: [
@@ -167,7 +167,7 @@ export const PROJECTS: Project[] = [
     audio: {
       title: "Tidal Wave",
       artist: "Crimson Tide",
-      url: "",
+      url: "/audio/prettyjohn1-lofi-lofi-music-587176.mp3",
       duration: "04:12"
     },
     gallery: [
@@ -249,7 +249,7 @@ export const PROJECTS: Project[] = [
     audio: {
       title: "Sky High",
       artist: "Ryan Miller",
-      url: "",
+      url: "/audio/joyinsound-no-copyright-chill-music-403411.mp3",
       duration: "03:15"
     },
     gallery: [
@@ -356,7 +356,7 @@ export const PROJECTS: Project[] = [
     audio: {
       title: "Stripped Back (Medley)",
       artist: "Lyra Anderson",
-      url: "",
+      url: "/audio/ncprime-non-copyright-music-cinematic-290418.mp3",
       duration: "05:22"
     },
     gallery: [

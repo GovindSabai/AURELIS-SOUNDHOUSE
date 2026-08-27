@@ -4,22 +4,22 @@ import { useAudio } from '../context/AudioContext';
 
 // Mock Data (Expanded)
 const MOCK_PACKS = [
-  { id: 'p1', title: 'Lo-Fi Textures', genre: 'Lo-Fi', mood: 'Chill', bpm: 85, key: 'Am', type: 'Loops', image: '/pack_cover_1_1787640848563.jpg', durationStr: '0:15', durationSec: 15 },
-  { id: 'p2', title: 'Cinematic Drones', genre: 'Cinematic', mood: 'Dark', bpm: 60, key: 'Dm', type: 'Full Stems', image: '/pack_cover_2_1787640975758.jpg', durationStr: '0:45', durationSec: 45 },
-  { id: 'p3', title: 'Neon Synths', genre: 'Electronic', mood: 'Energetic', bpm: 124, key: 'Cm', type: 'Loops', image: '/project_cover_1_1787639273921.jpg', durationStr: '0:08', durationSec: 8 },
-  { id: 'p4', title: 'Midnight Drive', genre: 'Electronic', mood: 'Dark', bpm: 110, key: 'Gm', type: 'One-Shots', image: '/project_cover_2_1787639325831.jpg', durationStr: '0:02', durationSec: 2 },
-  { id: 'p5', title: 'Acoustic Soul', genre: 'R&B', mood: 'Uplifting', bpm: 90, key: 'Fmaj', type: 'Loops', image: '/sound_card_synth_1787634384820.jpg', durationStr: '0:12', durationSec: 12 },
-  { id: 'p6', title: 'Cyber Drums', genre: 'Hip-Hop', mood: 'Aggressive', bpm: 140, key: 'Em', type: 'Loops', image: '/sound_card_drums_1787634368168.jpg', durationStr: '0:10', durationSec: 10 },
-  { id: 'p7', title: 'Cosmic Keys', genre: 'Ambient', mood: 'Dreamy', bpm: 75, key: 'Cmaj', type: 'Loops', image: '/pack_cover_1_1787640848563.jpg', durationStr: '0:20', durationSec: 20 },
-  { id: 'p8', title: 'Trap God', genre: 'Hip-Hop', mood: 'Dark', bpm: 150, key: 'Fm', type: 'Full Stems', image: '/sound_card_drums_1787634368168.jpg', durationStr: '0:30', durationSec: 30 },
-  { id: 'p9', title: 'House Anthems', genre: 'Electronic', mood: 'Uplifting', bpm: 128, key: 'Am', type: 'Loops', image: '/project_cover_1_1787639273921.jpg', durationStr: '0:16', durationSec: 16 },
-  { id: 'p10', title: 'Jazz Nights', genre: 'Lo-Fi', mood: 'Chill', bpm: 80, key: 'Bb', type: 'One-Shots', image: '/pack_cover_2_1787640975758.jpg', durationStr: '0:05', durationSec: 5 },
-  { id: 'p11', title: 'Epic Trailer', genre: 'Cinematic', mood: 'Aggressive', bpm: 90, key: 'Dm', type: 'Full Stems', image: '/project_cover_2_1787639325831.jpg', durationStr: '1:00', durationSec: 60 },
-  { id: 'p12', title: 'R&B Vocals', genre: 'R&B', mood: 'Chill', bpm: 95, key: 'Gm', type: 'Vocals', image: '/sound_card_synth_1787634384820.jpg', durationStr: '0:12', durationSec: 12 },
-  { id: 'p13', title: 'Synthwave 84', genre: 'Electronic', mood: 'Energetic', bpm: 115, key: 'Cm', type: 'Loops', image: '/pack_cover_1_1787640848563.jpg', durationStr: '0:18', durationSec: 18 },
-  { id: 'p14', title: 'Dark Drill', genre: 'Hip-Hop', mood: 'Dark', bpm: 142, key: 'Ebm', type: 'Loops', image: '/sound_card_drums_1787634368168.jpg', durationStr: '0:24', durationSec: 24 },
-  { id: 'p15', title: 'Ambient Scapes', genre: 'Ambient', mood: 'Chill', bpm: 70, key: 'Fmaj', type: 'Loops', image: '/pack_cover_2_1787640975758.jpg', durationStr: '0:35', durationSec: 35 },
-  { id: 'p16', title: 'Pop Hooks', genre: 'Electronic', mood: 'Uplifting', bpm: 120, key: 'Cmaj', type: 'Vocals', image: '/project_cover_1_1787639273921.jpg', durationStr: '0:14', durationSec: 14 },
+  { id: 'p1', title: 'Lo-Fi Textures', genre: 'Lo-Fi', mood: 'Chill', bpm: 85, key: 'Am', type: 'Loops', image: '/pack_cover_1_1787640848563.jpg', durationStr: '0:15', durationSec: 15, audioUrl: '/audio/alex-morgan-no-copyright-music-528321.mp3' },
+  { id: 'p2', title: 'Cinematic Drones', genre: 'Cinematic', mood: 'Dark', bpm: 60, key: 'Dm', type: 'Full Stems', image: '/pack_cover_2_1787640975758.jpg', durationStr: '0:45', durationSec: 45, audioUrl: '/audio/alex-morgan-no-copyright-music-578487.mp3' },
+  { id: 'p3', title: 'Neon Synths', genre: 'Electronic', mood: 'Energetic', bpm: 124, key: 'Cm', type: 'Loops', image: '/project_cover_1_1787639273921.jpg', durationStr: '0:08', durationSec: 8, audioUrl: '/audio/sigmamusicart-no-copyright-music-537751.mp3' },
+  { id: 'p4', title: 'Midnight Drive', genre: 'Electronic', mood: 'Dark', bpm: 110, key: 'Gm', type: 'One-Shots', image: '/project_cover_2_1787639325831.jpg', durationStr: '0:02', durationSec: 2, audioUrl: '/audio/sigmamusicart-no-copyright-music-537751.mp3' },
+  { id: 'p5', title: 'Acoustic Soul', genre: 'R&B', mood: 'Uplifting', bpm: 90, key: 'Fmaj', type: 'Loops', image: '/sound_card_synth_1787634384820.jpg', durationStr: '0:12', durationSec: 12, audioUrl: '/audio/joyinsound-no-copyright-chill-music-403411.mp3' },
+  { id: 'p6', title: 'Cyber Drums', genre: 'Hip-Hop', mood: 'Aggressive', bpm: 140, key: 'Em', type: 'Loops', image: '/sound_card_drums_1787634368168.jpg', durationStr: '0:10', durationSec: 10, audioUrl: '/audio/prettyjohn1-lofi-lofi-music-587176.mp3' },
+  { id: 'p7', title: 'Cosmic Keys', genre: 'Ambient', mood: 'Dreamy', bpm: 75, key: 'Cmaj', type: 'Loops', image: '/pack_cover_1_1787640848563.jpg', durationStr: '0:20', durationSec: 20, audioUrl: '/audio/ncprime-non-copyright-music-cinematic-290418.mp3' },
+  { id: 'p8', title: 'Trap God', genre: 'Hip-Hop', mood: 'Dark', bpm: 150, key: 'Fm', type: 'Full Stems', image: '/sound_card_drums_1787634368168.jpg', durationStr: '0:30', durationSec: 30, audioUrl: '/audio/joyinsound-no-copyright-chill-music-403411.mp3' },
+  { id: 'p9', title: 'House Anthems', genre: 'Electronic', mood: 'Uplifting', bpm: 128, key: 'Am', type: 'Loops', image: '/project_cover_1_1787639273921.jpg', durationStr: '0:16', durationSec: 16, audioUrl: '/audio/moodmode-no-copyright-music-201745.mp3' },
+  { id: 'p10', title: 'Jazz Nights', genre: 'Lo-Fi', mood: 'Chill', bpm: 80, key: 'Bb', type: 'One-Shots', image: '/pack_cover_2_1787640975758.jpg', durationStr: '0:05', durationSec: 5, audioUrl: '/audio/prettyjohn1-lofi-lofi-music-587176.mp3' },
+  { id: 'p11', title: 'Epic Trailer', genre: 'Cinematic', mood: 'Aggressive', bpm: 90, key: 'Dm', type: 'Full Stems', image: '/project_cover_2_1787639325831.jpg', durationStr: '1:00', durationSec: 60, audioUrl: '/audio/audiocoffee-motivational-sport-rock-no-copyright-music-578087.mp3' },
+  { id: 'p12', title: 'R&B Vocals', genre: 'R&B', mood: 'Chill', bpm: 95, key: 'Gm', type: 'Vocals', image: '/sound_card_synth_1787634384820.jpg', durationStr: '0:12', durationSec: 12, audioUrl: '/audio/alex-morgan-no-copyright-music-578487.mp3' },
+  { id: 'p13', title: 'Synthwave 84', genre: 'Electronic', mood: 'Energetic', bpm: 115, key: 'Cm', type: 'Loops', image: '/pack_cover_1_1787640848563.jpg', durationStr: '0:18', durationSec: 18, audioUrl: '/audio/sub_clair-electronic-586100.mp3' },
+  { id: 'p14', title: 'Dark Drill', genre: 'Hip-Hop', mood: 'Dark', bpm: 142, key: 'Ebm', type: 'Loops', image: '/sound_card_drums_1787634368168.jpg', durationStr: '0:24', durationSec: 24, audioUrl: '/audio/moodmode-no-copyright-music-201745.mp3' },
+  { id: 'p15', title: 'Ambient Scapes', genre: 'Ambient', mood: 'Chill', bpm: 70, key: 'Fmaj', type: 'Loops', image: '/pack_cover_2_1787640975758.jpg', durationStr: '0:35', durationSec: 35, audioUrl: '/audio/sub_clair-electronic-586100.mp3' },
+  { id: 'p16', title: 'Pop Hooks', genre: 'Electronic', mood: 'Uplifting', bpm: 120, key: 'Cmaj', type: 'Vocals', image: '/project_cover_1_1787639273921.jpg', durationStr: '0:14', durationSec: 14, audioUrl: '/audio/audiocoffee-motivational-sport-rock-no-copyright-music-578087.mp3' },
 ];
 
 export function LibraryPage({ setCurrentPage }: { setCurrentPage: (page: string) => void }) {

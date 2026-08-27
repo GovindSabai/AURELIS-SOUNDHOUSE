@@ -80,27 +80,32 @@ export const ARTISTS: Artist[] = [
       {
         "id": "album_t_nova-ray_0",
         "title": "Echoes of Elena",
-        "durationStr": "02:48"
+        "durationStr": "02:48",
+        "audioUrl": "/audio/moodmode-no-copyright-music-201745.mp3"
       },
       {
         "id": "album_t_nova-ray_1",
         "title": "Shadows of Elena",
-        "durationStr": "03:44"
+        "durationStr": "03:44",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-578487.mp3"
       },
       {
         "id": "album_t_nova-ray_2",
         "title": "Light in Elena",
-        "durationStr": "02:47"
+        "durationStr": "02:47",
+        "audioUrl": "/audio/prettyjohn1-lofi-lofi-music-587176.mp3"
       },
       {
         "id": "album_t_nova-ray_3",
         "title": "Visions from Elena",
-        "durationStr": "03:00"
+        "durationStr": "03:00",
+        "audioUrl": "/audio/sub_clair-electronic-586100.mp3"
       },
       {
         "id": "album_t_nova-ray_4",
         "title": "Journey to Elena",
-        "durationStr": "02:29"
+        "durationStr": "02:29",
+        "audioUrl": "/audio/mfcc-no-copyright-music-261601.mp3"
       }
     ],
     "communityPosts": [
@@ -157,27 +162,32 @@ export const ARTISTS: Artist[] = [
       {
         "id": "album_t_kairo_0",
         "title": "Echoes of Marcus",
-        "durationStr": "02:55"
+        "durationStr": "02:55",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-578487.mp3"
       },
       {
         "id": "album_t_kairo_1",
         "title": "Shadows of Marcus",
-        "durationStr": "03:31"
+        "durationStr": "03:31",
+        "audioUrl": "/audio/prettyjohn1-lofi-lofi-music-587176.mp3"
       },
       {
         "id": "album_t_kairo_2",
         "title": "Light in Marcus",
-        "durationStr": "02:48"
+        "durationStr": "02:48",
+        "audioUrl": "/audio/sigmamusicart-no-copyright-music-537751.mp3"
       },
       {
         "id": "album_t_kairo_3",
         "title": "Visions from Marcus",
-        "durationStr": "02:32"
+        "durationStr": "02:32",
+        "audioUrl": "/audio/moodmode-no-copyright-music-201745.mp3"
       },
       {
         "id": "album_t_kairo_4",
         "title": "Journey to Marcus",
-        "durationStr": "03:03"
+        "durationStr": "03:03",
+        "audioUrl": "/audio/mfcc-no-copyright-music-261601.mp3"
       }
     ],
     "communityPosts": [
@@ -234,27 +244,32 @@ export const ARTISTS: Artist[] = [
       {
         "id": "album_t_echo-v_0",
         "title": "Echoes of David",
-        "durationStr": "03:11"
+        "durationStr": "03:11",
+        "audioUrl": "/audio/joyinsound-no-copyright-chill-music-403411.mp3"
       },
       {
         "id": "album_t_echo-v_1",
         "title": "Shadows of David",
-        "durationStr": "03:54"
+        "durationStr": "03:54",
+        "audioUrl": "/audio/sigmamusicart-no-copyright-music-537751.mp3"
       },
       {
         "id": "album_t_echo-v_2",
         "title": "Light in David",
-        "durationStr": "03:45"
+        "durationStr": "03:45",
+        "audioUrl": "/audio/audiocoffee-motivational-sport-rock-no-copyright-music-578087.mp3"
       },
       {
         "id": "album_t_echo-v_3",
         "title": "Visions from David",
-        "durationStr": "03:05"
+        "durationStr": "03:05",
+        "audioUrl": "/audio/audiocoffee-motivational-sport-rock-no-copyright-music-578087.mp3"
       },
       {
         "id": "album_t_echo-v_4",
         "title": "Journey to David",
-        "durationStr": "02:48"
+        "durationStr": "02:48",
+        "audioUrl": "/audio/prettyjohn1-lofi-lofi-music-587176.mp3"
       }
     ],
     "communityPosts": [
@@ -311,27 +326,32 @@ export const ARTISTS: Artist[] = [
       {
         "id": "album_t_luma-vale_0",
         "title": "Echoes of Sophia",
-        "durationStr": "02:21"
+        "durationStr": "02:21",
+        "audioUrl": "/audio/audiocoffee-motivational-sport-rock-no-copyright-music-578087.mp3"
       },
       {
         "id": "album_t_luma-vale_1",
         "title": "Shadows of Sophia",
-        "durationStr": "03:19"
+        "durationStr": "03:19",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-528321.mp3"
       },
       {
         "id": "album_t_luma-vale_2",
         "title": "Light in Sophia",
-        "durationStr": "02:03"
+        "durationStr": "02:03",
+        "audioUrl": "/audio/mfcc-no-copyright-music-261601.mp3"
       },
       {
         "id": "album_t_luma-vale_3",
         "title": "Visions from Sophia",
-        "durationStr": "02:01"
+        "durationStr": "02:01",
+        "audioUrl": "/audio/moodmode-no-copyright-music-201745.mp3"
       },
       {
         "id": "album_t_luma-vale_4",
         "title": "Journey to Sophia",
-        "durationStr": "02:17"
+        "durationStr": "02:17",
+        "audioUrl": "/audio/prettyjohn1-lofi-lofi-music-587176.mp3"
       }
     ],
     "communityPosts": [
@@ -388,27 +408,32 @@ export const ARTISTS: Artist[] = [
       {
         "id": "album_t_arin-wave_0",
         "title": "Echoes of Arin",
-        "durationStr": "03:27"
+        "durationStr": "03:27",
+        "audioUrl": "/audio/prettyjohn1-lofi-lofi-music-587176.mp3"
       },
       {
         "id": "album_t_arin-wave_1",
         "title": "Shadows of Arin",
-        "durationStr": "03:20"
+        "durationStr": "03:20",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-528321.mp3"
       },
       {
         "id": "album_t_arin-wave_2",
         "title": "Light in Arin",
-        "durationStr": "02:36"
+        "durationStr": "02:36",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-528321.mp3"
       },
       {
         "id": "album_t_arin-wave_3",
         "title": "Visions from Arin",
-        "durationStr": "02:36"
+        "durationStr": "02:36",
+        "audioUrl": "/audio/audiocoffee-motivational-sport-rock-no-copyright-music-578087.mp3"
       },
       {
         "id": "album_t_arin-wave_4",
         "title": "Journey to Arin",
-        "durationStr": "03:17"
+        "durationStr": "03:17",
+        "audioUrl": "/audio/audiocoffee-motivational-sport-rock-no-copyright-music-578087.mp3"
       }
     ],
     "communityPosts": [
@@ -465,27 +490,32 @@ export const ARTISTS: Artist[] = [
       {
         "id": "album_t_soul-mechanic_0",
         "title": "Echoes of Jamal",
-        "durationStr": "02:16"
+        "durationStr": "02:16",
+        "audioUrl": "/audio/mfcc-no-copyright-music-261601.mp3"
       },
       {
         "id": "album_t_soul-mechanic_1",
         "title": "Shadows of Jamal",
-        "durationStr": "02:21"
+        "durationStr": "02:21",
+        "audioUrl": "/audio/sigmamusicart-no-copyright-music-446509.mp3"
       },
       {
         "id": "album_t_soul-mechanic_2",
         "title": "Light in Jamal",
-        "durationStr": "02:27"
+        "durationStr": "02:27",
+        "audioUrl": "/audio/joyinsound-no-copyright-chill-music-403411.mp3"
       },
       {
         "id": "album_t_soul-mechanic_3",
         "title": "Visions from Jamal",
-        "durationStr": "02:45"
+        "durationStr": "02:45",
+        "audioUrl": "/audio/sub_clair-electronic-586100.mp3"
       },
       {
         "id": "album_t_soul-mechanic_4",
         "title": "Journey to Jamal",
-        "durationStr": "02:08"
+        "durationStr": "02:08",
+        "audioUrl": "/audio/mfcc-no-copyright-music-261601.mp3"
       }
     ],
     "communityPosts": [
@@ -542,27 +572,32 @@ export const ARTISTS: Artist[] = [
       {
         "id": "album_t_neon-sky_0",
         "title": "Echoes of Ryan",
-        "durationStr": "03:12"
+        "durationStr": "03:12",
+        "audioUrl": "/audio/sub_clair-electronic-586100.mp3"
       },
       {
         "id": "album_t_neon-sky_1",
         "title": "Shadows of Ryan",
-        "durationStr": "02:53"
+        "durationStr": "02:53",
+        "audioUrl": "/audio/mfcc-no-copyright-music-261601.mp3"
       },
       {
         "id": "album_t_neon-sky_2",
         "title": "Light in Ryan",
-        "durationStr": "02:09"
+        "durationStr": "02:09",
+        "audioUrl": "/audio/sigmamusicart-no-copyright-music-537751.mp3"
       },
       {
         "id": "album_t_neon-sky_3",
         "title": "Visions from Ryan",
-        "durationStr": "02:58"
+        "durationStr": "02:58",
+        "audioUrl": "/audio/audiocoffee-motivational-sport-rock-no-copyright-music-578087.mp3"
       },
       {
         "id": "album_t_neon-sky_4",
         "title": "Journey to Ryan",
-        "durationStr": "03:12"
+        "durationStr": "03:12",
+        "audioUrl": "/audio/sub_clair-electronic-586100.mp3"
       }
     ],
     "communityPosts": [
@@ -619,27 +654,32 @@ export const ARTISTS: Artist[] = [
       {
         "id": "album_t_lyra-frost_0",
         "title": "Echoes of Lyra",
-        "durationStr": "03:47"
+        "durationStr": "03:47",
+        "audioUrl": "/audio/sigmamusicart-no-copyright-music-446509.mp3"
       },
       {
         "id": "album_t_lyra-frost_1",
         "title": "Shadows of Lyra",
-        "durationStr": "03:50"
+        "durationStr": "03:50",
+        "audioUrl": "/audio/audiocoffee-motivational-sport-rock-no-copyright-music-578087.mp3"
       },
       {
         "id": "album_t_lyra-frost_2",
         "title": "Light in Lyra",
-        "durationStr": "02:35"
+        "durationStr": "02:35",
+        "audioUrl": "/audio/sigmamusicart-no-copyright-music-446509.mp3"
       },
       {
         "id": "album_t_lyra-frost_3",
         "title": "Visions from Lyra",
-        "durationStr": "02:10"
+        "durationStr": "02:10",
+        "audioUrl": "/audio/audiocoffee-motivational-sport-rock-no-copyright-music-578087.mp3"
       },
       {
         "id": "album_t_lyra-frost_4",
         "title": "Journey to Lyra",
-        "durationStr": "03:12"
+        "durationStr": "03:12",
+        "audioUrl": "/audio/joyinsound-no-copyright-chill-music-403411.mp3"
       }
     ],
     "communityPosts": [
@@ -696,27 +736,32 @@ export const ARTISTS: Artist[] = [
       {
         "id": "album_t_dj-phantom_0",
         "title": "Echoes of Thomas",
-        "durationStr": "02:28"
+        "durationStr": "02:28",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-528321.mp3"
       },
       {
         "id": "album_t_dj-phantom_1",
         "title": "Shadows of Thomas",
-        "durationStr": "03:18"
+        "durationStr": "03:18",
+        "audioUrl": "/audio/sigmamusicart-no-copyright-music-446509.mp3"
       },
       {
         "id": "album_t_dj-phantom_2",
         "title": "Light in Thomas",
-        "durationStr": "02:29"
+        "durationStr": "02:29",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-528321.mp3"
       },
       {
         "id": "album_t_dj-phantom_3",
         "title": "Visions from Thomas",
-        "durationStr": "02:42"
+        "durationStr": "02:42",
+        "audioUrl": "/audio/mfcc-no-copyright-music-261601.mp3"
       },
       {
         "id": "album_t_dj-phantom_4",
         "title": "Journey to Thomas",
-        "durationStr": "03:38"
+        "durationStr": "03:38",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-578487.mp3"
       }
     ],
     "communityPosts": [
@@ -773,27 +818,32 @@ export const ARTISTS: Artist[] = [
       {
         "id": "album_t_the-wanderers_0",
         "title": "Echoes of The",
-        "durationStr": "03:29"
+        "durationStr": "03:29",
+        "audioUrl": "/audio/prettyjohn1-lofi-lofi-music-587176.mp3"
       },
       {
         "id": "album_t_the-wanderers_1",
         "title": "Shadows of The",
-        "durationStr": "03:14"
+        "durationStr": "03:14",
+        "audioUrl": "/audio/joyinsound-no-copyright-chill-music-403411.mp3"
       },
       {
         "id": "album_t_the-wanderers_2",
         "title": "Light in The",
-        "durationStr": "03:51"
+        "durationStr": "03:51",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-578487.mp3"
       },
       {
         "id": "album_t_the-wanderers_3",
         "title": "Visions from The",
-        "durationStr": "03:05"
+        "durationStr": "03:05",
+        "audioUrl": "/audio/joyinsound-no-copyright-chill-music-403411.mp3"
       },
       {
         "id": "album_t_the-wanderers_4",
         "title": "Journey to The",
-        "durationStr": "03:13"
+        "durationStr": "03:13",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-528321.mp3"
       }
     ],
     "communityPosts": [
@@ -850,27 +900,32 @@ export const ARTISTS: Artist[] = [
       {
         "id": "album_t_silk-road_0",
         "title": "Echoes of Aisha",
-        "durationStr": "03:37"
+        "durationStr": "03:37",
+        "audioUrl": "/audio/sigmamusicart-no-copyright-music-446509.mp3"
       },
       {
         "id": "album_t_silk-road_1",
         "title": "Shadows of Aisha",
-        "durationStr": "02:11"
+        "durationStr": "02:11",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-578487.mp3"
       },
       {
         "id": "album_t_silk-road_2",
         "title": "Light in Aisha",
-        "durationStr": "03:51"
+        "durationStr": "03:51",
+        "audioUrl": "/audio/joyinsound-no-copyright-chill-music-403411.mp3"
       },
       {
         "id": "album_t_silk-road_3",
         "title": "Visions from Aisha",
-        "durationStr": "02:21"
+        "durationStr": "02:21",
+        "audioUrl": "/audio/mfcc-no-copyright-music-261601.mp3"
       },
       {
         "id": "album_t_silk-road_4",
         "title": "Journey to Aisha",
-        "durationStr": "03:58"
+        "durationStr": "03:58",
+        "audioUrl": "/audio/sigmamusicart-no-copyright-music-537751.mp3"
       }
     ],
     "communityPosts": [
@@ -927,27 +982,32 @@ export const ARTISTS: Artist[] = [
       {
         "id": "album_t_crimson-tide_0",
         "title": "Echoes of Michael",
-        "durationStr": "02:14"
+        "durationStr": "02:14",
+        "audioUrl": "/audio/sub_clair-electronic-586100.mp3"
       },
       {
         "id": "album_t_crimson-tide_1",
         "title": "Shadows of Michael",
-        "durationStr": "03:37"
+        "durationStr": "03:37",
+        "audioUrl": "/audio/audiocoffee-motivational-sport-rock-no-copyright-music-578087.mp3"
       },
       {
         "id": "album_t_crimson-tide_2",
         "title": "Light in Michael",
-        "durationStr": "02:51"
+        "durationStr": "02:51",
+        "audioUrl": "/audio/ncprime-non-copyright-music-cinematic-290418.mp3"
       },
       {
         "id": "album_t_crimson-tide_3",
         "title": "Visions from Michael",
-        "durationStr": "02:39"
+        "durationStr": "02:39",
+        "audioUrl": "/audio/moodmode-no-copyright-music-201745.mp3"
       },
       {
         "id": "album_t_crimson-tide_4",
         "title": "Journey to Michael",
-        "durationStr": "03:53"
+        "durationStr": "03:53",
+        "audioUrl": "/audio/ncprime-non-copyright-music-cinematic-290418.mp3"
       }
     ],
     "communityPosts": [
@@ -1004,27 +1064,32 @@ export const ARTISTS: Artist[] = [
       {
         "id": "album_t_zenith_0",
         "title": "Echoes of Lucas",
-        "durationStr": "03:50"
+        "durationStr": "03:50",
+        "audioUrl": "/audio/sub_clair-electronic-586100.mp3"
       },
       {
         "id": "album_t_zenith_1",
         "title": "Shadows of Lucas",
-        "durationStr": "02:02"
+        "durationStr": "02:02",
+        "audioUrl": "/audio/joyinsound-no-copyright-chill-music-403411.mp3"
       },
       {
         "id": "album_t_zenith_2",
         "title": "Light in Lucas",
-        "durationStr": "03:49"
+        "durationStr": "03:49",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-578487.mp3"
       },
       {
         "id": "album_t_zenith_3",
         "title": "Visions from Lucas",
-        "durationStr": "02:51"
+        "durationStr": "02:51",
+        "audioUrl": "/audio/sub_clair-electronic-586100.mp3"
       },
       {
         "id": "album_t_zenith_4",
         "title": "Journey to Lucas",
-        "durationStr": "03:54"
+        "durationStr": "03:54",
+        "audioUrl": "/audio/ncprime-non-copyright-music-cinematic-290418.mp3"
       }
     ],
     "communityPosts": [
@@ -1081,27 +1146,32 @@ export const ARTISTS: Artist[] = [
       {
         "id": "album_t_street-knowledge_0",
         "title": "Echoes of Kevin",
-        "durationStr": "03:22"
+        "durationStr": "03:22",
+        "audioUrl": "/audio/sigmamusicart-no-copyright-music-446509.mp3"
       },
       {
         "id": "album_t_street-knowledge_1",
         "title": "Shadows of Kevin",
-        "durationStr": "03:02"
+        "durationStr": "03:02",
+        "audioUrl": "/audio/ncprime-non-copyright-music-cinematic-290418.mp3"
       },
       {
         "id": "album_t_street-knowledge_2",
         "title": "Light in Kevin",
-        "durationStr": "03:17"
+        "durationStr": "03:17",
+        "audioUrl": "/audio/ncprime-non-copyright-music-cinematic-290418.mp3"
       },
       {
         "id": "album_t_street-knowledge_3",
         "title": "Visions from Kevin",
-        "durationStr": "02:52"
+        "durationStr": "02:52",
+        "audioUrl": "/audio/mfcc-no-copyright-music-261601.mp3"
       },
       {
         "id": "album_t_street-knowledge_4",
         "title": "Journey to Kevin",
-        "durationStr": "03:40"
+        "durationStr": "03:40",
+        "audioUrl": "/audio/moodmode-no-copyright-music-201745.mp3"
       }
     ],
     "communityPosts": [
@@ -1158,27 +1228,32 @@ export const ARTISTS: Artist[] = [
       {
         "id": "album_t_velvet-groove_0",
         "title": "Echoes of Antoine",
-        "durationStr": "02:20"
+        "durationStr": "02:20",
+        "audioUrl": "/audio/prettyjohn1-lofi-lofi-music-587176.mp3"
       },
       {
         "id": "album_t_velvet-groove_1",
         "title": "Shadows of Antoine",
-        "durationStr": "02:40"
+        "durationStr": "02:40",
+        "audioUrl": "/audio/sigmamusicart-no-copyright-music-446509.mp3"
       },
       {
         "id": "album_t_velvet-groove_2",
         "title": "Light in Antoine",
-        "durationStr": "03:02"
+        "durationStr": "03:02",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-528321.mp3"
       },
       {
         "id": "album_t_velvet-groove_3",
         "title": "Visions from Antoine",
-        "durationStr": "02:41"
+        "durationStr": "02:41",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-578487.mp3"
       },
       {
         "id": "album_t_velvet-groove_4",
         "title": "Journey to Antoine",
-        "durationStr": "03:01"
+        "durationStr": "03:01",
+        "audioUrl": "/audio/mfcc-no-copyright-music-261601.mp3"
       }
     ],
     "communityPosts": [
@@ -1235,27 +1310,32 @@ export const ARTISTS: Artist[] = [
       {
         "id": "album_t_bass-mechanic_0",
         "title": "Echoes of Tyrone",
-        "durationStr": "03:47"
+        "durationStr": "03:47",
+        "audioUrl": "/audio/sigmamusicart-no-copyright-music-446509.mp3"
       },
       {
         "id": "album_t_bass-mechanic_1",
         "title": "Shadows of Tyrone",
-        "durationStr": "03:28"
+        "durationStr": "03:28",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-528321.mp3"
       },
       {
         "id": "album_t_bass-mechanic_2",
         "title": "Light in Tyrone",
-        "durationStr": "02:56"
+        "durationStr": "02:56",
+        "audioUrl": "/audio/sigmamusicart-no-copyright-music-537751.mp3"
       },
       {
         "id": "album_t_bass-mechanic_3",
         "title": "Visions from Tyrone",
-        "durationStr": "03:00"
+        "durationStr": "03:00",
+        "audioUrl": "/audio/ncprime-non-copyright-music-cinematic-290418.mp3"
       },
       {
         "id": "album_t_bass-mechanic_4",
         "title": "Journey to Tyrone",
-        "durationStr": "02:24"
+        "durationStr": "02:24",
+        "audioUrl": "/audio/sub_clair-electronic-586100.mp3"
       }
     ],
     "communityPosts": [
@@ -1312,27 +1392,32 @@ export const ARTISTS: Artist[] = [
       {
         "id": "album_t_cinema-sounds_0",
         "title": "Echoes of Hans",
-        "durationStr": "02:40"
+        "durationStr": "02:40",
+        "audioUrl": "/audio/ncprime-non-copyright-music-cinematic-290418.mp3"
       },
       {
         "id": "album_t_cinema-sounds_1",
         "title": "Shadows of Hans",
-        "durationStr": "02:34"
+        "durationStr": "02:34",
+        "audioUrl": "/audio/ncprime-non-copyright-music-cinematic-290418.mp3"
       },
       {
         "id": "album_t_cinema-sounds_2",
         "title": "Light in Hans",
-        "durationStr": "02:43"
+        "durationStr": "02:43",
+        "audioUrl": "/audio/mfcc-no-copyright-music-261601.mp3"
       },
       {
         "id": "album_t_cinema-sounds_3",
         "title": "Visions from Hans",
-        "durationStr": "02:48"
+        "durationStr": "02:48",
+        "audioUrl": "/audio/moodmode-no-copyright-music-201745.mp3"
       },
       {
         "id": "album_t_cinema-sounds_4",
         "title": "Journey to Hans",
-        "durationStr": "03:22"
+        "durationStr": "03:22",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-528321.mp3"
       }
     ],
     "communityPosts": [
@@ -1389,27 +1474,32 @@ export const ARTISTS: Artist[] = [
       {
         "id": "album_t_void-walker_0",
         "title": "Echoes of Julian",
-        "durationStr": "03:44"
+        "durationStr": "03:44",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-528321.mp3"
       },
       {
         "id": "album_t_void-walker_1",
         "title": "Shadows of Julian",
-        "durationStr": "02:44"
+        "durationStr": "02:44",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-578487.mp3"
       },
       {
         "id": "album_t_void-walker_2",
         "title": "Light in Julian",
-        "durationStr": "02:51"
+        "durationStr": "02:51",
+        "audioUrl": "/audio/ncprime-non-copyright-music-cinematic-290418.mp3"
       },
       {
         "id": "album_t_void-walker_3",
         "title": "Visions from Julian",
-        "durationStr": "03:14"
+        "durationStr": "03:14",
+        "audioUrl": "/audio/sub_clair-electronic-586100.mp3"
       },
       {
         "id": "album_t_void-walker_4",
         "title": "Journey to Julian",
-        "durationStr": "02:44"
+        "durationStr": "02:44",
+        "audioUrl": "/audio/sigmamusicart-no-copyright-music-446509.mp3"
       }
     ],
     "communityPosts": [
@@ -1453,6 +1543,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "ELECTRONIC",
     "image": "https://picsum.photos/seed/t1-track/400/400",
     "durationStr": "03:49",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-528321.mp3",
     "durationSec": 227
   },
   {
@@ -1462,6 +1553,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "ELECTRONIC",
     "image": "https://picsum.photos/seed/t2-track/400/400",
     "durationStr": "03:14",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-528321.mp3",
     "durationSec": 229
   },
   {
@@ -1471,6 +1563,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "ELECTRONIC",
     "image": "https://picsum.photos/seed/t3-track/400/400",
     "durationStr": "02:20",
+        "audioUrl": "/audio/prettyjohn1-lofi-lofi-music-587176.mp3",
     "durationSec": 231
   },
   {
@@ -1480,6 +1573,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "HIP-HOP",
     "image": "https://picsum.photos/seed/t4-track/400/400",
     "durationStr": "03:30",
+        "audioUrl": "/audio/ncprime-non-copyright-music-cinematic-290418.mp3",
     "durationSec": 237
   },
   {
@@ -1489,6 +1583,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "HIP-HOP",
     "image": "https://picsum.photos/seed/t5-track/400/400",
     "durationStr": "03:26",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-578487.mp3",
     "durationSec": 191
   },
   {
@@ -1498,6 +1593,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "HIP-HOP",
     "image": "https://picsum.photos/seed/t6-track/400/400",
     "durationStr": "02:57",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-528321.mp3",
     "durationSec": 201
   },
   {
@@ -1507,6 +1603,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "INDIE",
     "image": "https://picsum.photos/seed/t7-track/400/400",
     "durationStr": "03:10",
+        "audioUrl": "/audio/joyinsound-no-copyright-chill-music-403411.mp3",
     "durationSec": 211
   },
   {
@@ -1516,6 +1613,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "INDIE",
     "image": "https://picsum.photos/seed/t8-track/400/400",
     "durationStr": "02:53",
+        "audioUrl": "/audio/moodmode-no-copyright-music-201745.mp3",
     "durationSec": 159
   },
   {
@@ -1525,6 +1623,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "INDIE",
     "image": "https://picsum.photos/seed/t9-track/400/400",
     "durationStr": "03:43",
+        "audioUrl": "/audio/audiocoffee-motivational-sport-rock-no-copyright-music-578087.mp3",
     "durationSec": 187
   },
   {
@@ -1534,6 +1633,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "AMBIENT",
     "image": "https://picsum.photos/seed/t10-track/400/400",
     "durationStr": "03:51",
+        "audioUrl": "/audio/ncprime-non-copyright-music-cinematic-290418.mp3",
     "durationSec": 220
   },
   {
@@ -1543,6 +1643,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "AMBIENT",
     "image": "https://picsum.photos/seed/t11-track/400/400",
     "durationStr": "03:35",
+        "audioUrl": "/audio/ncprime-non-copyright-music-cinematic-290418.mp3",
     "durationSec": 195
   },
   {
@@ -1552,6 +1653,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "AMBIENT",
     "image": "https://picsum.photos/seed/t12-track/400/400",
     "durationStr": "03:49",
+        "audioUrl": "/audio/mfcc-no-copyright-music-261601.mp3",
     "durationSec": 150
   },
   {
@@ -1561,6 +1663,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "POP",
     "image": "https://picsum.photos/seed/t13-track/400/400",
     "durationStr": "02:57",
+        "audioUrl": "/audio/audiocoffee-motivational-sport-rock-no-copyright-music-578087.mp3",
     "durationSec": 172
   },
   {
@@ -1570,6 +1673,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "POP",
     "image": "https://picsum.photos/seed/t14-track/400/400",
     "durationStr": "03:41",
+        "audioUrl": "/audio/ncprime-non-copyright-music-cinematic-290418.mp3",
     "durationSec": 226
   },
   {
@@ -1579,6 +1683,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "POP",
     "image": "https://picsum.photos/seed/t15-track/400/400",
     "durationStr": "02:02",
+        "audioUrl": "/audio/mfcc-no-copyright-music-261601.mp3",
     "durationSec": 227
   },
   {
@@ -1588,6 +1693,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "R&B",
     "image": "https://picsum.photos/seed/t16-track/400/400",
     "durationStr": "03:36",
+        "audioUrl": "/audio/mfcc-no-copyright-music-261601.mp3",
     "durationSec": 227
   },
   {
@@ -1597,6 +1703,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "R&B",
     "image": "https://picsum.photos/seed/t17-track/400/400",
     "durationStr": "02:06",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-578487.mp3",
     "durationSec": 243
   },
   {
@@ -1606,6 +1713,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "R&B",
     "image": "https://picsum.photos/seed/t18-track/400/400",
     "durationStr": "03:25",
+        "audioUrl": "/audio/sigmamusicart-no-copyright-music-537751.mp3",
     "durationSec": 213
   },
   {
@@ -1615,6 +1723,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "SYNTHWAVE",
     "image": "https://picsum.photos/seed/t19-track/400/400",
     "durationStr": "02:42",
+        "audioUrl": "/audio/audiocoffee-motivational-sport-rock-no-copyright-music-578087.mp3",
     "durationSec": 209
   },
   {
@@ -1624,6 +1733,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "SYNTHWAVE",
     "image": "https://picsum.photos/seed/t20-track/400/400",
     "durationStr": "03:23",
+        "audioUrl": "/audio/sigmamusicart-no-copyright-music-537751.mp3",
     "durationSec": 189
   },
   {
@@ -1633,6 +1743,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "SYNTHWAVE",
     "image": "https://picsum.photos/seed/t21-track/400/400",
     "durationStr": "03:13",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-528321.mp3",
     "durationSec": 173
   },
   {
@@ -1642,6 +1753,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "POP",
     "image": "https://picsum.photos/seed/t22-track/400/400",
     "durationStr": "02:21",
+        "audioUrl": "/audio/moodmode-no-copyright-music-201745.mp3",
     "durationSec": 230
   },
   {
@@ -1651,6 +1763,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "POP",
     "image": "https://picsum.photos/seed/t23-track/400/400",
     "durationStr": "03:25",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-578487.mp3",
     "durationSec": 159
   },
   {
@@ -1660,6 +1773,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "POP",
     "image": "https://picsum.photos/seed/t24-track/400/400",
     "durationStr": "02:56",
+        "audioUrl": "/audio/prettyjohn1-lofi-lofi-music-587176.mp3",
     "durationSec": 221
   },
   {
@@ -1669,6 +1783,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "ELECTRONIC",
     "image": "https://picsum.photos/seed/t25-track/400/400",
     "durationStr": "02:38",
+        "audioUrl": "/audio/sigmamusicart-no-copyright-music-446509.mp3",
     "durationSec": 217
   },
   {
@@ -1678,6 +1793,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "ELECTRONIC",
     "image": "https://picsum.photos/seed/t26-track/400/400",
     "durationStr": "02:21",
+        "audioUrl": "/audio/sigmamusicart-no-copyright-music-537751.mp3",
     "durationSec": 172
   },
   {
@@ -1687,6 +1803,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "ELECTRONIC",
     "image": "https://picsum.photos/seed/t27-track/400/400",
     "durationStr": "02:16",
+        "audioUrl": "/audio/sub_clair-electronic-586100.mp3",
     "durationSec": 230
   },
   {
@@ -1696,6 +1813,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "INDIE",
     "image": "https://picsum.photos/seed/t28-track/400/400",
     "durationStr": "03:46",
+        "audioUrl": "/audio/audiocoffee-motivational-sport-rock-no-copyright-music-578087.mp3",
     "durationSec": 227
   },
   {
@@ -1705,6 +1823,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "INDIE",
     "image": "https://picsum.photos/seed/t29-track/400/400",
     "durationStr": "03:25",
+        "audioUrl": "/audio/ncprime-non-copyright-music-cinematic-290418.mp3",
     "durationSec": 228
   },
   {
@@ -1714,6 +1833,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "INDIE",
     "image": "https://picsum.photos/seed/t30-track/400/400",
     "durationStr": "02:41",
+        "audioUrl": "/audio/sigmamusicart-no-copyright-music-537751.mp3",
     "durationSec": 237
   },
   {
@@ -1723,6 +1843,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "R&B",
     "image": "https://picsum.photos/seed/t31-track/400/400",
     "durationStr": "02:20",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-528321.mp3",
     "durationSec": 224
   },
   {
@@ -1732,6 +1853,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "R&B",
     "image": "https://picsum.photos/seed/t32-track/400/400",
     "durationStr": "03:11",
+        "audioUrl": "/audio/joyinsound-no-copyright-chill-music-403411.mp3",
     "durationSec": 226
   },
   {
@@ -1741,6 +1863,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "R&B",
     "image": "https://picsum.photos/seed/t33-track/400/400",
     "durationStr": "02:23",
+        "audioUrl": "/audio/audiocoffee-motivational-sport-rock-no-copyright-music-578087.mp3",
     "durationSec": 192
   },
   {
@@ -1750,6 +1873,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "ROCK",
     "image": "https://picsum.photos/seed/t34-track/400/400",
     "durationStr": "02:47",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-578487.mp3",
     "durationSec": 226
   },
   {
@@ -1759,6 +1883,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "ROCK",
     "image": "https://picsum.photos/seed/t35-track/400/400",
     "durationStr": "02:08",
+        "audioUrl": "/audio/sigmamusicart-no-copyright-music-537751.mp3",
     "durationSec": 173
   },
   {
@@ -1768,6 +1893,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "ROCK",
     "image": "https://picsum.photos/seed/t36-track/400/400",
     "durationStr": "03:33",
+        "audioUrl": "/audio/joyinsound-no-copyright-chill-music-403411.mp3",
     "durationSec": 221
   },
   {
@@ -1777,6 +1903,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "AMBIENT",
     "image": "https://picsum.photos/seed/t37-track/400/400",
     "durationStr": "02:44",
+        "audioUrl": "/audio/sub_clair-electronic-586100.mp3",
     "durationSec": 200
   },
   {
@@ -1786,6 +1913,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "AMBIENT",
     "image": "https://picsum.photos/seed/t38-track/400/400",
     "durationStr": "03:42",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-578487.mp3",
     "durationSec": 156
   },
   {
@@ -1795,6 +1923,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "AMBIENT",
     "image": "https://picsum.photos/seed/t39-track/400/400",
     "durationStr": "03:05",
+        "audioUrl": "/audio/mfcc-no-copyright-music-261601.mp3",
     "durationSec": 167
   },
   {
@@ -1804,6 +1933,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "HIP-HOP",
     "image": "https://picsum.photos/seed/t40-track/400/400",
     "durationStr": "02:00",
+        "audioUrl": "/audio/sigmamusicart-no-copyright-music-446509.mp3",
     "durationSec": 192
   },
   {
@@ -1813,6 +1943,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "HIP-HOP",
     "image": "https://picsum.photos/seed/t41-track/400/400",
     "durationStr": "03:15",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-528321.mp3",
     "durationSec": 212
   },
   {
@@ -1822,6 +1953,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "HIP-HOP",
     "image": "https://picsum.photos/seed/t42-track/400/400",
     "durationStr": "03:19",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-578487.mp3",
     "durationSec": 152
   },
   {
@@ -1831,6 +1963,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "JAZZ",
     "image": "https://picsum.photos/seed/t43-track/400/400",
     "durationStr": "02:43",
+        "audioUrl": "/audio/prettyjohn1-lofi-lofi-music-587176.mp3",
     "durationSec": 193
   },
   {
@@ -1840,6 +1973,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "JAZZ",
     "image": "https://picsum.photos/seed/t44-track/400/400",
     "durationStr": "03:14",
+        "audioUrl": "/audio/mfcc-no-copyright-music-261601.mp3",
     "durationSec": 171
   },
   {
@@ -1849,6 +1983,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "JAZZ",
     "image": "https://picsum.photos/seed/t45-track/400/400",
     "durationStr": "03:15",
+        "audioUrl": "/audio/joyinsound-no-copyright-chill-music-403411.mp3",
     "durationSec": 193
   },
   {
@@ -1858,6 +1993,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "TRAP",
     "image": "https://picsum.photos/seed/t46-track/400/400",
     "durationStr": "02:32",
+        "audioUrl": "/audio/prettyjohn1-lofi-lofi-music-587176.mp3",
     "durationSec": 174
   },
   {
@@ -1867,6 +2003,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "TRAP",
     "image": "https://picsum.photos/seed/t47-track/400/400",
     "durationStr": "03:38",
+        "audioUrl": "/audio/sub_clair-electronic-586100.mp3",
     "durationSec": 155
   },
   {
@@ -1876,6 +2013,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "TRAP",
     "image": "https://picsum.photos/seed/t48-track/400/400",
     "durationStr": "03:05",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-578487.mp3",
     "durationSec": 197
   },
   {
@@ -1885,6 +2023,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "CINEMATIC",
     "image": "https://picsum.photos/seed/t49-track/400/400",
     "durationStr": "03:44",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-578487.mp3",
     "durationSec": 189
   },
   {
@@ -1894,6 +2033,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "CINEMATIC",
     "image": "https://picsum.photos/seed/t50-track/400/400",
     "durationStr": "03:30",
+        "audioUrl": "/audio/audiocoffee-motivational-sport-rock-no-copyright-music-578087.mp3",
     "durationSec": 204
   },
   {
@@ -1903,6 +2043,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "CINEMATIC",
     "image": "https://picsum.photos/seed/t51-track/400/400",
     "durationStr": "03:39",
+        "audioUrl": "/audio/ncprime-non-copyright-music-cinematic-290418.mp3",
     "durationSec": 211
   },
   {
@@ -1912,6 +2053,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "EXPERIMENTAL",
     "image": "https://picsum.photos/seed/t52-track/400/400",
     "durationStr": "02:09",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-528321.mp3",
     "durationSec": 199
   },
   {
@@ -1921,6 +2063,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "EXPERIMENTAL",
     "image": "https://picsum.photos/seed/t53-track/400/400",
     "durationStr": "03:41",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-578487.mp3",
     "durationSec": 213
   },
   {
@@ -1930,6 +2073,7 @@ export const ARTIST_TRACKS: Track[] = [
     "category": "EXPERIMENTAL",
     "image": "https://picsum.photos/seed/t54-track/400/400",
     "durationStr": "03:20",
+        "audioUrl": "/audio/alex-morgan-no-copyright-music-528321.mp3",
     "durationSec": 226
   }
 ];
