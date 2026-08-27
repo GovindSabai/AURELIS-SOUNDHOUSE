@@ -20,7 +20,7 @@ export function Step5Payment({ state, onNext, onBack }: Props) {
 
   const session = SESSION_TYPES.find(s => s.id === state.sessionType);
   const room = ROOMS.find(r => r.id === state.room);
-  
+
   const selectedEquipment = EQUIPMENT_ADDONS.filter(eq => state.equipment.includes(eq.id));
   const equipmentTotal = selectedEquipment.reduce((sum, eq) => sum + eq.price, 0);
   const basePrice = session?.price || 0;
@@ -29,17 +29,17 @@ export function Step5Payment({ state, onNext, onBack }: Props) {
 
   const handlePay = () => {
     setIsProcessing(true);
-    
+
     // Generate a booking ID and save it before redirecting
-    const bookingId = `STU-${new Date().toISOString().slice(2,10).replace(/-/g, '')}-${Math.floor(Math.random() * 1000).toString().padStart(3, '0')}`;
+    const bookingId = `STU-${new Date().toISOString().slice(2, 10).replace(/-/g, '')}-${Math.floor(Math.random() * 1000).toString().padStart(3, '0')}`;
     const savedBooking = { ...state, bookingId, paymentMethod: selectedMethod, totalPaid: total } as any;
     localStorage.setItem('aurelis_booking', JSON.stringify(savedBooking));
-    
+
     setTimeout(() => {
       // Redirect to mock official payment pages
       if (selectedMethod === 'card') {
         // NOTE: Replace this with your actual Stripe Payment Link (https://buy.stripe.com/...)
-        window.location.href = 'https://buy.stripe.com/test_placeholder';
+        window.location.href = 'https://buy.stripe.com/test_aFacMXbozfmwdAOeoOdMI00';
       } else if (selectedMethod === 'crypto') {
         // NOTE: Replace this with your actual Coinbase Commerce Link
         window.location.href = 'https://commerce.coinbase.com/checkout/placeholder';
@@ -55,7 +55,7 @@ export function Step5Payment({ state, onNext, onBack }: Props) {
       </div>
 
       <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-8">
-        
+
         {/* Payment Methods */}
         <div className="flex-1 space-y-6">
           <h3 className="text-xl font-bold text-white mb-4">Select Payment Method</h3>
@@ -64,11 +64,10 @@ export function Step5Payment({ state, onNext, onBack }: Props) {
               <button
                 key={method.id}
                 onClick={() => setSelectedMethod(method.id)}
-                className={`flex items-center gap-4 p-5 rounded-2xl border transition-all ${
-                  selectedMethod === method.id 
-                    ? 'bg-champagne-gold/10 border-champagne-gold text-white' 
+                className={`flex items-center gap-4 p-5 rounded-2xl border transition-all ${selectedMethod === method.id
+                    ? 'bg-champagne-gold/10 border-champagne-gold text-white'
                     : 'bg-white/5 border-white/10 text-muted-text hover:border-white/30 hover:bg-white/10'
-                }`}
+                  }`}
               >
                 <div className={selectedMethod === method.id ? 'text-champagne-gold' : ''}>
                   {method.icon}
@@ -89,7 +88,7 @@ export function Step5Payment({ state, onNext, onBack }: Props) {
               </div>
             </div>
           )}
-          
+
           {selectedMethod === 'crypto' && (
             <div className="mt-6 p-6 rounded-2xl bg-[#0052FF]/10 border border-[#0052FF]/30 text-center">
               <p className="text-white mb-4">You will be redirected securely to <strong>Coinbase Commerce</strong> to pay with Crypto.</p>
@@ -120,7 +119,7 @@ export function Step5Payment({ state, onNext, onBack }: Props) {
                 </div>
               )}
             </div>
-            
+
             <div className="pt-4 border-t border-white/10 mb-8">
               <div className="flex justify-between items-center">
                 <span className="text-white font-bold">Total to Pay</span>
@@ -128,7 +127,7 @@ export function Step5Payment({ state, onNext, onBack }: Props) {
               </div>
             </div>
 
-            <button 
+            <button
               onClick={handlePay}
               disabled={isProcessing}
               className="w-full py-4 bg-champagne-gold hover:bg-warm-highlight text-background font-bold rounded-xl transition-all uppercase tracking-wider text-sm flex justify-center items-center shadow-[0_0_20px_rgba(212,175,55,0.3)] disabled:opacity-50"
