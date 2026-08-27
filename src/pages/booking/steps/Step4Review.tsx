@@ -17,22 +17,11 @@ export function Step4Review({ state, onNext, onBack }: Props) {
   const selectedEquipment = EQUIPMENT_ADDONS.filter(eq => state.equipment.includes(eq.id));
   const equipmentTotal = selectedEquipment.reduce((sum, eq) => sum + eq.price, 0);
   const basePrice = session?.price || 0;
-  const total = basePrice + equipmentTotal;
+  const roomPrice = (room?.price || 0) * (state.duration || 3);
+  const total = basePrice + roomPrice + equipmentTotal;
 
   const handleConfirm = () => {
-    setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
-      
-      // Generate a random booking ID
-      const bookingId = `STU-${new Date().toISOString().slice(2,10).replace(/-/g, '')}-${Math.floor(Math.random() * 1000).toString().padStart(3, '0')}`;
-      
-      const savedBooking = { ...state, bookingId };
-      localStorage.setItem('aurelis_booking', JSON.stringify(savedBooking));
-      
-      onNext(); // Go to success step
-    }, 1500);
+    onNext(); // Go to payment step
   };
 
   return (
@@ -56,11 +45,17 @@ export function Step4Review({ state, onNext, onBack }: Props) {
             <div className="space-y-4">
               <div className="flex justify-between items-center py-2 border-b border-white/5">
                 <span className="text-muted-text">Session Type</span>
-                <span className="font-bold text-white text-right">{session?.name}</span>
+                <div className="text-right">
+                  <div className="font-bold text-white">{session?.name}</div>
+                  <div className="text-sm text-champagne-gold font-bold">€{basePrice}</div>
+                </div>
               </div>
               <div className="flex justify-between items-center py-2 border-b border-white/5">
                 <span className="text-muted-text">Room</span>
-                <span className="font-bold text-white text-right">{room?.name}</span>
+                <div className="text-right">
+                  <div className="font-bold text-white">{room?.name}</div>
+                  <div className="text-sm text-champagne-gold font-bold">€{roomPrice} (€{room?.price}/hr x {state.duration || 3} hrs)</div>
+                </div>
               </div>
               <div className="flex justify-between items-center py-2 border-b border-white/5">
                 <span className="text-muted-text">Date</span>
@@ -74,23 +69,22 @@ export function Step4Review({ state, onNext, onBack }: Props) {
                 <div className="py-2 border-b border-white/5">
                   <div className="flex justify-between items-start mb-2">
                     <span className="text-muted-text">Equipment Add-ons</span>
+                    <span className="text-sm text-champagne-gold font-bold">€{equipmentTotal}</span>
                   </div>
                   <ul className="text-sm text-white font-bold text-right space-y-1">
                     {selectedEquipment.map(eq => (
-                      <li key={eq.id}>{eq.name}</li>
+                      <li key={eq.id}>{eq.name} - €{eq.price}</li>
                     ))}
                   </ul>
                 </div>
               )}
+              <div className="flex justify-between items-center py-4 mt-4 bg-white/5 rounded-lg px-4">
+                <span className="text-lg font-bold text-white">Total Amount</span>
+                <span className="text-2xl font-bold text-champagne-gold">€{total}</span>
+              </div>
             </div>
 
           </div>
-        </div>
-
-        <div className="bg-champagne-gold/5 border border-champagne-gold/20 rounded-xl p-4 mt-6">
-          <p className="text-sm text-champagne-gold/80 text-center font-medium">
-            No payment required right now. You will pay upon arrival.
-          </p>
         </div>
 
         <div className="flex justify-between mt-10">
@@ -105,7 +99,7 @@ export function Step4Review({ state, onNext, onBack }: Props) {
             {isSubmitting ? (
               <div className="w-5 h-5 border-2 border-background border-t-transparent rounded-full animate-spin"></div>
             ) : (
-              'Confirm Booking →'
+              'Proceed to Payment →'
             )}
           </button>
         </div>

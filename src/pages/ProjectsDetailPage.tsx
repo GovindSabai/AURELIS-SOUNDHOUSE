@@ -292,7 +292,7 @@ export function ProjectsDetailPage() {
               
               <div className="mt-4 w-full h-8 flex items-center gap-1 opacity-50">
                 {/* Mock Waveform */}
-                {React.useMemo(() => Array.from({length: 40}).map(() => Math.max(10, Math.random() * 100)), []).map((h, i) => (
+                {Array.from({length: 40}).map(() => Math.max(10, Math.random() * 100)).map((h, i) => (
                   <div 
                     key={i} 
                     className={`flex-grow bg-champagne-gold rounded-full ${isPlaying ? 'animate-pulse' : ''}`} 

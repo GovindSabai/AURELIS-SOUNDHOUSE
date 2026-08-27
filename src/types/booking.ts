@@ -46,10 +46,10 @@ export const SESSION_TYPES = [
 ];
 
 export const ROOMS = [
-  { id: 'studio-a', name: 'Studio A', desc: 'The Flagship Tracking Room', image: '/studio_a_real.jpg' },
-  { id: 'studio-b', name: 'Studio B', desc: 'The Analog Suite', image: '/studio_b_real.jpg' },
-  { id: 'north-room', name: 'The North Room', desc: 'Dolby Atmos & Immersive Audio', image: '/studio_north_real.jpg' },
-  { id: 'writing-room', name: 'The Writing Room', desc: 'Cozy Production & Vocal Suite', image: '/studio_writing_real.jpg' }
+  { id: 'studio-a', name: 'Studio A', desc: 'The Flagship Tracking Room', image: '/studio_a_real.jpg', price: 100 },
+  { id: 'studio-b', name: 'Studio B', desc: 'The Analog Suite', image: '/studio_b_real.jpg', price: 80 },
+  { id: 'north-room', name: 'The North Room', desc: 'Dolby Atmos & Immersive Audio', image: '/studio_north_real.jpg', price: 150 },
+  { id: 'writing-room', name: 'The Writing Room', desc: 'Cozy Production & Vocal Suite', image: '/studio_writing_real.jpg', price: 50 }
 ];
 
 export const EQUIPMENT_ADDONS = [

@@ -58,7 +58,10 @@ export function Step1Session({ state, updateState, onNext }: Props) {
                   <div className={`absolute inset-0 bg-black/40 transition-colors ${isSelected ? 'bg-black/10' : 'group-hover:bg-black/20'}`}></div>
                 </div>
                 <div className={`p-4 backdrop-blur-md ${isSelected ? 'bg-champagne-gold/10' : 'bg-white/5'}`}>
-                  <h3 className="text-lg font-bold text-white mb-1">{room.name}</h3>
+                  <div className="flex justify-between items-start mb-1">
+                    <h3 className="text-lg font-bold text-white">{room.name}</h3>
+                    <span className="text-champagne-gold font-bold text-sm">€{room.price}/hr</span>
+                  </div>
                   <p className="text-xs text-muted-text">{room.desc}</p>
                   
                   <div className="mt-4 flex justify-end">
@@ -97,7 +100,8 @@ export function Step1Session({ state, updateState, onNext }: Props) {
                   }`}
               >
                 <div className="text-4xl mb-4">{session.icon}</div>
-                <h3 className="text-xl font-bold text-white mb-2">{session.name}</h3>
+                <h3 className="text-xl font-bold text-white mb-1">{session.name}</h3>
+                <p className="text-champagne-gold font-bold text-sm mb-2">€{session.price}</p>
                 <p className="text-sm text-muted-text mb-6 h-10">{session.desc}</p>
                 
                 <div className="flex items-center justify-end mt-auto">

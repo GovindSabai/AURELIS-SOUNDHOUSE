@@ -66,7 +66,10 @@ export function Step2Schedule({ state, updateState, onNext, onBack }: Props) {
                     : 'bg-background-secondary border-white/10 hover:border-white/30'
                 }`}
               >
-                <div className="font-bold text-white">{room.name}</div>
+                <div className="flex justify-between items-start">
+                  <div className="font-bold text-white">{room.name}</div>
+                  <div className="text-xs font-bold text-champagne-gold">€{room.price}/hr</div>
+                </div>
                 <div className="text-xs text-muted-text mt-1">{room.desc}</div>
               </button>
             ))}
@@ -152,6 +155,7 @@ export function Step2Schedule({ state, updateState, onNext, onBack }: Props) {
                   >
                     <div className="text-left">
                       <div className="font-bold text-white text-sm">{eq.name}</div>
+                      <div className="text-xs font-bold text-champagne-gold mt-1">€{eq.price}</div>
                     </div>
                     <div className={`w-6 h-6 rounded-full flex items-center justify-center border ${isSelected ? 'bg-champagne-gold border-champagne-gold text-background' : 'border-white/20'}`}>
                       {isSelected && <Check size={14} />}

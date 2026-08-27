@@ -5,6 +5,7 @@ import { Step1Session } from './steps/Step1Session';
 import { Step2Schedule } from './steps/Step2Schedule';
 import { Step3Details } from './steps/Step3Details';
 import { Step4Review } from './steps/Step4Review';
+import { Step5Payment } from './steps/Step5Payment';
 import { BookingSuccess } from './BookingSuccess';
 import { useAuth } from '../../context/AuthContext';
 
@@ -12,7 +13,8 @@ const STEPS = [
   { id: 1, label: 'SESSION' },
   { id: 2, label: 'SCHEDULE' },
   { id: 3, label: 'DETAILS' },
-  { id: 4, label: 'REVIEW' }
+  { id: 4, label: 'REVIEW' },
+  { id: 5, label: 'PAYMENT' }
 ];
 
 export function BookingPage() {
@@ -31,7 +33,7 @@ export function BookingPage() {
     setState(prev => ({ ...prev, ...updates }));
   };
 
-  const nextStep = () => setCurrentStep(prev => Math.min(prev + 1, 5));
+  const nextStep = () => setCurrentStep(prev => Math.min(prev + 1, 6));
   const prevStep = () => setCurrentStep(prev => Math.max(prev - 1, 1));
 
   return (
@@ -43,7 +45,7 @@ export function BookingPage() {
       <div className="max-w-[1200px] mx-auto">
         
         {/* Progress Indicator */}
-        {currentStep < 5 && (
+        {currentStep < 6 && (
           <div className="flex items-center justify-center mb-16 px-4">
             <div className="flex items-center space-x-2 md:space-x-4 max-w-3xl w-full">
               {STEPS.map((step, index) => {
@@ -75,7 +77,8 @@ export function BookingPage() {
           {currentStep === 2 && <Step2Schedule state={state} updateState={updateState} onNext={nextStep} onBack={prevStep} />}
           {currentStep === 3 && <Step3Details state={state} updateState={updateState} onNext={nextStep} onBack={prevStep} />}
           {currentStep === 4 && <Step4Review state={state} onNext={nextStep} onBack={prevStep} />}
-          {currentStep === 5 && <BookingSuccess state={state} />}
+          {currentStep === 5 && <Step5Payment state={state} onNext={nextStep} onBack={prevStep} />}
+          {currentStep === 6 && <BookingSuccess state={state} />}
         </div>
 
         {/* Policies and Help (shown on steps 1-4) */}
