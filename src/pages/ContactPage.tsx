@@ -49,27 +49,27 @@ export function ContactPage() {
                   </div>
                   <div>
                     <h5 className="font-bold text-white mb-1">Aurelis Soundhouse</h5>
-                    <p className="text-muted-text text-sm">1240 Music Row<br />Nashville, TN 37203</p>
+                    <p className="text-muted-text text-sm">123 Music Ave<br />Sound City, SC 90210</p>
                   </div>
                 </div>
                 
-                <a href="mailto:booking@aurelis.studio" className="flex items-start gap-4 group cursor-pointer block">
+                <a href="mailto:hello@aurelissoundhouse.com" className="flex items-start gap-4 group cursor-pointer block">
                   <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-champagne-gold transition-colors">
                     <Mail size={20} className="text-champagne-gold group-hover:text-background transition-colors" />
                   </div>
                   <div>
                     <h5 className="font-bold text-white mb-1 group-hover:text-champagne-gold transition-colors">Email</h5>
-                    <p className="text-muted-text text-sm group-hover:text-white transition-colors">booking@aurelis.studio<br />press@aurelis.studio</p>
+                    <p className="text-muted-text text-sm group-hover:text-white transition-colors">hello@aurelissoundhouse.com</p>
                   </div>
                 </a>
                 
-                <a href="https://wa.me/16155550199" target="_blank" rel="noopener noreferrer" className="flex items-start gap-4 group cursor-pointer block">
+                <a href="https://wa.me/15551234567" target="_blank" rel="noopener noreferrer" className="flex items-start gap-4 group cursor-pointer block">
                   <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-champagne-gold transition-colors">
                     <Phone size={20} className="text-champagne-gold group-hover:text-background transition-colors" />
                   </div>
                   <div>
                     <h5 className="font-bold text-white mb-1 group-hover:text-champagne-gold transition-colors">Phone / WhatsApp</h5>
-                    <p className="text-muted-text text-sm group-hover:text-white transition-colors">+1 (615) 555-0199</p>
+                    <p className="text-muted-text text-sm group-hover:text-white transition-colors">+1 (555) 123-4567</p>
                   </div>
                 </a>
               </div>

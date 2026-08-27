@@ -12,9 +12,9 @@ export function Footer() {
           </Link>
           <p className="text-muted-text text-sm max-w-xs leading-relaxed">A premium creative universe for making, shaping, and discovering world-class sound.</p>
           <div className="mt-6 space-y-3 text-sm text-muted-text">
-            <p><Link to="/contact" className="hover:text-champagne-gold transition-colors flex items-center gap-2"><MapPin size={16} /> 123 Music Ave, Sound City, SC 90210</Link></p>
-            <p><Link to="/contact" className="hover:text-champagne-gold transition-colors flex items-center gap-2"><Mail size={16} /> hello@aurelissoundhouse.com</Link></p>
-            <p><Link to="/contact" className="hover:text-champagne-gold transition-colors flex items-center gap-2"><Phone size={16} /> +1 (555) 123-4567</Link></p>
+            <p className="flex items-center gap-2 cursor-text"><MapPin size={16} className="shrink-0" /> 123 Music Ave, Sound City, SC 90210</p>
+            <p><a href="mailto:hello@aurelissoundhouse.com" className="hover:text-champagne-gold transition-colors flex items-center gap-2"><Mail size={16} className="shrink-0" /> hello@aurelissoundhouse.com</a></p>
+            <p><a href="https://wa.me/15551234567" target="_blank" rel="noopener noreferrer" className="hover:text-champagne-gold transition-colors flex items-center gap-2"><Phone size={16} className="shrink-0" /> +1 (555) 123-4567</a></p>
           </div>
         </div>
         <div>
