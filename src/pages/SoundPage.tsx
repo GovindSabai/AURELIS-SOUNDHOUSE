@@ -48,14 +48,18 @@ export function SoundPage({ setCurrentPage }: { setCurrentPage: (page: string) =
             >
               {(currentTrack?.id === featuredTrack.id && isPlaying) ? <Pause size={40} className="fill-white" /> : <Play size={40} className="fill-white ml-2" />}
             </button>
-            <div className="flex-1 w-full">
+              <div className="flex-1 w-full">
               <h3 className="text-3xl font-bold text-white mb-2">{featuredTrack.title}</h3>
               <p className="text-accent-cyan font-medium mb-6">Aurelis Original</p>
               
               {/* Fake Waveform visual */}
               <div className="w-full h-16 flex items-center gap-1 opacity-60">
-                 {Array.from({length: 40}).map((_, i) => (
-                   <div key={i} className="flex-1 bg-white rounded-full transition-all duration-300" style={{ height: `${Math.random() * 100}%` }}></div>
+                 {React.useMemo(() => Array.from({length: 40}).map(() => Math.random() * 100), []).map((h, i) => (
+                   <div key={i} className={`flex-1 bg-white rounded-full transition-all duration-300 ${(currentTrack?.id === featuredTrack.id && isPlaying) ? 'animate-pulse' : ''}`} style={{ 
+                     height: `${h}%`,
+                     animationDuration: (currentTrack?.id === featuredTrack.id && isPlaying) ? `${0.5 + (i % 3) * 0.2}s` : undefined,
+                     animationDelay: (currentTrack?.id === featuredTrack.id && isPlaying) ? `${i * 0.05}s` : undefined
+                   }}></div>
                  ))}
               </div>
               <div className="flex justify-between text-xs text-gray-400 mt-2 font-mono">

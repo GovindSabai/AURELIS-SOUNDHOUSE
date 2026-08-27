@@ -292,12 +292,12 @@ export function ProjectsDetailPage() {
               
               <div className="mt-4 w-full h-8 flex items-center gap-1 opacity-50">
                 {/* Mock Waveform */}
-                {Array.from({length: 40}).map((_, i) => (
+                {React.useMemo(() => Array.from({length: 40}).map(() => Math.max(10, Math.random() * 100)), []).map((h, i) => (
                   <div 
                     key={i} 
                     className={`flex-grow bg-champagne-gold rounded-full ${isPlaying ? 'animate-pulse' : ''}`} 
                     style={{ 
-                      height: `${Math.max(10, Math.random() * 100)}%`,
+                      height: `${h}%`,
                       animationDuration: isPlaying ? `${0.5 + (i % 3) * 0.2}s` : undefined,
                       animationDelay: isPlaying ? `${i * 0.05}s` : undefined
                     }} 

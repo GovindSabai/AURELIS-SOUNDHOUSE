@@ -384,6 +384,10 @@ function FilterGroup({ title, options, active, setter }: { title: string, option
 
 // 4. Sound Card Design
 function SoundCard({ pack, isPlaying, isFavorite, onPlay, onFavorite, onClick }: any) {
+  const heights = React.useMemo(() => {
+    return Array.from({length: 30}).map(() => 20 + Math.random() * 80);
+  }, [pack.id]);
+
   return (
     <div onClick={onClick} className="group bg-[#0B0D17] border border-white/10 rounded-2xl overflow-hidden hover:border-white/30 transition-all hover:shadow-[0_10px_40px_rgba(0,0,0,0.5)] cursor-pointer">
        {/* Cover Image & Hover Actions */}
@@ -430,12 +434,12 @@ function SoundCard({ pack, isPlaying, isFavorite, onPlay, onFavorite, onClick }:
          
          {/* Fake Waveform */}
          <div className="w-full h-6 flex items-center gap-[2px] opacity-40 group-hover:opacity-100 transition-opacity">
-            {Array.from({length: 30}).map((_, i) => (
+            {heights.map((h, i) => (
                <div 
                  key={i} 
                  className={`flex-1 bg-white rounded-full ${isPlaying ? 'animate-pulse' : ''}`} 
                  style={{ 
-                   height: `${20 + Math.random() * 80}%`,
+                   height: `${h}%`,
                    animationDuration: isPlaying ? `${0.5 + (i % 3) * 0.2}s` : undefined,
                    animationDelay: isPlaying ? `${i * 0.05}s` : undefined
                  }}
