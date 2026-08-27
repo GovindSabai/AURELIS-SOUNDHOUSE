@@ -16,6 +16,7 @@ interface AudioContextType {
   isPlaying: boolean;
   progress: number; // in seconds
   volume: number;
+  actualDuration: number; // in seconds, from the real file
   favorites: string[]; // array of track IDs
   playlist: Track[];
   recentlyPlayed: Track[];
@@ -35,6 +36,7 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [volume, setVolume] = useState(1);
+  const [actualDuration, setActualDuration] = useState<number>(0);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // LocalStorage state
@@ -73,12 +75,19 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       audioRef.current.volume = volume;
       audioRef.current.load();
       
+      const setAudioData = () => {
+        if (audioRef.current) {
+          setActualDuration(audioRef.current.duration);
+        }
+      };
+      
       const setAudioTime = () => setProgress(audioRef.current?.currentTime || 0);
       const onEnded = () => {
         setIsPlaying(false);
-        setProgress(currentTrack.durationSec);
+        setProgress(audioRef.current?.duration || currentTrack.durationSec);
       };
 
+      audioRef.current.addEventListener('loadedmetadata', setAudioData);
       audioRef.current.addEventListener('timeupdate', setAudioTime);
       audioRef.current.addEventListener('ended', onEnded);
 
@@ -88,6 +97,7 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
       return () => {
         if (audioRef.current) {
+          audioRef.current.removeEventListener('loadedmetadata', setAudioData);
           audioRef.current.removeEventListener('timeupdate', setAudioTime);
           audioRef.current.removeEventListener('ended', onEnded);
         }
@@ -95,6 +105,7 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     } else {
       // Fallback: Fake timer for tracks without an audioUrl
       let interval: NodeJS.Timeout;
+      setActualDuration(currentTrack?.durationSec || 0);
       if (isPlaying && currentTrack) {
         interval = setInterval(() => {
           setProgress((prev) => {
@@ -135,6 +146,7 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     }
     setCurrentTrack(track);
     setProgress(0);
+    setActualDuration(track.durationSec); // Temp until metadata loads
     setIsPlaying(true);
     
     setRecentlyPlayed((prev) => {
@@ -166,11 +178,12 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     setCurrentTrack(null);
     setIsPlaying(false);
     setProgress(0);
+    setActualDuration(0);
   };
 
   return (
     <AudioContext.Provider value={{
-      currentTrack, isPlaying, progress, volume, favorites, playlist, recentlyPlayed,
+      currentTrack, isPlaying, progress, volume, actualDuration, favorites, playlist, recentlyPlayed,
       playTrack, togglePlay, seek, setVolume, toggleFavorite, addToPlaylist, clearTrack
     }}>
       {children}

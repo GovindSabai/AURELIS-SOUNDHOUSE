@@ -1,9 +1,9 @@
 import React from 'react';
-import { Play, Pause, Volume2, Heart, ListMusic, Maximize2, X } from 'lucide-react';
+import { Play, Pause, Volume2, VolumeX, Heart, ListMusic, Maximize2, X } from 'lucide-react';
 import { useAudio } from '../context/AudioContext';
 
 export function GlobalPlayer() {
-  const { currentTrack, isPlaying, progress, togglePlay, seek, favorites, toggleFavorite, clearTrack } = useAudio();
+  const { currentTrack, isPlaying, progress, volume, actualDuration, togglePlay, seek, setVolume, favorites, toggleFavorite, clearTrack } = useAudio();
 
   if (!currentTrack) return null;
 
@@ -13,7 +13,12 @@ export function GlobalPlayer() {
     return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
   };
 
-  const progressPercent = (progress / currentTrack.durationSec) * 100;
+  const safeDuration = actualDuration > 0 ? actualDuration : currentTrack.durationSec;
+  const progressPercent = Math.min(100, (progress / safeDuration) * 100);
+
+  const toggleMute = () => {
+    setVolume(volume > 0 ? 0 : 1);
+  };
 
   return (
     <div className="fixed bottom-0 left-0 w-full bg-[#05060A]/95 backdrop-blur-xl border-t border-white/10 z-[100] px-6 py-4 flex items-center justify-between animate-fade-in-up">
@@ -40,25 +45,27 @@ export function GlobalPlayer() {
         <div className="w-full flex items-center gap-3 text-xs text-gray-400 font-mono">
           <span>{formatTime(progress)}</span>
           <div 
-            className="h-1.5 flex-1 bg-white/10 rounded-full cursor-pointer relative group"
+            className="h-1.5 flex-1 bg-white/10 rounded-full cursor-pointer relative group overflow-hidden"
             onClick={(e) => {
               const bounds = e.currentTarget.getBoundingClientRect();
               const percent = (e.clientX - bounds.left) / bounds.width;
-              seek(percent * currentTrack.durationSec);
+              seek(percent * safeDuration);
             }}
           >
             <div className="absolute top-0 left-0 h-full bg-gradient-to-r from-accent-violet to-accent-cyan rounded-full" style={{ width: `${progressPercent}%` }}></div>
             {/* Playhead dot */}
             <div className="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity" style={{ left: `calc(${progressPercent}% - 6px)` }}></div>
           </div>
-          <span>{currentTrack.durationStr}</span>
+          <span>{formatTime(safeDuration)}</span>
         </div>
       </div>
 
       {/* Utilities */}
       <div className="flex items-center justify-end gap-4 w-1/4 text-gray-400">
         <button className="hover:text-white"><ListMusic size={18} /></button>
-        <button className="hover:text-white"><Volume2 size={18} /></button>
+        <button onClick={toggleMute} className="hover:text-white">
+          {volume === 0 ? <VolumeX size={18} /> : <Volume2 size={18} />}
+        </button>
         <button className="hover:text-white"><Maximize2 size={18} /></button>
         <button onClick={clearTrack} className="hover:text-white ml-2"><X size={18} /></button>
       </div>

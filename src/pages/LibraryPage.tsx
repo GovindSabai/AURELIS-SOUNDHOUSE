@@ -431,7 +431,15 @@ function SoundCard({ pack, isPlaying, isFavorite, onPlay, onFavorite, onClick }:
          {/* Fake Waveform */}
          <div className="w-full h-6 flex items-center gap-[2px] opacity-40 group-hover:opacity-100 transition-opacity">
             {Array.from({length: 30}).map((_, i) => (
-               <div key={i} className="flex-1 bg-white rounded-full" style={{ height: `${20 + Math.random() * 80}%` }}></div>
+               <div 
+                 key={i} 
+                 className={`flex-1 bg-white rounded-full ${isPlaying ? 'animate-pulse' : ''}`} 
+                 style={{ 
+                   height: `${20 + Math.random() * 80}%`,
+                   animationDuration: isPlaying ? `${0.5 + (i % 3) * 0.2}s` : undefined,
+                   animationDelay: isPlaying ? `${i * 0.05}s` : undefined
+                 }}
+               ></div>
             ))}
          </div>
        </div>
