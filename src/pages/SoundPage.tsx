@@ -31,7 +31,7 @@ export function SoundPage({ setCurrentPage }: { setCurrentPage: (page: string) =
             <button onClick={() => setCurrentPage('sounds')} className="px-8 py-4 rounded-full bg-white text-black font-bold flex items-center justify-center gap-2 hover:bg-gray-200 transition-colors">
               EXPLORE SOUNDS <ArrowRight size={20} className="rotate-90" />
             </button>
-            <button className="px-8 py-4 rounded-full border border-white/20 text-white font-bold flex items-center justify-center gap-2 hover:bg-white/5 transition-colors">
+            <button onClick={() => navigate('/book')} className="px-8 py-4 rounded-full border border-white/20 text-white font-bold flex items-center justify-center gap-2 hover:bg-white/5 transition-colors">
               BOOK A SESSION <ArrowRight size={20} />
             </button>
           </div>
@@ -199,7 +199,7 @@ export function SoundPage({ setCurrentPage }: { setCurrentPage: (page: string) =
         <h2 className="text-5xl md:text-7xl font-extrabold mb-8 text-white">HEAR WHAT'S <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-violet to-accent-cyan">POSSIBLE.</span></h2>
         <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">Your sound deserves more than a recording. It deserves a place to become something unforgettable.</p>
         <div className="flex flex-col sm:flex-row gap-6 justify-center">
-          <button className="px-10 py-5 rounded-full bg-white text-black font-bold text-lg hover:bg-gray-200 transition-colors flex items-center justify-center gap-2">
+          <button onClick={() => navigate('/book')} className="px-10 py-5 rounded-full bg-white text-black font-bold text-lg hover:bg-gray-200 transition-colors flex items-center justify-center gap-2">
             BOOK A SESSION <ArrowRight size={20} />
           </button>
           <button className="px-10 py-5 rounded-full border border-white/20 text-white font-bold text-lg hover:bg-white/5 transition-colors">
