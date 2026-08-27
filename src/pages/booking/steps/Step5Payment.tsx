@@ -15,7 +15,6 @@ const PAYMENT_METHODS = [
 ];
 
 export function Step5Payment({ state, onNext, onBack }: Props) {
-  const [selectedMethod, setSelectedMethod] = useState('card');
   const [isProcessing, setIsProcessing] = useState(false);
 
   const session = SESSION_TYPES.find(s => s.id === state.sessionType);
@@ -30,73 +29,63 @@ export function Step5Payment({ state, onNext, onBack }: Props) {
   const handlePay = () => {
     setIsProcessing(true);
 
-    // Generate a booking ID and save it before redirecting
-    const bookingId = `STU-${new Date().toISOString().slice(2, 10).replace(/-/g, '')}-${Math.floor(Math.random() * 1000).toString().padStart(3, '0')}`;
-    const savedBooking = { ...state, bookingId, paymentMethod: selectedMethod, totalPaid: total } as any;
-    localStorage.setItem('aurelis_booking', JSON.stringify(savedBooking));
-
+    // Simulate payment processing time (demo only)
     setTimeout(() => {
-      // Redirect to mock official payment pages
-      if (selectedMethod === 'card') {
-        // NOTE: Replace this with your actual Stripe Payment Link (https://buy.stripe.com/...)
-        window.location.href = 'https://buy.stripe.com/test_aFacMXbozfmwdAOeoOdMI00';
-      } else if (selectedMethod === 'crypto') {
-        // NOTE: Replace this with your actual Coinbase Commerce Link
-        window.location.href = 'https://commerce.coinbase.com/checkout/placeholder';
-      }
-    }, 1000);
+      setIsProcessing(false);
+      
+      // Generate a booking ID and save it
+      const bookingId = `STU-${new Date().toISOString().slice(2, 10).replace(/-/g, '')}-${Math.floor(Math.random() * 1000).toString().padStart(3, '0')}`;
+      const savedBooking = { ...state, bookingId, paymentMethod: 'card', totalPaid: total } as any;
+      localStorage.setItem('aurelis_booking', JSON.stringify(savedBooking));
+      
+      // Complete booking
+      onNext();
+    }, 2000);
   };
 
   return (
     <div className="animate-fade-in-up">
       <div className="text-center mb-10">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Payment Gateway</h2>
-        <p className="text-muted-text">Securely pay for your session.</p>
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Secure Checkout</h2>
+        <p className="text-muted-text">Complete your booking using a credit or debit card.</p>
       </div>
 
       <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-8">
+        
+        {/* Payment Form */}
+        <div className="flex-1">
+          <div className="p-6 rounded-2xl bg-black/30 border border-white/10 space-y-6">
+            <div className="flex items-center gap-3 border-b border-white/10 pb-4">
+              <CreditCard size={24} className="text-champagne-gold" />
+              <h3 className="text-xl font-bold text-white">Payment Details</h3>
+            </div>
 
-        {/* Payment Methods */}
-        <div className="flex-1 space-y-6">
-          <h3 className="text-xl font-bold text-white mb-4">Select Payment Method</h3>
-          <div className="grid gap-4">
-            {PAYMENT_METHODS.map(method => (
-              <button
-                key={method.id}
-                onClick={() => setSelectedMethod(method.id)}
-                className={`flex items-center gap-4 p-5 rounded-2xl border transition-all ${selectedMethod === method.id
-                    ? 'bg-champagne-gold/10 border-champagne-gold text-white'
-                    : 'bg-white/5 border-white/10 text-muted-text hover:border-white/30 hover:bg-white/10'
-                  }`}
-              >
-                <div className={selectedMethod === method.id ? 'text-champagne-gold' : ''}>
-                  {method.icon}
+            <div className="space-y-4">
+              <div>
+                <label className="block text-xs font-bold text-muted-text uppercase tracking-widest mb-2">Card Number</label>
+                <div className="relative">
+                  <input type="text" placeholder="0000 0000 0000 0000" className="w-full bg-white/5 border border-white/10 rounded-lg p-4 pl-12 text-white font-mono placeholder:text-white/20 focus:outline-none focus:border-champagne-gold" />
+                  <CreditCard size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40" />
                 </div>
-                <span className="font-bold">{method.name}</span>
-                {selectedMethod === method.id && (
-                  <CheckCircle2 size={20} className="ml-auto text-champagne-gold" />
-                )}
-              </button>
-            ))}
+              </div>
+              
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-bold text-muted-text uppercase tracking-widest mb-2">Expiry Date</label>
+                  <input type="text" placeholder="MM/YY" className="w-full bg-white/5 border border-white/10 rounded-lg p-4 text-white font-mono placeholder:text-white/20 focus:outline-none focus:border-champagne-gold" />
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-muted-text uppercase tracking-widest mb-2">Security Code</label>
+                  <input type="text" placeholder="CVC" className="w-full bg-white/5 border border-white/10 rounded-lg p-4 text-white font-mono placeholder:text-white/20 focus:outline-none focus:border-champagne-gold" />
+                </div>
+              </div>
+              
+              <div>
+                <label className="block text-xs font-bold text-muted-text uppercase tracking-widest mb-2">Cardholder Name</label>
+                <input type="text" placeholder="Name on card" className="w-full bg-white/5 border border-white/10 rounded-lg p-4 text-white placeholder:text-white/20 focus:outline-none focus:border-champagne-gold" />
+              </div>
+            </div>
           </div>
-
-          {selectedMethod === 'card' && (
-            <div className="mt-6 p-6 rounded-2xl bg-[#635BFF]/10 border border-[#635BFF]/30 text-center">
-              <p className="text-white mb-4">You will be redirected securely to <strong>Stripe Checkout</strong> to complete your payment.</p>
-              <div className="flex justify-center text-[#635BFF]">
-                <CreditCard size={48} />
-              </div>
-            </div>
-          )}
-
-          {selectedMethod === 'crypto' && (
-            <div className="mt-6 p-6 rounded-2xl bg-[#0052FF]/10 border border-[#0052FF]/30 text-center">
-              <p className="text-white mb-4">You will be redirected securely to <strong>Coinbase Commerce</strong> to pay with Crypto.</p>
-              <div className="flex justify-center text-[#0052FF]">
-                <Bitcoin size={48} />
-              </div>
-            </div>
-          )}
         </div>
 
         {/* Order Summary */}
@@ -119,7 +108,7 @@ export function Step5Payment({ state, onNext, onBack }: Props) {
                 </div>
               )}
             </div>
-
+            
             <div className="pt-4 border-t border-white/10 mb-8">
               <div className="flex justify-between items-center">
                 <span className="text-white font-bold">Total to Pay</span>
@@ -138,11 +127,12 @@ export function Step5Payment({ state, onNext, onBack }: Props) {
                   Processing...
                 </div>
               ) : (
-                `Pay €${total} Now`
+                `Pay €${total} Securely`
               )}
             </button>
             <div className="text-center mt-4 text-xs text-muted-text flex items-center justify-center gap-1">
-              <CreditCard size={12} /> Secure Encrypted Payment
+              <CheckCircle2 size={12} className="text-green-500" />
+              Payment is secured and encrypted
             </div>
           </div>
         </div>
