@@ -35,6 +35,11 @@ export function LibraryPage({ setCurrentPage }: { setCurrentPage: (page: string)
   const [showTerms, setShowTerms] = useState(false);
   const [activePad, setActivePad] = useState<number | null>(null);
 
+  // Scroll to top when page-level state changes
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [selectedPack, showAllTrending, showTerms]);
+
   // Pad Interaction
   const handlePadClick = (index: number) => {
     setActivePad(index);
