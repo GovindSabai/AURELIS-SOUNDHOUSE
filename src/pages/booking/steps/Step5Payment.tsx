@@ -38,9 +38,11 @@ export function Step5Payment({ state, onNext, onBack }: Props) {
     setTimeout(() => {
       // Redirect to mock official payment pages
       if (selectedMethod === 'card') {
-        window.location.href = 'https://checkout.stripe.com/pay/cs_test_placeholder_link';
+        // NOTE: Replace this with your actual Stripe Payment Link (https://buy.stripe.com/...)
+        window.location.href = 'https://buy.stripe.com/test_placeholder';
       } else if (selectedMethod === 'crypto') {
-        window.location.href = 'https://commerce.coinbase.com/checkout/placeholder_link';
+        // NOTE: Replace this with your actual Coinbase Commerce Link
+        window.location.href = 'https://commerce.coinbase.com/checkout/placeholder';
       }
     }, 1000);
   };
