@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useRef } from 'react';
 
 export type Track = {
   id: string;
@@ -8,6 +8,7 @@ export type Track = {
   image: string;
   durationStr: string;
   durationSec: number;
+  audioUrl?: string;
 };
 
 interface AudioContextType {
@@ -34,6 +35,7 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [volume, setVolume] = useState(1);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // LocalStorage state
   const [favorites, setFavorites] = useState<string[]>([]);
@@ -59,22 +61,72 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     localStorage.setItem('aurelis_recent', JSON.stringify(recentlyPlayed));
   }, [recentlyPlayed]);
 
-  // Mock audio playback timer
+  // Audio Playback Engine
   useEffect(() => {
-    let interval: NodeJS.Timeout;
-    if (isPlaying && currentTrack) {
-      interval = setInterval(() => {
-        setProgress((prev) => {
-          if (prev >= currentTrack.durationSec) {
-            setIsPlaying(false);
-            return currentTrack.durationSec;
-          }
-          return prev + 1;
-        });
-      }, 1000);
+    if (currentTrack && currentTrack.audioUrl) {
+      // Create or update audio element
+      if (!audioRef.current) {
+        audioRef.current = new Audio(currentTrack.audioUrl);
+      } else {
+        audioRef.current.src = currentTrack.audioUrl;
+      }
+      audioRef.current.volume = volume;
+      audioRef.current.load();
+      
+      const setAudioTime = () => setProgress(audioRef.current?.currentTime || 0);
+      const onEnded = () => {
+        setIsPlaying(false);
+        setProgress(currentTrack.durationSec);
+      };
+
+      audioRef.current.addEventListener('timeupdate', setAudioTime);
+      audioRef.current.addEventListener('ended', onEnded);
+
+      if (isPlaying) {
+        audioRef.current.play().catch(e => console.log('Audio play failed (maybe autoplay blocked):', e));
+      }
+
+      return () => {
+        if (audioRef.current) {
+          audioRef.current.removeEventListener('timeupdate', setAudioTime);
+          audioRef.current.removeEventListener('ended', onEnded);
+        }
+      };
+    } else {
+      // Fallback: Fake timer for tracks without an audioUrl
+      let interval: NodeJS.Timeout;
+      if (isPlaying && currentTrack) {
+        interval = setInterval(() => {
+          setProgress((prev) => {
+            if (prev >= currentTrack.durationSec) {
+              setIsPlaying(false);
+              return currentTrack.durationSec;
+            }
+            return prev + 1;
+          });
+        }, 1000);
+      }
+      return () => clearInterval(interval);
     }
-    return () => clearInterval(interval);
-  }, [isPlaying, currentTrack]);
+  }, [currentTrack]); // We only re-run source binding when track changes
+
+  // Handle Play/Pause
+  useEffect(() => {
+    if (audioRef.current && currentTrack?.audioUrl) {
+      if (isPlaying) {
+        audioRef.current.play().catch(e => console.log('Play failed:', e));
+      } else {
+        audioRef.current.pause();
+      }
+    }
+  }, [isPlaying]);
+
+  // Handle Volume Changes
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = volume;
+    }
+  }, [volume]);
 
   const playTrack = (track: Track) => {
     if (currentTrack?.id === track.id) {
@@ -93,7 +145,12 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   const togglePlay = () => setIsPlaying(!isPlaying);
   
-  const seek = (time: number) => setProgress(time);
+  const seek = (time: number) => {
+    setProgress(time);
+    if (audioRef.current && currentTrack?.audioUrl) {
+      audioRef.current.currentTime = time;
+    }
+  };
 
   const toggleFavorite = (trackId: string) => {
     setFavorites(prev => 
