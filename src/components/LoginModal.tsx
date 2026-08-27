@@ -1,5 +1,6 @@
 import React from 'react';
 import { X } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 interface Props {
@@ -9,12 +10,14 @@ interface Props {
 
 export function LoginModal({ isOpen, onClose }: Props) {
   const { loginWithGoogle } = useAuth();
+  const navigate = useNavigate();
 
   if (!isOpen) return null;
 
   const handleGoogleLogin = async () => {
     await loginWithGoogle();
     onClose();
+    navigate('/');
   };
 
   return (
